@@ -34,6 +34,19 @@ class DatabaseManager:
                 conn.executescript(schema_sql)
                 conn.commit()
             logger.info("Database initialized successfully.")
+        
+        try:
+            from database.state_sync import restore_state
+            restore_state(self.db_path)
+        except Exception as e:
+            logger.debug(f"Restore state check: {e}")
+
+    def _sync_state(self):
+        try:
+            from database.state_sync import export_state
+            export_state(self.db_path)
+        except Exception as e:
+            logger.debug(f"State sync warning: {e}")
 
     def is_topic_duplicate(self, title: str) -> bool:
         """Checks if a topic title or close variant already exists in DB."""
@@ -69,6 +82,7 @@ class DatabaseManager:
                 topic_data.get("status", "discovered")
             ))
             conn.commit()
+        self._sync_state()
         return topic_id
 
     def update_topic_status(self, topic_id: str, status: Optional[str] = None, **kwargs):
@@ -88,6 +102,7 @@ class DatabaseManager:
             cursor = conn.cursor()
             cursor.execute(f"UPDATE topics SET {', '.join(fields)} WHERE topic_id = ?", values)
             conn.commit()
+        self._sync_state()
 
     def save_sentence_scenes(self, topic_id: str, scenes: List[Dict[str, Any]]):
         """Saves visual specification for each sentence in the timeline."""
@@ -200,8 +215,9 @@ class DatabaseManager:
                 video_data.get("publishing_status", "draft")
             ))
             conn.commit()
-            logger.info(f"Recorded video history for {video_id} (Fingerprint: {video_data.get('video_fingerprint', '')[:12]}...)")
-            return video_id
+        self._sync_state()
+        logger.info(f"Recorded video history for {video_id} (Fingerprint: {video_data.get('video_fingerprint', '')[:12]}...)")
+        return video_id
 
     def get_all_past_topics(self) -> List[Dict[str, Any]]:
         with self.get_connection() as conn:
@@ -305,7 +321,8 @@ class DatabaseManager:
                 entry.get("video_path", "")
             ))
             conn.commit()
-            return topic_id
+        self._sync_state()
+        return topic_id
 
     def get_calendar_entry(self, topic_id: str) -> Optional[Dict[str, Any]]:
         with self.get_connection() as conn:
@@ -334,6 +351,7 @@ class DatabaseManager:
             cursor = conn.cursor()
             cursor.execute(f"UPDATE content_calendar SET {', '.join(fields)} WHERE topic_id = ?", values)
             conn.commit()
+        self._sync_state()
 
     def get_all_calendar_entries(self) -> List[Dict[str, Any]]:
         with self.get_connection() as conn:

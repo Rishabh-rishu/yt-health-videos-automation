@@ -33,6 +33,25 @@ class YouTubePublisher:
         self.secrets_file = ROOT_DIR / "client_secrets.json"
 
     def get_service(self):
+        # Restore credentials from base64 env if running on GitHub Actions
+        token_b64 = os.getenv("YOUTUBE_TOKEN_PICKLE_BASE64")
+        if token_b64 and not self.token_file.exists():
+            import base64
+            try:
+                self.token_file.write_bytes(base64.b64decode(token_b64))
+                logger.info("Restored token.pickle from YOUTUBE_TOKEN_PICKLE_BASE64.")
+            except Exception as e:
+                logger.warning(f"Could not restore token.pickle from environment: {e}")
+
+        secrets_b64 = os.getenv("YOUTUBE_CLIENT_SECRETS_BASE64")
+        if secrets_b64 and not self.secrets_file.exists():
+            import base64
+            try:
+                self.secrets_file.write_bytes(base64.b64decode(secrets_b64))
+                logger.info("Restored client_secrets.json from YOUTUBE_CLIENT_SECRETS_BASE64.")
+            except Exception as e:
+                logger.warning(f"Could not restore client_secrets.json from environment: {e}")
+
         if not self.token_file.exists():
             logger.warning("YouTube token.pickle not found. Publishing unavailable.")
             return None

@@ -1,0 +1,175 @@
+name: Swasth Snap Daily Shorts Production & Publishing
+
+on:
+  schedule:
+    # Morning Slot: 04:00 UTC = 09:30 AM IST (UTC + 5:30)
+    - cron: '0 4 * * *'
+    # Evening Slot: 12:30 UTC = 06:00 PM (18:00) IST (UTC + 5:30)
+    - cron: '30 12 * * *'
+  workflow_dispatch:
+    inputs:
+      slot:
+        description: 'Production Slot to execute'
+        required: true
+        default: 'morning'
+        type: choice
+        options:
+          - morning
+          - evening
+          - dry-run
+      auto_upload:
+        description: 'Publish private short to YouTube (true) or Dry-Run/Stage Only (false)'
+        required: true
+        default: 'true'
+        type: choice
+        options:
+          - 'true'
+          - 'false'
+      topic_id:
+        description: 'Target specific topic ID (optional, e.g. day01_video02)'
+        required: false
+        default: ''
+        type: string
+
+concurrency:
+  group: swasthsnap-production
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  produce_and_publish_short:
+    name: Generate & Publish Health Short
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 10
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: Install System Dependencies (FFmpeg & Devanagari Fonts)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg fonts-noto-core fonts-dejavu-core fonts-noto-color-emoji
+
+      - name: Install Python Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Configure Credentials & Environment
+        env:
+          CLIENT_SECRETS_BASE64: ${{ secrets.YOUTUBE_CLIENT_SECRETS_BASE64 }}
+          TOKEN_PICKLE_BASE64: ${{ secrets.YOUTUBE_TOKEN_PICKLE_BASE64 }}
+        run: |
+          if [ -n "$TOKEN_PICKLE_BASE64" ]; then
+            echo "$TOKEN_PICKLE_BASE64" | base64 -d > token.pickle
+            chmod 600 token.pickle
+            echo "Restored YouTube token.pickle from secrets."
+          fi
+          if [ -n "$CLIENT_SECRETS_BASE64" ]; then
+            echo "$CLIENT_SECRETS_BASE64" | base64 -d > client_secrets.json
+            chmod 600 client_secrets.json
+            echo "Restored YouTube client_secrets.json from secrets."
+          fi
+
+      - name: Restore Durable Database State
+        run: |
+          python database/state_sync.py --force-restore
+          python database/state_sync.py --status
+
+      - name: Determine Production Execution Flags
+        id: exec_flags
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            SELECTED_SLOT="${{ github.event.inputs.slot }}"
+            AUTO_UPLOAD="${{ github.event.inputs.auto_upload }}"
+            TOPIC_ID="${{ github.event.inputs.topic_id }}"
+            if [ "$SELECTED_SLOT" = "dry-run" ]; then
+              echo "slot=dry-run" >> $GITHUB_OUTPUT
+              echo "dry_run=true" >> $GITHUB_OUTPUT
+              echo "auto_upload=false" >> $GITHUB_OUTPUT
+            else
+              echo "slot=$SELECTED_SLOT" >> $GITHUB_OUTPUT
+              echo "dry_run=false" >> $GITHUB_OUTPUT
+              echo "auto_upload=$AUTO_UPLOAD" >> $GITHUB_OUTPUT
+            fi
+            echo "topic_id=$TOPIC_ID" >> $GITHUB_OUTPUT
+          elif [ "${{ github.event.schedule }}" = "0 4 * * *" ]; then
+            echo "slot=morning" >> $GITHUB_OUTPUT
+            echo "dry_run=false" >> $GITHUB_OUTPUT
+            echo "auto_upload=true" >> $GITHUB_OUTPUT
+            echo "topic_id=" >> $GITHUB_OUTPUT
+          elif [ "${{ github.event.schedule }}" = "30 12 * * *" ]; then
+            echo "slot=evening" >> $GITHUB_OUTPUT
+            echo "dry_run=false" >> $GITHUB_OUTPUT
+            echo "auto_upload=true" >> $GITHUB_OUTPUT
+            echo "topic_id=" >> $GITHUB_OUTPUT
+          else
+            echo "slot=manual" >> $GITHUB_OUTPUT
+            echo "dry_run=false" >> $GITHUB_OUTPUT
+            echo "auto_upload=true" >> $GITHUB_OUTPUT
+            echo "topic_id=" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Pre-Flight Environment & Credentials Check
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+        run: |
+          python scheduler/cron_job_runner.py --setup-check
+
+      - name: Execute Health Video Production & Publishing
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+          AUTO_UPLOAD: ${{ steps.exec_flags.outputs.auto_upload }}
+          VIDEO_VISIBILITY: private
+        run: |
+          SLOT="${{ steps.exec_flags.outputs.slot }}"
+          IS_DRY_RUN="${{ steps.exec_flags.outputs.dry_run }}"
+          TOPIC_ID="${{ steps.exec_flags.outputs.topic_id }}"
+
+          ARGS="--slot $SLOT"
+          if [ "$IS_DRY_RUN" = "true" ]; then
+            ARGS="$ARGS --dry-run"
+          fi
+          if [ -n "$TOPIC_ID" ]; then
+            ARGS="$ARGS --topic-id $TOPIC_ID"
+          fi
+
+          echo "Running cron_job_runner with flags: $ARGS"
+          python scheduler/cron_job_runner.py $ARGS
+
+      - name: Archive Production Artifacts & Audit Logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: swasthsnap-${{ steps.exec_flags.outputs.slot }}-${{ github.run_id }}
+          path: |
+            output/videos/*.mp4
+            output/thumbnails/*.jpg
+            output/reports/*.md
+            output/shorts_audio_ready/*
+            logs/*.log
+          retention-days: 14
+
+      - name: Commit & Push Updated Database State
+        if: steps.exec_flags.outputs.dry_run == 'false'
+        run: |
+          git config --local user.name "SwasthSnapBot"
+          git config --local user.email "bot@swasthsnap.internal"
+          python database/state_sync.py --export
+          git add data/production_state.json database/state_dump.sql
+          git diff --staged --quiet || (git commit -m "Auto: Update Swasth Snap production state [skip ci]" && git push origin HEAD)

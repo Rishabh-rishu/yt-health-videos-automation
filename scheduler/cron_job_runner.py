@@ -151,11 +151,72 @@ def run_scheduled_job(dry_run: bool = False, force_topic: str = None):
         release_lock()
         logger.info(f"Cron execution finished at: {datetime.now(tz).strftime('%Y-%m-%d %H:%M:%S %Z')}")
 
+def run_setup_check() -> bool:
+    """Pre-flight check for GitHub Actions runner and local environment."""
+    print("\n" + "=" * 65)
+    print("  SWASTH SNAP — CI/CD RUNNER PRE-FLIGHT SETUP CHECK")
+    print("=" * 65)
+
+    from config.settings import GEMINI_API_KEY, PEXELS_API_KEY
+    from youtube.publisher import YouTubePublisher
+
+    checks = []
+
+    # 1. Gemini API
+    if GEMINI_API_KEY:
+        checks.append(("Gemini API Key", "PASS", "Configured"))
+    else:
+        checks.append(("Gemini API Key", "FAIL", "Missing GEMINI_API_KEY"))
+
+    # 2. Pexels API
+    if PEXELS_API_KEY:
+        checks.append(("Pexels API Key", "PASS", "Configured"))
+    else:
+        checks.append(("Pexels API Key", "FAIL", "Missing PEXELS_API_KEY"))
+
+    # 3. Database
+    try:
+        db = DatabaseManager()
+        next_entry = db.get_next_pending_calendar_entry()
+        next_str = f"Day {next_entry['day_number']} Video #{next_entry['video_number']} ({next_entry['topic_id']})" if next_entry else "All 30 topics completed"
+        checks.append(("Database & Calendar", "PASS", f"Active -> Next: {next_str}"))
+    except Exception as e:
+        checks.append(("Database & Calendar", "FAIL", str(e)))
+
+    # 4. YouTube OAuth Credentials
+    pub = YouTubePublisher()
+    svc = pub.get_service()
+    if svc:
+        checks.append(("YouTube OAuth Auth", "PASS", "Verified Channel Access"))
+    else:
+        checks.append(("YouTube OAuth Auth", "WARN", "token.pickle not found (Dry-run only)"))
+
+    all_passed = True
+    for name, status, detail in checks:
+        icon = "✅" if status == "PASS" else ("⚠️" if status == "WARN" else "❌")
+        print(f"  {icon} {name:<22}: [{status}] {detail}")
+        if status == "FAIL":
+            all_passed = False
+
+    print("=" * 65 + "\n")
+    return all_passed
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Health Videos Cron Job Runner")
     parser.add_argument("--dry-run", action="store_true", help="Simulate execution without modifying or uploading")
+    parser.add_argument("--setup-check", action="store_true", help="Run pre-flight environment and credentials check")
+    parser.add_argument("--slot", type=str, default="manual", help="Execution slot (morning, evening, manual)")
     parser.add_argument("--topic-id", type=str, default=None, help="Force execution of a specific topic ID")
+    parser.add_argument("--auto-upload", type=str, default=None, help="Override upload gate ('true' or 'false')")
     args = parser.parse_args()
+
+    if args.setup_check:
+        ok = run_setup_check()
+        sys.exit(0 if ok else 1)
+
+    # Check upload override
+    if args.auto_upload is not None:
+        os.environ["AUTO_UPLOAD"] = args.auto_upload.lower()
 
     success = run_scheduled_job(dry_run=args.dry_run, force_topic=args.topic_id)
     sys.exit(0 if success else 1)
