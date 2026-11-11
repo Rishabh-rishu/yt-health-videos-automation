@@ -45,31 +45,64 @@ class AudioMixer:
 
         # Select track via BGMSelector
         bgm_path, bgm_genre = self.bgm_selector.select_track(category=category, script_text=script_text)
+        opening_sfx = self.sfx_dir / "dramatic_boom.aac"
+        has_sfx = opening_sfx.exists()
 
-        # Sidechain compression / ducking filter:
-        # 1. Loop BGM & set base volume to 0.16 (leaves ample headroom for voice)
+        # Audio Filtergraph (V3 Mastering):
+        # 1. Master vocal: 80Hz rumble cut, presence EQ (3.2kHz), warmth (250Hz), soft-knee compand, -14 LUFS loudnorm
         # 2. Sidechaincompress BGM whenever voiceover is active (attack=50ms, release=400ms, threshold=0.08)
-        # 3. Mix both streams cleanly
-        filter_complex = (
-            f"[1:a]aloop=loop=-1:size=2e+09,volume=0.16[bgm];"
-            f"[0:a]asplit=2[voice_main][voice_trigger];"
-            f"[bgm][voice_trigger]sidechaincompress="
-            f"threshold=0.08:ratio=6:attack=50:release=400[ducked_bgm];"
-            f"[voice_main][ducked_bgm]amix=inputs=2:duration=first:dropout_transition=2[outa]"
+        # 3. Layer subtle opening cinematic impact at -14dB (no harshness)
+        vocal_dsp = (
+            "highpass=f=80,"
+            "equalizer=f=250:t=q:w=1.0:g=1.5,"
+            "equalizer=f=3200:t=q:w=1.2:g=2.5,"
+            "compand=attacks=0.02:decays=0.2:points=-80/-80|-40/-30|-20/-14|0/-2:gain=1.0,"
+            "loudnorm=I=-14:TP=-1.0:LRA=7"
         )
 
-        cmd = [
-            "ffmpeg", "-y",
-            "-i", str(voiceover_path),
-            "-i", str(bgm_path),
-            "-filter_complex", filter_complex,
-            "-map", "[outa]",
-            "-c:a", codec,
-            "-b:a", "192k",
-            str(output_path)
-        ]
+        if has_sfx:
+            filter_complex = (
+                f"[0:a]{vocal_dsp}[voice_mastered];"
+                f"[1:a]aloop=loop=-1:size=2e+09,volume=0.15[bgm];"
+                f"[2:a]volume=0.25[sfx_intro];"
+                f"[voice_mastered]asplit=2[voice_main][voice_trigger];"
+                f"[bgm][voice_trigger]sidechaincompress="
+                f"threshold=0.08:ratio=6:attack=50:release=400[ducked_bgm];"
+                f"[ducked_bgm][sfx_intro]amix=inputs=2:duration=first:dropout_transition=2[music_bed];"
+                f"[voice_main][music_bed]amix=inputs=2:duration=first:dropout_transition=2[outa]"
+            )
+            cmd = [
+                "ffmpeg", "-y",
+                "-i", str(voiceover_path),
+                "-i", str(bgm_path),
+                "-i", str(opening_sfx),
+                "-filter_complex", filter_complex,
+                "-map", "[outa]",
+                "-c:a", codec,
+                "-b:a", "192k",
+                str(output_path)
+            ]
+        else:
+            filter_complex = (
+                f"[0:a]{vocal_dsp}[voice_mastered];"
+                f"[1:a]aloop=loop=-1:size=2e+09,volume=0.15[bgm];"
+                f"[voice_mastered]asplit=2[voice_main][voice_trigger];"
+                f"[bgm][voice_trigger]sidechaincompress="
+                f"threshold=0.08:ratio=6:attack=50:release=400[ducked_bgm];"
+                f"[voice_main][ducked_bgm]amix=inputs=2:duration=first:dropout_transition=2[outa]"
+            )
+            cmd = [
+                "ffmpeg", "-y",
+                "-i", str(voiceover_path),
+                "-i", str(bgm_path),
+                "-filter_complex", filter_complex,
+                "-map", "[outa]",
+                "-c:a", codec,
+                "-b:a", "192k",
+                str(output_path)
+            ]
 
-        logger.info(f"Mixing narration with ducked [{bgm_genre}] BGM ({bgm_path.name}) -> {output_path}")
+        logger.info(f"Mixing narration with ducked [{bgm_genre}] BGM ({bgm_path.name}) & mastered vocals -> {output_path}")
         try:
             res = subprocess.run(cmd, capture_output=True, text=True, check=True)
             return True, bgm_genre

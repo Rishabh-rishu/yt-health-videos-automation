@@ -24,6 +24,7 @@ class SentenceVisualMapper:
         self.pexels = PexelsClient()
         self.hud_gen = MedicalHUDGenerator()
         self.ref_dir = ASSETS_DIR / "references"
+        self.cache_dir = ASSETS_DIR / "visual_cache"
 
     def map_scenes_to_visuals(
         self,
@@ -41,68 +42,127 @@ class SentenceVisualMapper:
         # Available reference images for anatomical fallbacks
         ref_images = sorted(list(self.ref_dir.glob("media_*.png")))
 
+        used_assets = set()
+
         for idx, scene in enumerate(scenes):
             sc = dict(scene)
             v_type = sc.get("visual_type", "3d_anatomy")
             desc = sc.get("visual_description", "").lower()
+            is_hook = (idx == 0) or sc.get("is_hook_scene", False)
             
-            # Extract structured title hierarchy (Issue A fix)
+            # Extract structured title hierarchy (Issue A & V3 fix)
             main_title = sc.get("main_title") or sc.get("text_overlay") or "MEDICAL SCAN"
             concept_badge = sc.get("concept_badge")
             statistic = sc.get("statistic")
+            hook_text = sc.get("sentence") if is_hook else None
+            hook_keywords = ["brain", "dimaag", "toxic", "waste", "flush", "wash", "raat", "sleep", "rest", "danger", "secret", "truth"]
+            highlight_words = sc.get("highlight_words") or []
+            if is_hook:
+                highlight_words = list(set(highlight_words + hook_keywords))
+            elif not highlight_words:
+                highlight_words = ["brain", "heart", "cells", "fluid", "body", "sleep"]
 
-            # 1. Generate HUD overlay image
+            # 1. Generate clean overlay image (Netflix style)
             hud_path = visuals_dir / f"hud_scene_{idx:02d}.png"
             self.hud_gen.generate_hud_overlay(
                 main_title=main_title,
                 category=category,
                 output_path=hud_path,
                 concept_badge=concept_badge,
-                statistic=statistic
+                statistic=statistic,
+                is_hook_scene=is_hook,
+                hook_text=hook_text,
+                highlight_words=highlight_words
             )
             sc["hud_overlay_path"] = str(hud_path)
 
-            # 2. Determine best video/visual asset (Issue C fix: relevant 3D anatomy & biology)
+            # 2. Determine best video/visual asset (Ensure ZERO repeated visuals across scenes)
             asset_path = None
-            if v_type == "3d_anatomy":
+            if idx == 0:
+                # Scene 0 (Hook): High-impact 3D realistic brain close-up
+                ref_brain = self.ref_dir / "media_1794379567781.png"
+                if ref_brain.exists():
+                    asset_path = str(ref_brain)
+            elif idx == 1:
+                # Scene 1 (Sleep Transition): Real person sleeping peacefully in bed
+                sleep_clip = self.cache_dir / "person_sleeping_in_bed.mp4" if hasattr(self, 'cache_dir') else None
+                if sleep_clip and sleep_clip.exists():
+                    asset_path = str(sleep_clip)
+                else:
+                    clip_path = self.pexels.search_video(query="person sleeping in bed")
+                    if clip_path and Path(clip_path).exists():
+                        asset_path = clip_path
+
+            if not asset_path or asset_path in used_assets:
+                # Direct scientific concept matching against local verified 3D assets
+                cache_candidates = []
+                if any(k in desc for k in ["fluid", "flush", "cerebrospinal", "csf", "interstitial", "wash"]):
+                    cache_candidates.append("liquid_fluid_flow_microscopic.mp4")
+                if any(k in desc for k in ["cell", "glial", "cellular", "pathway", "shrink", "neuron", "synapse", "protein", "plaque"]):
+                    cache_candidates.extend(["cells_microscopic_laboratory.mp4", "cellular_biology_microscopic_laboratory.mp4"])
                 if any(k in desc for k in ["brain", "neural", "glymphatic", "head", "mind"]):
-                    query = "human brain medical animation 3d"
-                elif any(k in desc for k in ["heart", "cardio", "pulse", "blood pressure"]):
-                    query = "human heart 3d medical animation"
-                elif any(k in desc for k in ["spine", "spinal", "nerve"]):
-                    query = "human spine medical animation"
-                else:
-                    query = "human anatomy 3d medical animation"
-            elif v_type == "microscopic":
-                if any(k in desc for k in ["blood", "vessel", "artery"]):
-                    query = "blood cells microscopic flow"
-                elif any(k in desc for k in ["fluid", "flush", "toxin", "water"]):
-                    query = "liquid fluid flow microscopic"
-                elif any(k in desc for k in ["neuron", "synapse"]):
-                    query = "neurons synaptic firing microscopic"
-                else:
-                    query = "cellular biology microscopic laboratory"
-            elif v_type == "relatable_footage":
+                    cache_candidates.extend(["human_brain_medical_animation_3d.mp4", "human_brain_medical_animation.mp4"])
                 if any(k in desc for k in ["sleep", "bed", "night", "rest"]):
-                    query = "person sleeping in bed"
-                elif any(k in desc for k in ["water", "drink", "hydrate"]):
-                    query = "person drinking clean water"
-                elif any(k in desc for k in ["stress", "tired", "headache"]):
-                    query = "person tired resting face"
+                    cache_candidates.append("person_sleeping_in_bed.mp4")
+                if any(k in desc for k in ["water", "drink", "hydrate", "health"]):
+                    cache_candidates.append("person_drinking_water_fitness.mp4")
+                if any(k in desc for k in ["heart", "cardio", "pulse", "blood pressure"]):
+                    cache_candidates.append("human_heart_3d_medical.mp4")
+
+                for cc in cache_candidates:
+                    cp = self.cache_dir / cc
+                    if cp.exists() and str(cp) not in used_assets:
+                        asset_path = str(cp)
+                        break
+
+            if not asset_path or asset_path in used_assets:
+                # Query Pexels based on narrative role
+                if v_type == "3d_anatomy":
+                    if any(k in desc for k in ["brain", "neural", "glymphatic", "head", "mind"]):
+                        query = "human brain medical animation 3d"
+                    elif any(k in desc for k in ["heart", "cardio", "pulse", "blood pressure"]):
+                        query = "human heart 3d medical animation"
+                    elif any(k in desc for k in ["spine", "spinal", "nerve"]):
+                        query = "human spine medical animation"
+                    else:
+                        query = "human anatomy 3d medical animation"
+                elif v_type == "microscopic":
+                    if any(k in desc for k in ["blood", "vessel", "artery"]):
+                        query = "blood cells microscopic flow"
+                    elif any(k in desc for k in ["fluid", "flush", "toxin", "water"]):
+                        query = "liquid fluid flow microscopic"
+                    elif any(k in desc for k in ["neuron", "synapse"]):
+                        query = "neurons synaptic firing microscopic"
+                    else:
+                        query = "cellular biology microscopic laboratory"
+                elif v_type == "relatable_footage":
+                    if any(k in desc for k in ["sleep", "bed", "night", "rest"]):
+                        query = "person sleeping in bed"
+                    elif any(k in desc for k in ["water", "drink", "hydrate"]):
+                        query = "person drinking clean water"
+                    elif any(k in desc for k in ["stress", "tired", "headache"]):
+                        query = "person tired resting face"
+                    else:
+                        query = "healthy person morning wellness"
                 else:
-                    query = "healthy person morning wellness"
-            else:
-                query = "medical technology laboratory"
+                    query = "medical technology laboratory"
 
-            clip_path = self.pexels.search_video(query=query)
-            if clip_path and Path(clip_path).exists():
-                asset_path = clip_path
-            else:
-                # Use curated 3D reference image as cinematic Ken Burns backdrop
-                ref_idx = idx % len(ref_images) if ref_images else 0
-                if ref_images:
-                    asset_path = str(ref_images[ref_idx])
+                clip_path = self.pexels.search_video(query=query)
+                if clip_path and Path(clip_path).exists() and clip_path not in used_assets:
+                    asset_path = clip_path
 
+            # If still None or duplicate, cycle through distinct 3D reference images
+            if not asset_path or asset_path in used_assets:
+                for cand in ref_images:
+                    if str(cand) not in used_assets:
+                        asset_path = str(cand)
+                        break
+
+            # Absolute fallback
+            if not asset_path:
+                asset_path = str(ref_images[idx % len(ref_images)]) if ref_images else None
+
+            used_assets.add(asset_path)
             sc["asset_path"] = asset_path
             mapped_scenes.append(sc)
 

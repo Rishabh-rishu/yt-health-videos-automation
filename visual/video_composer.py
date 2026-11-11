@@ -80,10 +80,11 @@ class VideoComposer:
 
                 input_args = [*seek_args, "-stream_loop", "-1", "-i", str(asset_path)]
             else:
-                zoom_expr = "zoom+0.0015" if idx % 2 == 0 else "if(eq(on,1),1.15,zoom-0.0015)"
+                zoom_expr = "zoom+0.0012" if idx % 2 == 0 else "if(eq(on,1),1.15,zoom-0.0012)"
                 vf = (
-                    f"scale=-2:1920,"
-                    f"zoompan=z='min(max({zoom_expr},1.0),1.25)':d={int(dur * VIDEO_FPS)}:s={VIDEO_WIDTH}x{VIDEO_HEIGHT}:fps={VIDEO_FPS},"
+                    f"scale={VIDEO_WIDTH}:{VIDEO_HEIGHT}:force_original_aspect_ratio=increase,"
+                    f"crop={VIDEO_WIDTH}:{VIDEO_HEIGHT},"
+                    f"zoompan=z='min(max({zoom_expr},1.0),1.25)':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d={int(dur * VIDEO_FPS)}:s={VIDEO_WIDTH}x{VIDEO_HEIGHT}:fps={VIDEO_FPS},"
                     f"format=yuv420p"
                 )
                 input_args = ["-loop", "1", "-i", str(asset_path) if asset_path else str(ASSETS_DIR / "references" / "media_1794379567781.png")]

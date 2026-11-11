@@ -18,7 +18,9 @@ NEGATIVE_KEYWORDS = [
     "hospital", "patient", "clinic", "mask", "surgery",
     "bedridden", "doctor mask", "chemotherapy", "beaker",
     "doctor", "nurse", "syringe", "needle", "ward",
-    "stretcher", "operating room", "wheelchair"
+    "stretcher", "operating room", "wheelchair",
+    "covid", "pill", "pills", "tablet", "capsule", "drug",
+    "medication", "prescription", "pharmacy", "vaccine", "blister"
 ]
 
 class PexelsClient:

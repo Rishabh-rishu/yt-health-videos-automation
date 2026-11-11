@@ -46,14 +46,15 @@ class EdgeTTSFemaleProvider:
     def optimize_prosody(self, text: str) -> str:
         """
         Injects natural breathing pauses and smooths Hinglish clause transitions.
-        Eliminates the ~20% robotic monotone delivery by guiding neural pitch inflection.
+        Eliminates the robotic monotone delivery by guiding neural pitch inflection.
         """
         t = text.strip()
-        # Add micro-pause after introductory hooks
+        # Add micro-pause after introductory hooks and questions
         t = re.sub(r'^(Jab aap|Sote waqt|Kya aap|Kabhi socha hai|Har roz)\b', r'\1...', t, flags=re.IGNORECASE)
+        t = re.sub(r'\?\s*', r'? ... ', t)
         # Ensure commas before coordinating conjunctions for natural breath
-        t = re.sub(r'\s+(aur|lekin|jisse|parantu|isliye)\b', r', \1', t, flags=re.IGNORECASE)
-        # Clean double punctuation
+        t = re.sub(r'\s+(aur|lekin|jisse|parantu|isliye|taaki)\b', r', \1', t, flags=re.IGNORECASE)
+        # Clean multiple punctuation
         t = re.sub(r'\.{4,}', '...', t)
         t = re.sub(r',\s*,', ',', t)
         return t
@@ -99,7 +100,7 @@ class EdgeTTSFemaleProvider:
         with open(output_audio_path, "wb") as f:
             f.write(audio_chunks)
 
-        # Word-level breakdown interpolated from sentence boundaries
+        # Word-level breakdown proportionally weighted by word character length
         word_boundaries = []
         for s_idx, s in enumerate(sentence_boundaries):
             words = [w for w in s["text"].strip().split() if w]
@@ -107,16 +108,18 @@ class EdgeTTSFemaleProvider:
                 continue
             s_start = s["start_sec"]
             s_dur = s["duration_sec"]
-            word_dur = s_dur / len(words)
-            for w_idx, word in enumerate(words):
-                w_start = s_start + (w_idx * word_dur)
-                w_end = w_start + word_dur
+            total_chars = sum(len(w) for w in words)
+            cur_w_start = s_start
+            for w in words:
+                w_dur = (len(w) / max(1, total_chars)) * s_dur
+                w_end = cur_w_start + w_dur
                 word_boundaries.append({
-                    "word": word,
-                    "start_sec": round(w_start, 3),
+                    "word": w,
+                    "start_sec": round(cur_w_start, 3),
                     "end_sec": round(w_end, 3),
                     "sentence_idx": s_idx
                 })
+                cur_w_start += w_dur
 
         logger.info(f"Generated prosody-enhanced female narration: {len(sentence_boundaries)} sentences, {len(word_boundaries)} words -> {output_audio_path}")
         return True, output_audio_path, sentence_boundaries, word_boundaries

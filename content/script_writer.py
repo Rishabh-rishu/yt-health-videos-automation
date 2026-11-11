@@ -111,62 +111,68 @@ class ScriptWriterEngine:
                 {
                     "sentence": hook_text,
                     "visual_type": "3d_anatomy",
-                    "visual_description": "3D holographic translucent human head with glowing golden brain activity in cinematic dark slate studio",
+                    "visual_description": "Dramatic cinematic close-up of realistic 3D brain with golden synaptic activity in dark slate studio",
                     "camera_movement": "slow_push_in",
+                    "is_hook_scene": True,
                     "main_title": "BRAIN DETOX",
-                    "concept_badge": "NEURAL CLEARANCE",
+                    "concept_badge": "NEURAL SCIENCE",
                     "statistic": "ACTIVE AT NIGHT",
-                    "sfx": "dramatic_boom"
+                    "sfx": "subtle_riser"
                 },
                 {
                     "sentence": "Jab aap gehri neend mein hote hain, aapka brain ek extraordinary cleaning process shuru karta hai.",
-                    "visual_type": "3d_anatomy",
-                    "visual_description": "Translucent 3D brain showing cerebrospinal fluid channels expanding between cerebral gyri",
-                    "camera_movement": "cinematic_orbit",
-                    "main_title": "DEEP SLEEP",
-                    "concept_badge": "GLYMPHATIC SYSTEM",
-                    "statistic": "60% CSF EXPANSION",
-                    "sfx": "neural_pulse"
-                },
-                {
-                    "sentence": "Isse kehte hain Glymphatic System, jahan cerebrospinal fluid din bhar ka toxic waste aur beta-amyloid proteins flush out kar deta hai.",
-                    "visual_type": "microscopic",
-                    "visual_description": "Microscopic view of luminous blue fluid washing toxic protein aggregates away from neurons",
-                    "camera_movement": "microscopic_zoom",
-                    "main_title": "TOXIN FLUSH",
-                    "concept_badge": "BETA-AMYLOID REMOVAL",
-                    "statistic": "MOLECULAR PURIFICATION",
-                    "sfx": "whoosh"
-                },
-                {
-                    "sentence": "Lekin agar aap regular saat se aath ghante ki sleep nahi lete, toh yeh toxins brain mein accumulate hone lagte hain.",
                     "visual_type": "relatable_footage",
-                    "visual_description": "Person sleeping peacefully in a dark quiet bedroom with cool cinematic moonlight",
-                    "camera_movement": "slow_push_in",
-                    "main_title": "SLEEP DEBT",
-                    "concept_badge": "TOXIN ACCUMULATION",
-                    "statistic": "< 6 HRS SLEEP RISK",
-                    "sfx": "whoosh"
+                    "visual_description": "Person sleeping peacefully in dark bedroom during deep restorative sleep",
+                    "camera_movement": "slow_drift",
+                    "is_hook_scene": False,
+                    "main_title": "DEEP SLEEP",
+                    "concept_badge": "REST CYCLE",
+                    "statistic": "STAGE 3 SLEEP",
+                    "sfx": "heartbeat"
                 },
                 {
-                    "sentence": "Jisse brain fog, memory decline aur long term neuro issues ka risk badh sakta hai.",
-                    "visual_type": "3d_anatomy",
-                    "visual_description": "3D neural network with synapses fading and losing electrical connectivity",
-                    "camera_movement": "slow_push_in",
-                    "main_title": "BRAIN FOG RISK",
-                    "concept_badge": "SYNAPTIC FATIGUE",
-                    "statistic": "COGNITIVE DECLINE",
-                    "sfx": "dramatic_boom"
-                },
-                {
-                    "sentence": "Isliye apne brain ko recover karne ka poora time dijiye, aur har raat ek peaceful sleep lijiye!",
-                    "visual_type": "3d_anatomy",
-                    "visual_description": "Photorealistic 3D brain glowing with vibrant cyan and golden synapses surrounded by orbital telemetry",
-                    "camera_movement": "cinematic_orbit",
-                    "main_title": "PRIORITIZE SLEEP",
-                    "concept_badge": "OPTIMAL RECOVERY",
-                    "statistic": "7-8 HOURS NIGHTLY",
+                    "sentence": "Isse science mein Glymphatic System kehte hain, jahan brain cells shrink hokar fluid channels ko lagbhag 60% tak bada kar dete hain.",
+                    "visual_type": "microscopic",
+                    "visual_description": "Microscopic view of fluid channels expanding between brain cells with luminous blue flow",
+                    "camera_movement": "microscopic_zoom",
+                    "is_hook_scene": False,
+                    "main_title": "GLYMPHATIC SYSTEM",
+                    "concept_badge": "CELLULAR SHIFT",
+                    "statistic": "60% FLUID EXPANSION",
                     "sfx": "neural_pulse"
+                },
+                {
+                    "sentence": "Iske baad Cerebrospinal Fluid din bhar ka toxic waste aur harmful beta-amyloid proteins puri tarah flush out kar deta hai.",
+                    "visual_type": "microscopic",
+                    "visual_description": "Luminous fluid stream washing away dark molecular metabolic waste and protein aggregates",
+                    "camera_movement": "cinematic_orbit",
+                    "is_hook_scene": False,
+                    "main_title": "WASTE FLUSH",
+                    "concept_badge": "BETA-AMYLOID CLEARANCE",
+                    "statistic": "TOXIN REMOVAL",
+                    "sfx": "transition_whoosh"
+                },
+                {
+                    "sentence": "Agar aap roz saat se aath ghante ki gehri neend nahi lete, toh yeh toxic buildup aapke cognitive health ko severely affect kar sakta hai.",
+                    "visual_type": "relatable_footage",
+                    "visual_description": "Healthy person waking up refreshed in morning sunlight showing mental clarity",
+                    "camera_movement": "slow_push_in",
+                    "is_hook_scene": False,
+                    "main_title": "SLEEP HYGIENE",
+                    "concept_badge": "NEURAL HEALTH",
+                    "statistic": "7-8 HOURS RECOMMENDED",
+                    "sfx": "heartbeat"
+                },
+                {
+                    "sentence": "Toh aap aaj raat kitne ghante sone wale hain, taaki aapka Brain Detox complete ho sake? Humein comments mein zaroor batayein!",
+                    "visual_type": "3d_anatomy",
+                    "visual_description": "3D translucent glowing human head showing calm restorative neural glow with call to action",
+                    "camera_movement": "slow_push_in",
+                    "is_hook_scene": False,
+                    "main_title": "REST WELL",
+                    "concept_badge": "DAILY RECOVERY",
+                    "statistic": "NIGHTLY DETOX",
+                    "sfx": "vital_beep"
                 }
             ]
         }

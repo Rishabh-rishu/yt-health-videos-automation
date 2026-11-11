@@ -31,9 +31,10 @@ class SubtitleGenerator:
         """
         output_ass_path.parent.mkdir(parents=True, exist_ok=True)
         
-        # ASS Header with 62px base / 66px highlight font size
+        # ASS Header with 70px base / 76px highlight font size (V3 Upgrade)
+        safe_v = 440
         ass_content = f"""[Script Info]
-Title: Health Videos Dynamic Subtitles V2
+Title: Health Videos Dynamic Subtitles V3
 ScriptType: v4.00+
 WrapStyle: 0
 PlayResX: {VIDEO_WIDTH}
@@ -42,8 +43,8 @@ ScaledBorderAndShadow: yes
 
 [V4+ Styles]
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
-Style: Default,Mukta,62,&H00FFFFFF,&H0000E6FF,&H00000000,&HA0000000,-1,0,0,0,100,100,0,0,1,5,3,2,60,60,{SAFE_ZONE_BOTTOM},1
-Style: Highlight,Mukta,66,&H0000E6FF,&H00FFFFFF,&H00000000,&HC0000000,-1,0,0,0,106,106,0,0,1,6,4,2,60,60,{SAFE_ZONE_BOTTOM},1
+Style: Default,Mukta,70,&H00FFFFFF,&H0000E6FF,&H00000000,&HA0000000,-1,0,0,0,100,100,0,0,1,6,4,2,60,60,{safe_v},1
+Style: Highlight,Mukta,76,&H0000E6FF,&H00FFFFFF,&H00000000,&HC0000000,-1,0,0,0,112,112,0,0,1,7,4,2,60,60,{safe_v},1
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
@@ -72,10 +73,10 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
                 text_parts = []
                 for w in chunk["words"]:
                     if w["word"] == active_w["word"] and w["start_sec"] == active_w["start_sec"]:
-                        # Active word: Yellow & pop scaled
-                        text_parts.append(r"{\c&H0000E6FF\b1\fscx108\fscy108}" + w["word"] + r"{\r}")
+                        # Active word: Electric Yellow & 112% pop scaled
+                        text_parts.append(r"{\c&H0000E6FF\b1\fscx112\fscy112}" + w["word"] + r"{\r}")
                     else:
-                        # Inactive words: White & standard scale
+                        # Inactive words: Crisp White & standard scale
                         text_parts.append(r"{\c&H00FFFFFF\b1\fscx100\fscy100}" + w["word"] + r"{\r}")
 
                 line_text = " ".join(text_parts)

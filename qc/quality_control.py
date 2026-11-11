@@ -84,11 +84,16 @@ class QualityControlAgent:
             "details": f"Video duration: {v_dur:.2f}s, Audio duration: {a_dur:.2f}s, Delta: {dur_delta:.2f}s"
         }
 
-        # 5. Every Sentence Has Contextual Visual
+        # 5. Every Sentence Has Contextual Visual & Visual Variety
         all_scenes_have_assets = all(bool(s.get("asset_path")) for s in scenes)
+        no_adjacent_dups = not any(
+            scenes[i].get("asset_path") == scenes[i+1].get("asset_path")
+            for i in range(len(scenes) - 1)
+        ) if len(scenes) > 1 else True
+        passed_v5 = all_scenes_have_assets and no_adjacent_dups
         results["5_sentence_visual_mapping"] = {
-            "passed": all_scenes_have_assets,
-            "details": f"{len(scenes)} scenes verified with assigned visual specifications."
+            "passed": passed_v5,
+            "details": f"{len(scenes)} scenes verified with distinct visuals (No adjacent duplicates: {no_adjacent_dups})."
         }
 
         # 6. Subtitle Timing & File Check
