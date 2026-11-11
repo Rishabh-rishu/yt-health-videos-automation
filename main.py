@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
 MASTER PRODUCTION PIPELINE ORCHESTRATOR
 Health Videos: Premium AI Health & Science YouTube Shorts Automation Engine
@@ -5,13 +6,19 @@ Health Videos: Premium AI Health & Science YouTube Shorts Automation Engine
 
 import sys
 import os
+from pathlib import Path
+
+# Auto-bootstrap project virtual environment if executed via system Python
+ROOT_PATH = Path(__file__).resolve().parent
+venv_python = ROOT_PATH / "venv" / "bin" / "python3"
+if (sys.prefix == sys.base_prefix) and venv_python.exists():
+    os.execv(str(venv_python), [str(venv_python)] + sys.argv)
+
 import argparse
 import logging
-from pathlib import Path
 from datetime import datetime
 
 # Setup root path
-ROOT_PATH = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT_PATH))
 
 from config.settings import LOGS_DIR, OUTPUT_DIR, DEFAULT_VOICE, VOICE_SPEED

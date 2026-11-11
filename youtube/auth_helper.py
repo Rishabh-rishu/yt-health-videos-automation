@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
 YouTube Channel Dedicated OAuth Authentication Helper
 Authorizes the Google Account for the Health Videos channel.
@@ -6,13 +7,19 @@ Verifies channel identity, displays subscriber/video stats, and saves token.pick
 
 import sys
 import os
+from pathlib import Path
+
+# Auto-bootstrap project virtual environment if executed via system Python
+ROOT_PATH = Path(__file__).resolve().parent.parent
+venv_python = ROOT_PATH / "venv" / "bin" / "python3"
+if (sys.prefix == sys.base_prefix) and venv_python.exists():
+    os.execv(str(venv_python), [str(venv_python)] + sys.argv)
+
 import pickle
 import argparse
 import logging
-from pathlib import Path
 
 # Add project root to sys.path
-ROOT_PATH = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT_PATH))
 
 from google_auth_oauthlib.flow import InstalledAppFlow
