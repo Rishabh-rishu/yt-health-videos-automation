@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-YouTube Channel Dedicated OAuth Authentication Helper
-Authorizes the Google Account for the Health Videos channel.
+YouTube Channel Dedicated OAuth Authentication Helper (Health Videos)
+Authorizes the dedicated Google Account for the Health Videos channel.
 Verifies channel identity, displays subscriber/video stats, and saves token.pickle securely.
 """
 
@@ -37,6 +37,30 @@ SCOPES = [
     "https://www.googleapis.com/auth/youtube"
 ]
 
+def print_setup_guide(secrets_path: Path):
+    print("\n" + "=" * 68)
+    print("  GOOGLE CLOUD OAUTH SETUP GUIDE FOR NEW HEALTH CHANNEL")
+    print("=" * 68)
+    print("Aapke naye Gmail account ke sath naya YouTube API connect karne ke steps:\n")
+    print("1. Apne NAYE GMAIL se login karke Google Cloud Console open karein:")
+    print("   👉 https://console.cloud.google.com/\n")
+    print("2. Ek naya project create karein (e.g. 'Health Videos Automation')\n")
+    print("3. YouTube Data API v3 enable karein:")
+    print("   👉 APIs & Services -> Library -> Search 'YouTube Data API v3' -> Enable\n")
+    print("4. OAuth Consent Screen configure karein:")
+    print("   👉 APIs & Services -> OAuth consent screen")
+    print("   👉 Select 'External' -> App Name: 'Health Videos Automation'")
+    print("   👉 Add your new Gmail in 'Test Users' list\n")
+    print("5. OAuth Client ID Credentials banayein:")
+    print("   👉 APIs & Services -> Credentials -> Create Credentials -> OAuth client ID")
+    print("   👉 Application type: 'Desktop app'")
+    print("   👉 Name: 'Health Videos Desktop Client'\n")
+    print("6. 'Download JSON' button par click karein aur downloaded file ko yahan save karein:")
+    print(f"   📁 {secrets_path.resolve()}\n")
+    print("7. Uske baad dubara run karein:")
+    print("   python3 youtube/auth_helper.py\n")
+    print("=" * 68 + "\n")
+
 def verify_channel(creds):
     """Fetches and displays channel information to verify identity."""
     try:
@@ -56,7 +80,7 @@ def verify_channel(creds):
         stats = ch.get("statistics", {})
 
         print("\n" + "=" * 60)
-        print("  YOUTUBE CHANNEL AUTHENTICATION VERIFIED")
+        print("  HEALTH VIDEOS — YOUTUBE CHANNEL VERIFIED")
         print("=" * 60)
         print(f"  Channel Title:       {snippet.get('title', 'Unknown')}")
         print(f"  Channel ID:          {ch.get('id', 'Unknown')}")
@@ -70,18 +94,19 @@ def verify_channel(creds):
         logger.error(f"Error fetching channel information: {e}")
         return False
 
-def authenticate(client_secrets_path: Path, token_output_path: Path, no_browser: bool = False):
+def authenticate(client_secrets_path: Path, token_output_path: Path, no_browser: bool = False, force_new: bool = False):
     """Performs OAuth2 flow and saves credentials into token.pickle."""
+    if force_new and token_output_path.exists():
+        token_output_path.unlink()
+        logger.info(f"Purged existing token at {token_output_path} for fresh login.")
+
     if not client_secrets_path.exists():
         logger.error(f"Client secrets file not found at: {client_secrets_path}")
-        print("\n[ERROR] Missing client_secrets.json!")
-        print("Please download OAuth 2.0 Client Credentials (Desktop application) from:")
-        print("Google Cloud Console -> APIs & Services -> Credentials")
-        print(f"And save it as: {client_secrets_path.resolve()}\n")
+        print_setup_guide(client_secrets_path)
         return False
 
     creds = None
-    if token_output_path.exists():
+    if token_output_path.exists() and not force_new:
         try:
             with open(token_output_path, "rb") as f:
                 creds = pickle.load(f)
@@ -105,12 +130,13 @@ def authenticate(client_secrets_path: Path, token_output_path: Path, no_browser:
                 creds = flow.run_console()
             else:
                 try:
-                    creds = flow.run_local_server(port=8080, prompt="consent")
+                    # Forces Google account chooser so user selects their new Health Gmail account
+                    creds = flow.run_local_server(port=8080, prompt="select_account consent")
                 except Exception as e:
                     logger.warning(f"Local server authorization failed ({e}). Falling back to console flow.")
                     creds = flow.run_console()
 
-        # Save credentials with restrictive permissions
+        # Save credentials with restrictive permissions (mode 0600)
         with open(token_output_path, "wb") as f:
             pickle.dump(creds, f)
         os.chmod(str(token_output_path), 0o600)
@@ -128,11 +154,23 @@ if __name__ == "__main__":
     parser.add_argument("--token", type=str, default=str(ROOT_DIR / "token.pickle"), help="Output path for token.pickle")
     parser.add_argument("--no-browser", action="store_true", help="Use console URL copy-paste mode without starting local webserver")
     parser.add_argument("--check-only", action="store_true", help="Only verify current credentials without prompting login")
+    parser.add_argument("--reset", action="store_true", help="Purge current token.pickle and start fresh login")
 
     args = parser.parse_args()
 
     token_p = Path(args.token)
     secrets_p = Path(args.secrets)
+
+    if args.reset:
+        if token_p.exists():
+            token_p.unlink()
+            print(f"Deleted old token: {token_p}")
+        if secrets_p.exists():
+            secrets_p.unlink()
+            print(f"Deleted old client_secrets.json: {secrets_p}")
+        print("Ready for fresh new Gmail setup!")
+        print_setup_guide(secrets_p)
+        sys.exit(0)
 
     if args.check_only:
         if not token_p.exists():
