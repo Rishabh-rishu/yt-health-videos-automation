@@ -33,6 +33,9 @@ output/voice_candidates/
 output/preview_frames/
 output/scripts/
 output/research/
+output/audio/
+output/reports/
+output/shorts_audio_ready/
 
 # Cache & Download Buffers
 assets/visual_cache/
