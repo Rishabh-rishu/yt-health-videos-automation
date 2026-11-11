@@ -50,7 +50,13 @@ class VideoComposer:
         for idx, scene in enumerate(scenes):
             asset_path = scene.get("asset_path")
             hud_path = scene.get("hud_overlay_path")
-            dur = max(0.5, scene.get("duration_sec", 5.0))
+            dur = scene.get("duration_sec")
+            if not dur and "end_sec" in scene and "start_sec" in scene:
+                dur = float(scene["end_sec"]) - float(scene["start_sec"])
+            dur = max(0.5, float(dur) if dur else 5.0)
+            if idx == len(scenes) - 1:
+                # Add 0.5s padding to the final scene to allow voiceover resolution
+                dur += 0.5
             seg_path = self.output_dir / f"{topic_id}_seg_{idx:02d}.mp4"
 
             # Check if asset is video or image

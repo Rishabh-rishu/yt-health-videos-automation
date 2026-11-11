@@ -95,15 +95,15 @@ YouTube's mobile app allows creators to attach officially licensed trending comm
         has_sfx = opening_sfx.exists()
 
         # Audio Filtergraph (Mastered Studio Chain):
-        # 1. Master vocal: 80Hz rumble cut, presence EQ (3.2kHz), warmth (250Hz), soft-knee compand, -14 LUFS loudnorm
-        # 2. Sidechaincompress BGM whenever voiceover is active (attack=50ms, release=400ms, threshold=0.08, ratio=6 -> -22dBFS ducking)
+        # 1. Master vocal EQ & dynamics: 80Hz rumble cut, presence EQ (3.2kHz), warmth (250Hz), soft-knee compand
+        # 2. Sidechaincompress BGM whenever voiceover is active (attack=50ms, release=400ms, threshold=0.08 -> -22dBFS ducking)
         # 3. Layer subtle opening cinematic impact at -16dB (0-2.5s tension swell)
+        # 4. Apply EBU R128 Loudness Normalization (-14 LUFS) on the FINAL output (preventing lookahead buffer drops)
         vocal_dsp = (
             "highpass=f=80,"
             "equalizer=f=250:t=q:w=1.0:g=1.5,"
             "equalizer=f=3200:t=q:w=1.2:g=2.5,"
-            "compand=attacks=0.02:decays=0.2:points=-80/-80|-40/-30|-20/-14|0/-2:gain=1.0,"
-            "loudnorm=I=-14:TP=-1.0:LRA=7"
+            "compand=attacks=0.02:decays=0.2:points=-80/-80|-40/-30|-20/-14|0/-2:gain=1.0"
         )
 
         if has_sfx:
@@ -114,8 +114,9 @@ YouTube's mobile app allows creators to attach officially licensed trending comm
                 f"[voice_mastered]asplit=2[voice_main][voice_trigger];"
                 f"[bgm][voice_trigger]sidechaincompress="
                 f"threshold=0.08:ratio=6:attack=50:release=400[ducked_bgm];"
-                f"[ducked_bgm][sfx_intro]amix=inputs=2:duration=first:dropout_transition=2[music_bed];"
-                f"[voice_main][music_bed]amix=inputs=2:duration=first:dropout_transition=2[outa]"
+                f"[ducked_bgm][sfx_intro]amix=inputs=2:duration=first:dropout_transition=0[music_bed];"
+                f"[voice_main][music_bed]amix=inputs=2:duration=first:dropout_transition=0[mixed];"
+                f"[mixed]loudnorm=I=-14:TP=-1.0:LRA=7[outa]"
             )
             cmd = [
                 "ffmpeg", "-y",
@@ -135,7 +136,8 @@ YouTube's mobile app allows creators to attach officially licensed trending comm
                 f"[voice_mastered]asplit=2[voice_main][voice_trigger];"
                 f"[bgm][voice_trigger]sidechaincompress="
                 f"threshold=0.08:ratio=6:attack=50:release=400[ducked_bgm];"
-                f"[voice_main][ducked_bgm]amix=inputs=2:duration=first:dropout_transition=2[outa]"
+                f"[voice_main][ducked_bgm]amix=inputs=2:duration=first:dropout_transition=0[mixed];"
+                f"[mixed]loudnorm=I=-14:TP=-1.0:LRA=7[outa]"
             )
             cmd = [
                 "ffmpeg", "-y",
@@ -177,15 +179,15 @@ YouTube's mobile app allows creators to attach officially licensed trending comm
             "highpass=f=80,"
             "equalizer=f=250:t=q:w=1.0:g=1.5,"
             "equalizer=f=3200:t=q:w=1.2:g=2.5,"
-            "compand=attacks=0.02:decays=0.2:points=-80/-80|-40/-30|-20/-14|0/-2:gain=1.0,"
-            "loudnorm=I=-14:TP=-1.0:LRA=7"
+            "compand=attacks=0.02:decays=0.2:points=-80/-80|-40/-30|-20/-14|0/-2:gain=1.0"
         )
 
         if has_sfx:
             filter_complex = (
                 f"[0:a]{vocal_dsp}[voice_mastered];"
                 f"[1:a]volume=0.20[sfx_intro];"
-                f"[voice_mastered][sfx_intro]amix=inputs=2:duration=first:dropout_transition=2[outa]"
+                f"[voice_mastered][sfx_intro]amix=inputs=2:duration=first:dropout_transition=0[mixed];"
+                f"[mixed]loudnorm=I=-14:TP=-1.0:LRA=7[outa]"
             )
             cmd = [
                 "ffmpeg", "-y",
@@ -198,7 +200,7 @@ YouTube's mobile app allows creators to attach officially licensed trending comm
                 str(output_audio_path)
             ]
         else:
-            filter_complex = f"[0:a]{vocal_dsp}[outa]"
+            filter_complex = f"[0:a]{vocal_dsp},loudnorm=I=-14:TP=-1.0:LRA=7[outa]"
             cmd = [
                 "ffmpeg", "-y",
                 "-i", str(voiceover_path),
