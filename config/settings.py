@@ -67,8 +67,8 @@ YOUTUBE_TOKEN_FILE = os.getenv("YOUTUBE_TOKEN_FILE", "token.pickle")
 
 # Scheduling & Timezone
 TIMEZONE = "Asia/Kolkata"
-SCHEDULE_MORNING_TIME = "12:00"
-SCHEDULE_EVENING_TIME = "18:00"
+SCHEDULE_MORNING_TIME = os.getenv("SCHEDULE_MORNING_TIME", "09:30")
+SCHEDULE_EVENING_TIME = os.getenv("SCHEDULE_EVENING_TIME", "18:00")
 
 # Directories
 CONFIG_DIR = ROOT_DIR / "config"

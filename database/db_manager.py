@@ -348,4 +348,28 @@ class DatabaseManager:
                 rows.append(d)
             return rows
 
+    def get_next_pending_calendar_entry(self) -> Optional[Dict[str, Any]]:
+        """
+        Retrieves the next calendar entry that has not been uploaded yet.
+        Enforces strict chronological sequence: Video #1 to #30.
+        Prevents repetition by filtering out approval_status = 'UPLOADED'.
+        """
+        with self.get_connection() as conn:
+            cursor = conn.cursor()
+            cursor.execute("""
+                SELECT * FROM content_calendar 
+                WHERE approval_status != 'UPLOADED' 
+                ORDER BY video_number ASC 
+                LIMIT 1
+            """)
+            row = cursor.fetchone()
+            if row:
+                d = dict(row)
+                if d.get("research_sources"):
+                    try: d["research_sources"] = json.loads(d["research_sources"])
+                    except Exception: pass
+                return d
+            return None
+
+
 
