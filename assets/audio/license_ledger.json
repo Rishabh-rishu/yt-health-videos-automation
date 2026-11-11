@@ -1,0 +1,41 @@
+{
+  "project": "Health Videos Production Engine",
+  "license_policy": "Free-first, royalty-free commercial documentary audio beds",
+  "tracks": [
+    {
+      "filename": "science_documentary.mp3",
+      "category": "Medical / Science",
+      "source": "Creative Commons / Royalty Free Documentary Archive",
+      "commercial_use_allowed": true,
+      "attribution_required": false
+    },
+    {
+      "filename": "space_atmosphere.mp3",
+      "category": "Emotional / Human Body",
+      "source": "Creative Commons / Royalty Free Ambient Archive",
+      "commercial_use_allowed": true,
+      "attribution_required": false
+    },
+    {
+      "filename": "ancient_mystery_ambience.mp3",
+      "category": "Suspense / Mystery",
+      "source": "Creative Commons / Royalty Free Mystery Archive",
+      "commercial_use_allowed": true,
+      "attribution_required": false
+    },
+    {
+      "filename": "nature_documentary.mp3",
+      "category": "Informational / Educational",
+      "source": "Creative Commons / Royalty Free Acoustic Archive",
+      "commercial_use_allowed": true,
+      "attribution_required": false
+    },
+    {
+      "filename": "dark_cinematic_suspense.mp3",
+      "category": "Warning / Risk Awareness",
+      "source": "Creative Commons / Royalty Free Cinematic Archive",
+      "commercial_use_allowed": true,
+      "attribution_required": false
+    }
+  ]
+}

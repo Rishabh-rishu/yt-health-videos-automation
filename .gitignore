@@ -1,0 +1,46 @@
+# Secrets & Credentials
+.env
+client_secrets.json
+token.pickle
+*.pem
+*.key
+
+# Python Virtual Environments & Bytecode
+venv/
+venv
+.venv/
+node_modules/
+node_modules
+remotion_engine/node_modules
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# SQLite Databases & Local State
+database/*.db
+database/*.sqlite
+database/*.sqlite3
+*.db
+
+# Rendered Media Outputs & Large Binaries
+output/videos/
+output/voiceovers/
+output/visuals/
+output/thumbnails/
+output/voice_candidates/
+output/preview_frames/
+output/scripts/
+output/research/
+
+# Cache & Download Buffers
+assets/visual_cache/
+.tempmediaStorage/
+
+# System & IDE Files
+logs/*.log
+*.log
+.DS_Store
+.idea/
+.vscode/
