@@ -25,9 +25,9 @@ class ColorPalette:
     BORDER_HUD = "rgba(0, 229, 255, 0.35)" # HUD panel outline
     HUD_GLOW = "0 0 15px rgba(0, 229, 255, 0.45)"
 
-CHANNEL_NAME = "Health Science"
+CHANNEL_NAME = "SwasthSnap"
 CHANNEL_TAGLINE = "Human Body & Medical Science"
-CHANNEL_WATERMARK = "HEALTH LAB"
+CHANNEL_WATERMARK = "@SwasthSnapYT"
 
 # Subtitle typography specifications
 SUBTITLE_STYLE = {

@@ -106,3 +106,36 @@ CREATE INDEX IF NOT EXISTS idx_video_history_fingerprint ON video_history(video_
 CREATE INDEX IF NOT EXISTS idx_bgm_history_track ON bgm_history(track_id);
 CREATE INDEX IF NOT EXISTS idx_rejected_type ON rejected_attempts(attempt_type);
 
+-- Persistent 15-Day Production Calendar (30 Unique Educational Videos)
+CREATE TABLE IF NOT EXISTS content_calendar (
+    day_number INTEGER NOT NULL,
+    video_number INTEGER NOT NULL,
+    topic_id TEXT PRIMARY KEY,
+    title TEXT NOT NULL,
+    category TEXT NOT NULL,
+    core_concept TEXT NOT NULL,
+    hook_text TEXT NOT NULL,
+    term_key TEXT NOT NULL,
+    scientific_term TEXT NOT NULL,
+    term_badge_title TEXT NOT NULL,
+    term_badge_sub TEXT NOT NULL,
+    research_sources TEXT, -- JSON array of medical citations
+    visual_style_prompt TEXT,
+    bgm_category TEXT DEFAULT 'medical_documentary',
+    research_status TEXT DEFAULT 'VERIFIED',
+    script_status TEXT DEFAULT 'PLANNED',
+    voice_status TEXT DEFAULT 'PLANNED',
+    visual_status TEXT DEFAULT 'PLANNED',
+    render_status TEXT DEFAULT 'PLANNED',
+    qc_status TEXT DEFAULT 'PLANNED',
+    approval_status TEXT DEFAULT 'STAGED',
+    video_path TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE INDEX IF NOT EXISTS idx_calendar_day ON content_calendar(day_number);
+CREATE INDEX IF NOT EXISTS idx_calendar_video ON content_calendar(video_number);
+CREATE INDEX IF NOT EXISTS idx_calendar_status ON content_calendar(render_status);
+
+

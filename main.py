@@ -48,19 +48,21 @@ logging.basicConfig(
 )
 logger = logging.getLogger("health_videos.master")
 
-def produce_health_short(category: str = None, force_upload: bool = False):
+import json
+
+def produce_health_short(category: str = None, topic_id: str = None, force_upload: bool = False):
     """
     Executes the complete end-to-end production pipeline:
-    1. Topic Discovery & Deduplication
-    2. Hook Generation (3 Variations)
-    3. Script Writing (Sentence-by-Sentence)
+    1. Topic Discovery & Deduplication (or Content Calendar topic selection)
+    2. Hook Generation (3 Variations or approved calendar hook)
+    3. Script Writing (Sentence-by-Sentence with 3-step scientific simplification)
     4. Mandatory Female Voice Narration at 1.15x
     5. Sentence-to-Visual Mapping (3D Anatomy + Microscopic + Real Life)
     6. Subtitle Synchronization with Word-Level Highlights
-    7. Master Video Composition (1080x1920 30FPS vertical MP4)
-    8. 15-Point Quality Control Inspection
+    7. Master Video Composition (1080x1920 30FPS vertical MP4 + Permanent @SwasthSnapYT Watermark)
+    8. 18-Point Quality Control Inspection
     9. Thumbnail & Metadata Generation
-    10. Staging for YouTube Publication
+    10. Staging for YouTube Publication + Clean Shorts Export (Shorts Audio Library Ready)
     """
     logger.info("==================================================")
     logger.info("STARTING HEALTH VIDEOS PRODUCTION CYCLE")
@@ -80,41 +82,84 @@ def produce_health_short(category: str = None, force_upload: bool = False):
     publisher = YouTubePublisher(db=db)
 
     # STEP 1: Discover & Research Topic
-    logger.info("[STEP 1/10] Discovering researched health topic...")
-    topic_data = discovery.discover_topic(preferred_category=category)
-    topic_id = topic_data["topic_id"]
-    logger.info(f"Discovered Topic: '{topic_data['title']}' [Category: {topic_data['category']}]")
+    if topic_id:
+        logger.info(f"[STEP 1/10] Loading topic '{topic_id}' from content calendar...")
+        cal_entry = db.get_calendar_entry(topic_id)
+        if cal_entry:
+            sources = cal_entry.get("research_sources")
+            if isinstance(sources, str):
+                try: sources = json.loads(sources)
+                except Exception: sources = [sources]
+            topic_data = {
+                "topic_id": cal_entry["topic_id"],
+                "title": cal_entry["title"],
+                "category": cal_entry["category"],
+                "core_science": cal_entry["core_concept"],
+                "hook": cal_entry["hook_text"],
+                "hook_style": "Curiosity Question",
+                "term_key": cal_entry.get("term_key"),
+                "research_sources": sources or [],
+                "visual_style_prompt": cal_entry.get("visual_style_prompt"),
+                "bgm_category": cal_entry.get("bgm_category"),
+                "status": "planned"
+            }
+        else:
+            topic_data = discovery.discover_topic(preferred_category=category)
+            topic_id = topic_data["topic_id"]
+    else:
+        logger.info("[STEP 1/10] Discovering researched health topic...")
+        topic_data = discovery.discover_topic(preferred_category=category)
+        topic_id = topic_data["topic_id"]
+
+    logger.info(f"Target Topic: '{topic_data['title']}' [Category: {topic_data['category']}] (ID: {topic_id})")
     db.save_topic(topic_data)
+    db.update_calendar_stage(topic_id, research_status="VERIFIED")
 
     # STEP 2: Generate 3 Hook Variations & Select Strongest
-    logger.info("[STEP 2/10] Generating 3 Hook variations...")
-    hook_data = hook_agent.generate_hooks(
-        title=topic_data["title"],
-        category=topic_data["category"],
-        core_science=topic_data["core_science"]
-    )
+    logger.info("[STEP 2/10] Preparing approved opening hook...")
+    if topic_data.get("hook"):
+        selected_hook_text = topic_data["hook"]
+        hook_data = {
+            "hooks": [
+                {
+                    "style": topic_data.get("hook_style", "Curiosity Question"),
+                    "text": selected_hook_text,
+                    "highlight_words": ["dimaag", "brain", "acid", "liver", "body", "secret", "truth"],
+                    "selected": True
+                }
+            ],
+            "selected_index": 0
+        }
+    else:
+        hook_data = hook_agent.generate_hooks(
+            title=topic_data["title"],
+            category=topic_data["category"],
+            core_science=topic_data["core_science"]
+        )
     selected_hook = hook_data["hooks"][hook_data.get("selected_index", 0)]
     logger.info(f"Selected Hook [{selected_hook['style']}]: \"{selected_hook['text']}\"")
     db.update_topic_status(topic_id, status="hook_approved", hook=selected_hook["text"], hook_style=selected_hook["style"])
 
     # STEP 3: Script Generation
-    logger.info("[STEP 3/10] Writing sentence-by-sentence Hinglish script...")
+    logger.info("[STEP 3/10] Writing sentence-by-sentence Hinglish script with 3-step scientific simplification...")
     script_data = script_writer.generate_script(topic=topic_data, hook_data=hook_data)
     scenes = script_data.get("scenes", [])
     logger.info(f"Generated {len(scenes)} structured sentence scenes.")
+    db.update_calendar_stage(topic_id, script_status="SCRIPT_READY")
 
     # STEP 4: Mandatory Female Voice Narration (1.15x Speed)
     logger.info(f"[STEP 4/10] Synthesizing female narration at {VOICE_SPEED}x speed using {DEFAULT_VOICE}...")
     voice_ok, raw_voice, mixed_audio, mapped_scenes, word_bounds = voice_manager.synthesize_script(
         topic_id=topic_id,
         scenes=scenes,
-        category=topic_data["category"]
+        category=topic_data.get("bgm_category") or topic_data["category"]
     )
     if not voice_ok:
         raise RuntimeError("Voice synthesis failed.")
     total_audio_duration = mapped_scenes[-1]["end_sec"]
     logger.info(f"Narration synthesized successfully! Duration: {total_audio_duration:.2f}s")
     db.save_sentence_scenes(topic_id, mapped_scenes)
+    db.update_calendar_stage(topic_id, voice_status="VOICE_READY")
 
     # STEP 5: Sentence-to-Visual Mapping
     logger.info("[STEP 5/10] Mapping each sentence to contextually relevant visuals...")
@@ -123,6 +168,7 @@ def produce_health_short(category: str = None, force_upload: bool = False):
         category=topic_data["category"],
         scenes=mapped_scenes
     )
+    db.update_calendar_stage(topic_id, visual_status="ASSETS_READY")
 
     # STEP 6: Word-Level Subtitles
     logger.info("[STEP 6/10] Generating word-highlighted ASS subtitles...")
@@ -134,8 +180,8 @@ def produce_health_short(category: str = None, force_upload: bool = False):
         output_ass_path=ass_path
     )
 
-    # STEP 7: Video Composition (1080x1920 30FPS MP4)
-    logger.info("[STEP 7/10] Composing 1080x1920 30FPS vertical MP4 video...")
+    # STEP 7: Video Composition (1080x1920 30FPS MP4 + @SwasthSnapYT Watermark)
+    logger.info("[STEP 7/10] Composing 1080x1920 30FPS vertical MP4 video with permanent @SwasthSnapYT watermark...")
     render_ok, video_path, render_msg = composer.compose_short(
         topic_id=topic_id,
         scenes=enriched_scenes,
@@ -147,17 +193,31 @@ def produce_health_short(category: str = None, force_upload: bool = False):
         raise RuntimeError(f"Video rendering failed: {render_msg}")
     logger.info(f"Video rendered successfully: {video_path} ({video_path.stat().st_size} bytes)")
     db.update_topic_status(topic_id, status="rendered", video_path=str(video_path), duration_actual=total_audio_duration)
+    db.update_calendar_stage(topic_id, render_status="RENDERED", video_path=str(video_path))
 
-    # STEP 8: Quality Control (15 Gates)
-    logger.info("[STEP 8/10] Running 15 Quality Control gates...")
+    # Dual Export: Clean Shorts Version (with Watermark and zero BGM for YouTube Shorts Audio Picker)
+    clean_shorts_dir = OUTPUT_DIR / "shorts_audio_ready"
+    clean_shorts_dir.mkdir(parents=True, exist_ok=True)
+    clean_shorts_mp4 = clean_shorts_dir / f"{topic_id}_clean_shorts.mp4"
+    clean_shorts_audio = clean_shorts_dir / f"{topic_id}_clean_narration.mp3"
+    voice_manager.audio_mixer.export_clean_shorts_version(
+        voiceover_path=raw_voice,
+        output_audio_path=clean_shorts_audio,
+        video_input_path=video_path,
+        output_video_path=clean_shorts_mp4
+    )
+
+    # STEP 8: Quality Control (18 Gates)
+    logger.info("[STEP 8/10] Running 18 Quality Control gates...")
     qc_passed, qc_results, qc_report_md = qc_agent.inspect_video(
-        topic_data={**topic_data, "voice_id": DEFAULT_VOICE, "voice_speed": VOICE_SPEED},
+        topic_data={**topic_data, "voice_id": DEFAULT_VOICE, "voice_speed": VOICE_SPEED, "clean_shorts_path": str(clean_shorts_mp4)},
         scenes=enriched_scenes,
         video_path=video_path,
         audio_path=mixed_audio,
         ass_subtitles_path=ass_path
     )
     db.update_topic_status(topic_id, status="qc_passed" if qc_passed else "qc_failed", qc_passed=qc_passed, qc_report=qc_report_md)
+    db.update_calendar_stage(topic_id, qc_status="QC_PASSED" if qc_passed else "QC_FAILED", approval_status="APPROVED" if qc_passed else "REJECTED")
     logger.info(f"Quality Control Result: {'PASSED' if qc_passed else 'FAILED'}")
 
     # STEP 9: Thumbnail & Metadata Generation
@@ -180,7 +240,7 @@ def produce_health_short(category: str = None, force_upload: bool = False):
     db.update_topic_status(topic_id, thumbnail_path=str(thumbnail_path))
 
     # STEP 10: Publishing Preparation & Safe Staging
-    logger.info("[STEP 10/10] Staging for YouTube publishing...")
+    logger.info("[STEP 10/10] Staging for YouTube publishing (AUTO_UPLOAD=false, private staging)...")
     pub_result = publisher.publish_video(
         topic_id=topic_id,
         video_path=video_path,
@@ -192,7 +252,8 @@ def produce_health_short(category: str = None, force_upload: bool = False):
 
     logger.info("==================================================")
     logger.info("PRODUCTION CYCLE COMPLETED SUCCESSFULLY!")
-    logger.info(f"Rendered Video: {video_path}")
+    logger.info(f"Rendered Master Video: {video_path}")
+    logger.info(f"Clean Shorts Video: {clean_shorts_mp4}")
     logger.info(f"QC Audit Report: {OUTPUT_DIR / 'reports' / f'{topic_id}_qc_report.md'}")
     logger.info("==================================================")
 
@@ -201,6 +262,7 @@ def produce_health_short(category: str = None, force_upload: bool = False):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Health Videos Production Engine")
     parser.add_argument("--run-once", action="store_true", help="Execute single video production cycle")
+    parser.add_argument("--topic-id", type=str, default=None, help="Target specific topic ID (e.g. day01_video01)")
     parser.add_argument("--category", type=str, default="Sleep Science", help="Preferred medical category")
     parser.add_argument("--schedule", action="store_true", help="Run 2x daily automated scheduler daemon")
     parser.add_argument("--upload", action="store_true", help="Force private upload to YouTube")
@@ -212,4 +274,4 @@ if __name__ == "__main__":
         scheduler = AutomationScheduler(production_callback=lambda: produce_health_short(category=args.category))
         scheduler.start()
     else:
-        produce_health_short(category=args.category, force_upload=args.upload)
+        produce_health_short(category=args.category, topic_id=args.topic_id, force_upload=args.upload)

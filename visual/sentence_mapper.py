@@ -79,11 +79,20 @@ class SentenceVisualMapper:
             # 2. Determine best video/visual asset (Ensure ZERO repeated visuals across scenes)
             asset_path = None
             if idx == 0:
-                # Scene 0 (Hook): High-impact 3D realistic brain close-up
-                ref_brain = self.ref_dir / "media_1794379567781.png"
-                if ref_brain.exists():
-                    asset_path = str(ref_brain)
-            elif idx == 1:
+                # Scene 0 (Hook): Contextual 3D anatomical organ/system visual
+                if any(k in desc for k in ["stomach", "gastric", "acid", "digestive"]):
+                    stomach_clip = self.cache_dir / "stomach_anatomy.mp4"
+                    if stomach_clip.exists():
+                        asset_path = str(stomach_clip)
+                elif any(k in desc for k in ["liver", "regrowth", "regeneration", "hyperplasia", "hepatocyte"]):
+                    liver_clip = self.cache_dir / "human_anatomy_cells.mp4"
+                    if liver_clip.exists():
+                        asset_path = str(liver_clip)
+                elif any(k in desc for k in ["brain", "neural", "mind", "predictive", "synapse", "head"]):
+                    ref_brain = self.ref_dir / "media_1794379567781.png"
+                    if ref_brain.exists():
+                        asset_path = str(ref_brain)
+            elif idx == 1 and any(k in desc for k in ["sleep", "bed", "night", "rest"]):
                 # Scene 1 (Sleep Transition): Real person sleeping peacefully in bed
                 sleep_clip = self.cache_dir / "person_sleeping_in_bed.mp4" if hasattr(self, 'cache_dir') else None
                 if sleep_clip and sleep_clip.exists():
@@ -96,12 +105,16 @@ class SentenceVisualMapper:
             if not asset_path or asset_path in used_assets:
                 # Direct scientific concept matching against local verified 3D assets
                 cache_candidates = []
+                if any(k in desc for k in ["stomach", "gastric", "acid", "digestive"]):
+                    cache_candidates.append("stomach_anatomy.mp4")
+                if any(k in desc for k in ["liver", "regrowth", "regeneration", "hepatocyte"]):
+                    cache_candidates.append("human_anatomy_cells.mp4")
                 if any(k in desc for k in ["fluid", "flush", "cerebrospinal", "csf", "interstitial", "wash"]):
                     cache_candidates.append("liquid_fluid_flow_microscopic.mp4")
-                if any(k in desc for k in ["cell", "glial", "cellular", "pathway", "shrink", "neuron", "synapse", "protein", "plaque"]):
+                if any(k in desc for k in ["cell", "glial", "cellular", "pathway", "shrink", "neuron", "synapse", "protein", "plaque", "mitosis"]):
                     cache_candidates.extend(["cells_microscopic_laboratory.mp4", "cellular_biology_microscopic_laboratory.mp4"])
-                if any(k in desc for k in ["brain", "neural", "glymphatic", "head", "mind"]):
-                    cache_candidates.extend(["human_brain_medical_animation_3d.mp4", "human_brain_medical_animation.mp4"])
+                if any(k in desc for k in ["brain", "neural", "glymphatic", "head", "mind", "predictive"]):
+                    cache_candidates.extend(["human_brain_3d.mp4", "human_brain_medical_animation_3d.mp4", "human_brain_medical_animation.mp4"])
                 if any(k in desc for k in ["sleep", "bed", "night", "rest"]):
                     cache_candidates.append("person_sleeping_in_bed.mp4")
                 if any(k in desc for k in ["water", "drink", "hydrate", "health"]):

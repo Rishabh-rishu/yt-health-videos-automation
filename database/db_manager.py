@@ -263,3 +263,89 @@ class DatabaseManager:
                 """, (limit,))
             return [dict(row) for row in cursor.fetchall()]
 
+    # -------------------------------------------------------------
+    # 15-Day Content Calendar Methods (30 Unique Educational Videos)
+    # -------------------------------------------------------------
+    def upsert_calendar_entry(self, entry: Dict[str, Any]) -> str:
+        topic_id = entry["topic_id"]
+        sources = entry.get("research_sources", [])
+        sources_json = json.dumps(sources, ensure_ascii=False) if isinstance(sources, list) else str(sources)
+        with self.get_connection() as conn:
+            cursor = conn.cursor()
+            cursor.execute("""
+                INSERT OR REPLACE INTO content_calendar (
+                    day_number, video_number, topic_id, title, category, core_concept,
+                    hook_text, term_key, scientific_term, term_badge_title, term_badge_sub,
+                    research_sources, visual_style_prompt, bgm_category, research_status,
+                    script_status, voice_status, visual_status, render_status, qc_status,
+                    approval_status, video_path, updated_at
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP)
+            """, (
+                entry["day_number"],
+                entry["video_number"],
+                topic_id,
+                entry["title"],
+                entry["category"],
+                entry["core_concept"],
+                entry["hook_text"],
+                entry.get("term_key", ""),
+                entry.get("scientific_term", ""),
+                entry.get("term_badge_title", ""),
+                entry.get("term_badge_sub", ""),
+                sources_json,
+                entry.get("visual_style_prompt", ""),
+                entry.get("bgm_category", "medical_documentary"),
+                entry.get("research_status", "VERIFIED"),
+                entry.get("script_status", "PLANNED"),
+                entry.get("voice_status", "PLANNED"),
+                entry.get("visual_status", "PLANNED"),
+                entry.get("render_status", "PLANNED"),
+                entry.get("qc_status", "PLANNED"),
+                entry.get("approval_status", "STAGED"),
+                entry.get("video_path", "")
+            ))
+            conn.commit()
+            return topic_id
+
+    def get_calendar_entry(self, topic_id: str) -> Optional[Dict[str, Any]]:
+        with self.get_connection() as conn:
+            cursor = conn.cursor()
+            cursor.execute("SELECT * FROM content_calendar WHERE topic_id = ?", (topic_id,))
+            row = cursor.fetchone()
+            if row:
+                d = dict(row)
+                if d.get("research_sources"):
+                    try: d["research_sources"] = json.loads(d["research_sources"])
+                    except Exception: pass
+                return d
+            return None
+
+    def update_calendar_stage(self, topic_id: str, **kwargs):
+        """Updates specific workflow status fields (e.g. script_status, render_status, video_path)."""
+        fields = ["updated_at = CURRENT_TIMESTAMP"]
+        values = []
+        for key, val in kwargs.items():
+            fields.append(f"{key} = ?")
+            if isinstance(val, (dict, list)):
+                val = json.dumps(val, ensure_ascii=False)
+            values.append(val)
+        values.append(topic_id)
+        with self.get_connection() as conn:
+            cursor = conn.cursor()
+            cursor.execute(f"UPDATE content_calendar SET {', '.join(fields)} WHERE topic_id = ?", values)
+            conn.commit()
+
+    def get_all_calendar_entries(self) -> List[Dict[str, Any]]:
+        with self.get_connection() as conn:
+            cursor = conn.cursor()
+            cursor.execute("SELECT * FROM content_calendar ORDER BY video_number ASC")
+            rows = []
+            for r in cursor.fetchall():
+                d = dict(r)
+                if d.get("research_sources"):
+                    try: d["research_sources"] = json.loads(d["research_sources"])
+                    except Exception: pass
+                rows.append(d)
+            return rows
+
+

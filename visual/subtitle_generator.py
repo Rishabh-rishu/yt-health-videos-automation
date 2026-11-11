@@ -43,15 +43,15 @@ ScaledBorderAndShadow: yes
 
 [V4+ Styles]
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
-Style: Default,Mukta,70,&H00FFFFFF,&H0000E6FF,&H00000000,&HA0000000,-1,0,0,0,100,100,0,0,1,6,4,2,60,60,{safe_v},1
-Style: Highlight,Mukta,76,&H0000E6FF,&H00FFFFFF,&H00000000,&HC0000000,-1,0,0,0,112,112,0,0,1,7,4,2,60,60,{safe_v},1
+Style: Default,Mukta,68,&H00FFFFFF,&H0000E6FF,&H00000000,&HA0000000,-1,0,0,0,100,100,0,0,1,6,4,2,140,140,{safe_v},1
+Style: Highlight,Mukta,74,&H0000E6FF,&H00FFFFFF,&H00000000,&HC0000000,-1,0,0,0,110,110,0,0,1,7,4,2,140,140,{safe_v},1
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
 """
-        # Group words into short 3-4 word punchy phrases
+        # Group words into short 2-3 word punchy phrases to guarantee clean margins
         chunks = []
-        chunk_size = 4
+        chunk_size = 3
         for i in range(0, len(word_boundaries), chunk_size):
             group = word_boundaries[i:i + chunk_size]
             if not group:

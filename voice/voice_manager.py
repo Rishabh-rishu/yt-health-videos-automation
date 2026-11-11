@@ -81,12 +81,13 @@ class VoiceManager:
                 mapped_scenes.append(sc)
 
         # Mix with ducked ambient documentary BGM
-        mix_ok, bgm_genre = self.audio_mixer.mix_audio(
+        mix_res = self.audio_mixer.mix_audio(
             voiceover_path=raw_audio_path,
             category=category,
             output_path=mixed_audio_path,
             script_text=full_text
         )
+        mix_ok = mix_res[0] if isinstance(mix_res, tuple) else bool(mix_res)
 
         final_audio = mixed_audio_path if mix_ok else raw_audio_path
         return True, raw_audio_path, final_audio, mapped_scenes, word_bounds

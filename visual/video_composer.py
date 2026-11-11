@@ -152,9 +152,21 @@ class VideoComposer:
         escaped_sub = str(ass_subtitles_path).replace(":", r"\:").replace("'", r"\'")
         escaped_fontdir = str(self.font_dir).replace(":", r"\:").replace("'", r"\'")
         
+        from config.branding import CHANNEL_WATERMARK
+        watermark_font = (self.font_dir / "Mukta-SemiBold.ttf").resolve()
+        escaped_watermark_font = str(watermark_font).replace(":", r"\:").replace("'", r"\'")
+        watermark_filter = (
+            f"drawtext=text='{CHANNEL_WATERMARK}':"
+            f"fontfile='{escaped_watermark_font}':"
+            f"fontsize=28:fontcolor=white@0.88:"
+            f"box=1:boxcolor=black@0.45:boxborderw=8:"
+            f"shadowcolor=black@0.6:shadowx=2:shadowy=2:"
+            f"x=w-tw-60:y=h-420"
+        )
+        
         color_grade = "eq=contrast=1.06:brightness=-0.02:saturation=1.12"
         sub_filter = f"subtitles='{escaped_sub}':fontsdir='{escaped_fontdir}'"
-        final_vf = f"{color_grade},{sub_filter}"
+        final_vf = f"{color_grade},{sub_filter},{watermark_filter}"
 
         final_cmd = [
             "ffmpeg", "-y",
