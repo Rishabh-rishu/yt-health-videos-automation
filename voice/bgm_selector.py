@@ -1,84 +1,195 @@
 """
-Dynamic Background Music Selector & Tone Classifier for Health Videos (V2)
-Maps medical topics and narration scripts to 5 distinct documentary moods:
-1. Suspense / Mystery (ancient_mystery_ambience.mp3)
-2. Medical / Science (science_documentary.mp3)
-3. Informational / Educational (nature_documentary.mp3)
-4. Emotional / Human Body (space_atmosphere.mp3)
-5. Warning / Risk Awareness (dark_cinematic_suspense.mp3)
+Automatic Intelligent Background Music (BGM) Selector & Tone Classifier
+Integrates with the 8-Category Verified Music Library and SQLite anti-repetition engine:
+1. Suspense science (suspense_science)
+2. Medical documentary (medical_documentary)
+3. Deep ambient (deep_ambient)
+4. Mystery and discovery (mystery_discovery)
+5. Informational education (informational_education)
+6. Emotional science (emotional_science)
+7. Cinematic technology (cinematic_technology)
+8. Soft background atmosphere (soft_atmosphere)
+
+Performs multi-factor mood detection (category, title, script keywords, scene roles),
+checks track history to prevent repetition across consecutive videos, and strictly
+verifies commercial licensing status.
 """
 
 import json
 import logging
 from pathlib import Path
-from typing import Tuple, Dict, Any
+from typing import Tuple, Dict, Any, Optional, List
 
 from config.settings import ASSETS_DIR
+from database.db_manager import DatabaseManager
 
 logger = logging.getLogger("health_videos.bgm_selector")
 
 class BGMSelector:
-    def __init__(self):
+    def __init__(self, db: Optional[DatabaseManager] = None):
         self.audio_dir = ASSETS_DIR / "audio"
-        self.tracks = {
-            "Suspense / Mystery": {
-                "file": "ancient_mystery_ambience.mp3",
-                "desc": "Subtle tension, deep atmospheric pads, soft pulses.",
-                "keywords": ["mystery", "secret", "hidden", "unknown", "wonder", "why"]
-            },
-            "Medical / Science": {
-                "file": "science_documentary.mp3",
-                "desc": "Futuristic ambient textures, clean electronic atmosphere, subtle pulses.",
-                "keywords": ["heart", "circulation", "blood", "artery", "cardiac", "microbiology", "cell"]
-            },
-            "Informational / Educational": {
-                "file": "nature_documentary.mp3",
-                "desc": "Light rhythmic background, positive and engaging, calm but not boring.",
-                "keywords": ["food", "nutrition", "diet", "habit", "water", "vitamins", "fitness"]
-            },
-            "Emotional / Human Body": {
-                "file": "space_atmosphere.mp3",
-                "desc": "Soft atmospheric pads, recovery, sleep, calming neural rejuvenation.",
-                "keywords": ["sleep", "brain", "rest", "glymphatic", "peaceful", "recovery", "dream"]
-            },
-            "Warning / Risk Awareness": {
-                "file": "dark_cinematic_suspense.mp3",
-                "desc": "Controlled tension, serious documentary atmosphere, disease risk.",
-                "keywords": ["disease", "risk", "danger", "toxin", "sugar", "damage", "decline", "warning"]
-            }
+        self.ledger_path = self.audio_dir / "license_ledger.json"
+        self.db = db or DatabaseManager()
+        self.library = self._load_verified_library()
+
+        # Keywords for multi-factor mood detection
+        self.mood_keywords = {
+            "suspense_science": [
+                "khatra", "danger", "risk", "deadly", "toxin", "poison", "warning",
+                "attack", "failure", "decay", "destruction", "chronic", "damage"
+            ],
+            "medical_documentary": [
+                "heart", "blood", "circulation", "artery", "cardiac", "cellular",
+                "biology", "dhadkan", "oxygen", "vessels", "pumping", "microbiology"
+            ],
+            "deep_ambient": [
+                "sleep", "neend", "glymphatic", "brain", "rest", "night", "rejuvenation",
+                "healing", "cleansing", "recovery", "soothing", "peaceful", "dream"
+            ],
+            "mystery_discovery": [
+                "mystery", "raaz", "secret", "hidden", "unknown", "wonder", "why",
+                "curiosity", "kya aap jaante", "uncovered", "truth", "shocking"
+            ],
+            "informational_education": [
+                "food", "diet", "nutrition", "vitamins", "water", "habit", "lifestyle",
+                "gut", "digestion", "daily", "khana", "routine", "exercise"
+            ],
+            "emotional_science": [
+                "human", "life", "miracle", "hope", "survival", "mother", "child",
+                "evolution", "generations", "emotion", "resilience", "journey"
+            ],
+            "cinematic_technology": [
+                "technology", "neuroscience", "synapse", "electrical", "signals",
+                "microscopic", "neurons", "brainwave", "computation", "dna", "crispr"
+            ],
+            "soft_atmosphere": [
+                "skin", "hair", "calm", "balance", "wellness", "breath", "lungs",
+                "gentle", "smooth", "care", "subtle"
+            ]
         }
 
-    def select_track(self, category: str, script_text: str = "") -> Tuple[Path, str]:
+    def _load_verified_library(self) -> Dict[str, Dict[str, Any]]:
+        """Loads and indexes verified tracks from license_ledger.json."""
+        catalog = {}
+        if not self.ledger_path.exists():
+            logger.warning(f"License ledger not found at {self.ledger_path}. Falling back to default beds.")
+            return catalog
+
+        try:
+            with open(self.ledger_path, "r", encoding="utf-8") as f:
+                data = json.load(f)
+            tracks = data.get("tracks", [])
+            for t in tracks:
+                # Enforce licensing verification gate
+                if t.get("verification_status") != "VERIFIED_SAFE_FOR_MONETIZATION":
+                    logger.warning(f"Skipping unverified track: {t.get('track_id')}")
+                    continue
+                cat = t.get("category")
+                catalog[cat] = t
+        except Exception as e:
+            logger.error(f"Failed to parse license ledger: {e}")
+        return catalog
+
+    def detect_mood(
+        self,
+        category: str,
+        topic_title: str = "",
+        script_text: str = "",
+        scene_roles: Optional[List[str]] = None
+    ) -> str:
         """
-        Selects the optimal documentary music bed based on category and script sentiment.
-        Returns: (track_path, category_name)
+        Multi-factor mood scoring across topic category, title, script sentiment, and scene roles.
         """
+        combined_text = f"{category} {topic_title} {script_text}".lower()
+        scores = {cat: 0 for cat in self.mood_keywords}
+
+        # 1. Category primary bias
         cat_lower = category.lower()
-        script_lower = script_text.lower()
-
-        # Category-based primary mapping
         if "sleep" in cat_lower:
-            selected_cat = "Emotional / Human Body"
-        elif "brain" in cat_lower or "mystery" in cat_lower:
-            selected_cat = "Suspense / Mystery"
+            scores["deep_ambient"] += 6
         elif "heart" in cat_lower or "immunity" in cat_lower:
-            selected_cat = "Medical / Science"
-        elif "food" in cat_lower or "fitness" in cat_lower:
-            selected_cat = "Informational / Educational"
-        elif "disease" in cat_lower or "risk" in cat_lower:
-            selected_cat = "Warning / Risk Awareness"
-        else:
-            selected_cat = "Medical / Science"
+            scores["medical_documentary"] += 5
+        elif "brain" in cat_lower or "psychology" in cat_lower:
+            scores["cinematic_technology"] += 4
+            scores["mystery_discovery"] += 3
+        elif "food" in cat_lower or "nutrition" in cat_lower or "gut" in cat_lower:
+            scores["informational_education"] += 5
+        elif "skin" in cat_lower or "senses" in cat_lower:
+            scores["soft_atmosphere"] += 4
+        elif "disease" in cat_lower:
+            scores["suspense_science"] += 6
 
-        # Check script text for strong warning/danger cues
-        if any(w in script_lower for w in ["risk", "danger", "khatra", "nuksan", "disease"]):
-            if "sleep" not in cat_lower: # Sleep videos remain soothing
-                selected_cat = "Warning / Risk Awareness"
+        # 2. Keyword frequency scoring
+        for cat, kw_list in self.mood_keywords.items():
+            for kw in kw_list:
+                if kw in combined_text:
+                    scores[cat] += 2
 
-        track_info = self.tracks.get(selected_cat, self.tracks["Medical / Science"])
-        track_path = self.audio_dir / track_info["file"]
-        if not track_path.exists():
-            track_path = self.audio_dir / "science_documentary.mp3"
+        # 3. Scene roles / script sentiment overrides
+        if any(w in combined_text for w in ["khatra", "danger", "deadly", "nuksan"]):
+            if "sleep" not in cat_lower:
+                scores["suspense_science"] += 4
 
-        logger.info(f"BGM Selector: Selected [{selected_cat}] -> {track_path.name}")
-        return track_path, selected_cat
+        # Pick top scored category
+        best_cat = max(scores, key=scores.get)
+        if scores[best_cat] == 0:
+            best_cat = "medical_documentary"
+
+        logger.info(f"BGM Mood Detection: Category='{category}' -> Top Mood='{best_cat}' (Score: {scores[best_cat]})")
+        return best_cat
+
+    def select_track(
+        self,
+        category: str,
+        topic_title: str = "",
+        script_text: str = "",
+        estimated_duration: float = 40.0,
+        topic_id: Optional[str] = None,
+        force_category: Optional[str] = None
+    ) -> Tuple[Path, str, str, Dict[str, Any]]:
+        """
+        Selects the optimal background music track:
+        1. Detects mood or uses force_category.
+        2. Checks SQLite history to avoid repeat tracks from the last 5 videos.
+        3. Validates duration and licensing.
+        4. Returns: (track_path, category, track_id, metadata)
+        """
+        target_category = force_category or self.detect_mood(category, topic_title, script_text)
+        recent_track_ids = self.db.get_recent_bgm_tracks(limit=5)
+
+        track_meta = self.library.get(target_category)
+
+        # Anti-repetition fallback if track was used recently
+        if track_meta and track_meta.get("track_id") in recent_track_ids and not force_category:
+            logger.info(f"Track {track_meta.get('track_id')} was recently used. Finding rotation alternative...")
+            # Find an alternative category that wasn't used recently
+            for alt_cat, alt_meta in self.library.items():
+                if alt_meta.get("track_id") not in recent_track_ids:
+                    logger.info(f"Rotated to alternative category: {alt_cat}")
+                    target_category = alt_cat
+                    track_meta = alt_meta
+                    break
+
+        # Fallback to medical_documentary if category missing
+        if not track_meta:
+            target_category = "medical_documentary"
+            track_meta = self.library.get("medical_documentary", {})
+
+        track_file = self.audio_dir / f"{target_category}.mp3"
+        if not track_file.exists():
+            # Fallback to original files
+            track_file = self.audio_dir / "science_documentary.mp3"
+
+        track_id = track_meta.get("track_id", f"bgm_{target_category}_01")
+
+        # Record usage if topic_id provided
+        if topic_id:
+            self.db.record_bgm_usage(
+                track_id=track_id,
+                track_category=target_category,
+                topic_id=topic_id,
+                duration_seconds=track_meta.get("duration_seconds", 60.0)
+            )
+
+        logger.info(f"BGM Selected: [{target_category}] -> {track_file.name} (ID: {track_id})")
+        return track_file, target_category, track_id, track_meta

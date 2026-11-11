@@ -137,3 +137,129 @@ class DatabaseManager:
             cursor = conn.cursor()
             cursor.execute("SELECT * FROM sentence_scenes WHERE topic_id = ? ORDER BY sentence_idx ASC", (topic_id,))
             return [dict(row) for row in cursor.fetchall()]
+
+    # -------------------------------------------------------------
+    # BGM Usage & Anti-Repetition Methods
+    # -------------------------------------------------------------
+    def record_bgm_usage(self, track_id: str, track_category: str, topic_id: Optional[str] = None, duration_seconds: float = 0.0):
+        with self.get_connection() as conn:
+            cursor = conn.cursor()
+            cursor.execute("""
+                INSERT INTO bgm_history (track_id, track_category, topic_id, duration_seconds)
+                VALUES (?, ?, ?, ?)
+            """, (track_id, track_category, topic_id, duration_seconds))
+            conn.commit()
+            logger.info(f"Recorded BGM usage: {track_id} ({track_category}) for topic {topic_id}")
+
+    def get_recent_bgm_tracks(self, limit: int = 5) -> List[str]:
+        """Returns the last N track_ids used to prevent repetition."""
+        with self.get_connection() as conn:
+            cursor = conn.cursor()
+            cursor.execute("""
+                SELECT track_id FROM bgm_history
+                ORDER BY id DESC LIMIT ?
+            """, (limit,))
+            return [row["track_id"] for row in cursor.fetchall()]
+
+    # -------------------------------------------------------------
+    # Video Originality & History Tracking Methods
+    # -------------------------------------------------------------
+    def record_video_history(self, video_data: Dict[str, Any]) -> str:
+        """Stores comprehensive video fingerprint and visual metadata for 100% originality enforcement."""
+        video_id = video_data.get("video_id") or f"vid_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
+        with self.get_connection() as conn:
+            cursor = conn.cursor()
+            cursor.execute("""
+                INSERT OR REPLACE INTO video_history (
+                    video_id, topic_id, main_topic, subtopic, core_scientific_concept,
+                    script_text, hook_text, title, scene_descriptions, visual_asset_ids,
+                    models_animations, camera_angles_movements, lighting_style, subtitle_text,
+                    bgm_track_id, rendered_path, clean_shorts_path, video_fingerprint,
+                    originality_score, publishing_status
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """, (
+                video_id,
+                video_data.get("topic_id"),
+                video_data.get("main_topic") or video_data.get("title", ""),
+                video_data.get("subtopic", ""),
+                video_data.get("core_scientific_concept") or video_data.get("research_summary", ""),
+                video_data.get("script_text", ""),
+                video_data.get("hook_text") or video_data.get("hook", ""),
+                video_data.get("title", ""),
+                json.dumps(video_data.get("scene_descriptions", []), ensure_ascii=False),
+                json.dumps(video_data.get("visual_asset_ids", []), ensure_ascii=False),
+                json.dumps(video_data.get("models_animations", []), ensure_ascii=False),
+                json.dumps(video_data.get("camera_angles_movements", []), ensure_ascii=False),
+                video_data.get("lighting_style", "cinematic_dark_glow"),
+                video_data.get("subtitle_text", ""),
+                video_data.get("bgm_track_id", ""),
+                video_data.get("rendered_path", ""),
+                video_data.get("clean_shorts_path", ""),
+                video_data.get("video_fingerprint", ""),
+                video_data.get("originality_score", 1.0),
+                video_data.get("publishing_status", "draft")
+            ))
+            conn.commit()
+            logger.info(f"Recorded video history for {video_id} (Fingerprint: {video_data.get('video_fingerprint', '')[:12]}...)")
+            return video_id
+
+    def get_all_past_topics(self) -> List[Dict[str, Any]]:
+        with self.get_connection() as conn:
+            cursor = conn.cursor()
+            cursor.execute("SELECT topic_id, title, category, hook, research_summary, script_text FROM topics")
+            return [dict(row) for row in cursor.fetchall()]
+
+    def get_all_past_videos(self) -> List[Dict[str, Any]]:
+        with self.get_connection() as conn:
+            cursor = conn.cursor()
+            cursor.execute("SELECT * FROM video_history ORDER BY creation_date DESC")
+            rows = []
+            for r in cursor.fetchall():
+                d = dict(r)
+                for field in ["scene_descriptions", "visual_asset_ids", "models_animations", "camera_angles_movements"]:
+                    if d.get(field):
+                        try:
+                            d[field] = json.loads(d[field])
+                        except Exception:
+                            pass
+                rows.append(d)
+            return rows
+
+    # -------------------------------------------------------------
+    # Rejected Generation Attempts Tracking
+    # -------------------------------------------------------------
+    def record_rejected_attempt(
+        self,
+        attempt_type: str,
+        content_payload: Any,
+        rejection_reason: str,
+        similarity_score: float = 0.0,
+        matched_entity_id: Optional[str] = None
+    ) -> int:
+        payload_str = json.dumps(content_payload, ensure_ascii=False) if isinstance(content_payload, (dict, list)) else str(content_payload)
+        with self.get_connection() as conn:
+            cursor = conn.cursor()
+            cursor.execute("""
+                INSERT INTO rejected_attempts (
+                    attempt_type, content_payload, rejection_reason,
+                    similarity_score, matched_entity_id
+                ) VALUES (?, ?, ?, ?, ?)
+            """, (attempt_type, payload_str, rejection_reason, similarity_score, matched_entity_id))
+            conn.commit()
+            return cursor.lastrowid
+
+    def get_recent_rejected_attempts(self, attempt_type: Optional[str] = None, limit: int = 20) -> List[Dict[str, Any]]:
+        with self.get_connection() as conn:
+            cursor = conn.cursor()
+            if attempt_type:
+                cursor.execute("""
+                    SELECT * FROM rejected_attempts WHERE attempt_type = ?
+                    ORDER BY attempted_at DESC LIMIT ?
+                """, (attempt_type, limit))
+            else:
+                cursor.execute("""
+                    SELECT * FROM rejected_attempts
+                    ORDER BY attempted_at DESC LIMIT ?
+                """, (limit,))
+            return [dict(row) for row in cursor.fetchall()]
+
