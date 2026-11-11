@@ -102,6 +102,13 @@ class YouTubePublisher:
             upload_id=video_id,
             publication_date=response.get("snippet", {}).get("publishedAt", "")
         )
+        try:
+            self.db.update_calendar_stage(
+                topic_id,
+                approval_status="UPLOADED"
+            )
+        except Exception:
+            pass
 
         return {
             "status": "success",
