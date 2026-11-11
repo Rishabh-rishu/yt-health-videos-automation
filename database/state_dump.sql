@@ -34,7 +34,7 @@ CREATE TABLE content_calendar (
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 INSERT INTO "content_calendar" VALUES(1,1,'day01_video01','Your Brain Is Always One Step Ahead','Brain and Psychology','Predictive processing: the brain creates a continuous internal hypothesis of reality rather than passively processing raw sensory input in real-time.','Aapka brain duniya ko exactly waise nahi dekhta jaise woh actually hai!','predictive_processing','Predictive Processing','PREDICTIVE PROCESSING','Brain ka sensory guess mechanism','["https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6400842/", "https://www.nature.com/articles/nrn3404"]','3D holographic glowing brain in dark slate studio with pulsating orange neural predictive pathways','cinematic_technology','VERIFIED','SCRIPT_READY','VOICE_READY','ASSETS_READY','RENDERED','QC_PASSED','UPLOADED','/home/rishabh/Heath Videos/output/videos/day01_video01_health_short.mp4','2026-11-11 10:57:11','2026-11-11 12:12:29');
-INSERT INTO "content_calendar" VALUES(1,2,'day01_video02','Your Nose Secretly Switches Sides','Human Body Secrets','The nasal cycle: autonomic alternating congestion and decongestion of nasal erectile tissue every 2 to 6 hours.','Aapki ek nostril zyada active hoti hai, phir kuch ghanton baad doosri!','nasal_cycle','Nasal Cycle','NASAL CYCLE','Nostrils ka alternating airflow','["https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4944485/", "https://www.nidcd.nih.gov/health/smell-disorders"]','3D anatomical nasal cavity cross-section showing luminous blue airflow switching from left to right nostril','medical_documentary','VERIFIED','PLANNED','PLANNED','PLANNED','PLANNED','PLANNED','STAGED','','2026-11-11 10:57:11','2026-11-11 10:57:11');
+INSERT INTO "content_calendar" VALUES(1,2,'day01_video02','Your Nose Secretly Switches Sides','Human Body Secrets','The nasal cycle: autonomic alternating congestion and decongestion of nasal erectile tissue every 2 to 6 hours.','Aapki ek nostril zyada active hoti hai, phir kuch ghanton baad doosri!','nasal_cycle','Nasal Cycle','NASAL CYCLE','Nostrils ka alternating airflow','["https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4944485/", "https://www.nidcd.nih.gov/health/smell-disorders"]','3D anatomical nasal cavity cross-section showing luminous blue airflow switching from left to right nostril','medical_documentary','VERIFIED','SCRIPT_READY','VOICE_READY','ASSETS_READY','RENDERED','QC_PASSED','UPLOADED','/home/runner/work/yt-health-videos-automation/yt-health-videos-automation/output/videos/day01_video02_health_short.mp4','2026-11-11 10:57:11','2026-11-11 13:10:34');
 INSERT INTO "content_calendar" VALUES(2,3,'day02_video03','Why Your Body Freezes During Dreams','Sleep Science','REM sleep muscle atonia: the brainstem inhibits spinal somatic motor neurons via glycine and GABA to prevent acting out vivid dreams.','Sapne mein bhaagna chahte ho, lekin body move kyun nahi karti?','muscle_atonia','REM Sleep Muscle Atonia','MUSCLE ATONIA','Sapne ke waqt temporary muscle paralysis','["https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3403735/", "https://www.ninds.nih.gov/health-information/public-education/brain-basics/brain-basics-understanding-sleep"]','Person sleeping peacefully with 3D brainstem glowing and descending blue motor inhibitory signals','deep_ambient','VERIFIED','PLANNED','PLANNED','PLANNED','PLANNED','PLANNED','STAGED','','2026-11-11 10:57:11','2026-11-11 10:57:11');
 INSERT INTO "content_calendar" VALUES(2,4,'day02_video04','Why You Feel Dizzy After Spinning','Eyes and Human Senses','The vestibular system: endolymph fluid inertia in the inner ear semicircular canals continues deflecting the cupula even after the body stops rotating.','Ghoomna band karne ke baad bhi duniya kyun ghoomti rehti hai?','vestibular_system','Vestibular System','VESTIBULAR SYSTEM','Inner ear ka balance network','["https://www.ncbi.nlm.nih.gov/books/NBK10819/", "https://medlineplus.gov/ency/anatomyvideos/000008.htm"]','3D macro view of inner ear labyrinth and semicircular canals showing luminous fluid swirling inside','suspense_science','VERIFIED','PLANNED','PLANNED','PLANNED','PLANNED','PLANNED','STAGED','','2026-11-11 10:57:11','2026-11-11 10:57:11');
 INSERT INTO "content_calendar" VALUES(3,5,'day03_video05','Why Does Your Skin Get Goosebumps?','Skin and Hair Science','Piloerection: sympathetic adrenergic activation causes tiny arrector pili smooth muscles to contract, pulling hair upright.','Dar ya thand lagte hi body ke baal khade kyun ho jaate hain?','piloerection','Piloerection','PILOERECTION','Skin muscles ka tightening reflex','["https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7439050/", "https://www.nih.gov/news-events/nih-research-matters/how-goosebumps-stimulate-stem-cells"]','3D microscopic cross-section of skin dermis showing arrector pili muscle tightening around hair follicle','mystery_discovery','VERIFIED','PLANNED','PLANNED','PLANNED','PLANNED','PLANNED','STAGED','','2026-11-11 10:57:11','2026-11-11 10:57:11');
@@ -180,6 +180,12 @@ INSERT INTO "sentence_scenes" VALUES(93,'day08_video15',2,'Ise kehte hain Compen
 INSERT INTO "sentence_scenes" VALUES(94,'day08_video15',3,'Agar liver ka 70% hissa surgically nikal bhi diya jaye, toh bhi bacha hua tissue apna 100% mass wapas gain kar leta hai.',20.168,28.289,'Clean anatomical split-screen graphic illustrating a 70 percent organ resection seamlessly transforming back into a full-sized liver.','infographic','slow_push_in','','','');
 INSERT INTO "sentence_scenes" VALUES(95,'day08_video15',4,'Yeh incredible mechanism hamari body ko toxins se protect karta hai aur harsh metabolic stress mein bhi survival ensure karta hai.',28.289,37.087,'Close-up 3D render of hepatic blood filtration pathways neutralizing glowing toxin particles in real-time.','3d_anatomy','cinematic_orbit','','','');
 INSERT INTO "sentence_scenes" VALUES(96,'day08_video15',5,'Kya aapko pata tha ki human liver bina kisi surgical help ke khud ko heal kar sakta hai? Comments mein batao!',37.087,44.464,'Polished BBC-style presenter studio backdrop with soft depth-of-field and glowing biological infographics.','relatable_footage','slow_push_in','','','');
+INSERT INTO "sentence_scenes" VALUES(97,'day01_video02',0,'Aapki ek nostril zyada active hoti hai, phir kuch ghanton baad doosri!',0.0,4.751,'Close-up 3D holographic render of a human nose in a dark slate studio with subtle ambient lighting.','3d_anatomy','slow_push_in','','','');
+INSERT INTO "sentence_scenes" VALUES(98,'day01_video02',1,'Aapki dono nostrils mein se ek waqt par sirf ek hi zyada khuli hoti hai.',4.751,9.638,'Clean, cinematic macro shot showing airflow dynamics and subtle nasal tissue movement.','relatable_footage','cinematic_orbit','','','');
+INSERT INTO "sentence_scenes" VALUES(99,'day01_video02',2,'Is rhythmic switching of autonomic erectile tissue inside the nose ko Nasal Cycle kehte hain.',9.638,15.95,'Cross-section 3D medical visualization highlighting alternating nasal turbinates and vascular congestion.','3d_anatomy','microscopic_zoom','','','');
+INSERT INTO "sentence_scenes" VALUES(100,'day01_video02',3,'Taaki ek side rest karke moisture recover kar sake aur receptor sensitivity maintain rahe.',15.95,22.059,'Microscopic view of olfactory receptor cells and mucosal lining glowing under optimal humidity.','microscopic','slow_push_in','','','');
+INSERT INTO "sentence_scenes" VALUES(101,'day01_video02',4,'Ye automatic neural pathways ke through control hota hai bina aapke dhyan ke.',22.059,27.285,'Glowing neural pathways connecting the autonomic nervous system directly to the nasal cavity.','3d_anatomy','cinematic_orbit','','','');
+INSERT INTO "sentence_scenes" VALUES(102,'day01_video02',5,'Kya aapne kabhi notice kiya ki kis waqt aapki kaunsi nostril zyada active hoti hai?',27.285,32.919,'Clean minimalist infographic interface displaying alternating nostril activity metrics in real-time.','infographic','slow_push_in','','','');
 CREATE TABLE topics (
     topic_id TEXT PRIMARY KEY,
     title TEXT NOT NULL,
@@ -525,7 +531,6 @@ INSERT INTO "topics" VALUES('health_81ee3387','Aapka brain sote waqt khud ko kai
 ---
 **Verified Output**: `/home/rishabh/Heath Videos/output/videos/health_81ee3387_health_short.mp4`  
 ',NULL,NULL,'2026-11-11 10:05:36','2026-11-11 10:07:28');
-INSERT INTO "topics" VALUES('day01_video02','Your Nose Secretly Switches Sides','Human Body Secrets','Aapki ek nostril zyada active hoti hai, phir kuch ghanton baad doosri!','Curiosity Question','The nasal cycle: autonomic alternating congestion and decongestion of nasal erectile tissue every 2 to 6 hours.','["https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4944485/", "https://www.nidcd.nih.gov/health/smell-disorders"]','verified',NULL,NULL,NULL,NULL,NULL,NULL,'planned',0,NULL,NULL,NULL,'2026-11-11 10:57:11','2026-11-11 10:57:11');
 INSERT INTO "topics" VALUES('day02_video03','Why Your Body Freezes During Dreams','Sleep Science','Sapne mein bhaagna chahte ho, lekin body move kyun nahi karti?','Curiosity Question','REM sleep muscle atonia: the brainstem inhibits spinal somatic motor neurons via glycine and GABA to prevent acting out vivid dreams.','["https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3403735/", "https://www.ninds.nih.gov/health-information/public-education/brain-basics/brain-basics-understanding-sleep"]','verified',NULL,NULL,NULL,NULL,NULL,NULL,'planned',0,NULL,NULL,NULL,'2026-11-11 10:57:11','2026-11-11 10:57:11');
 INSERT INTO "topics" VALUES('day02_video04','Why You Feel Dizzy After Spinning','Eyes and Human Senses','Ghoomna band karne ke baad bhi duniya kyun ghoomti rehti hai?','Curiosity Question','The vestibular system: endolymph fluid inertia in the inner ear semicircular canals continues deflecting the cupula even after the body stops rotating.','["https://www.ncbi.nlm.nih.gov/books/NBK10819/", "https://medlineplus.gov/ency/anatomyvideos/000008.htm"]','verified',NULL,NULL,NULL,NULL,NULL,NULL,'planned',0,NULL,NULL,NULL,'2026-11-11 10:57:11','2026-11-11 10:57:11');
 INSERT INTO "topics" VALUES('day03_video05','Why Does Your Skin Get Goosebumps?','Skin and Hair Science','Dar ya thand lagte hi body ke baal khade kyun ho jaate hain?','Curiosity Question','Piloerection: sympathetic adrenergic activation causes tiny arrector pili smooth muscles to contract, pulling hair upright.','["https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7439050/", "https://www.nih.gov/news-events/nih-research-matters/how-goosebumps-stimulate-stem-cells"]','verified',NULL,NULL,NULL,NULL,NULL,NULL,'planned',0,NULL,NULL,NULL,'2026-11-11 10:57:11','2026-11-11 10:57:11');
@@ -660,6 +665,42 @@ INSERT INTO "topics" VALUES('day08_video15','The Organ That Can Regrow Part of I
 **Verified Master Output**: `/home/rishabh/Heath Videos/output/videos/day08_video15_health_short.mp4`  
 **Originality Fingerprint**: `3f1720cc637e491c...`  
 ',NULL,NULL,'2026-11-11 11:24:55','2026-11-11 11:28:08');
+INSERT INTO "topics" VALUES('day01_video02','Your Nose Secretly Switches Sides','Human Body Secrets','Aapki ek nostril zyada active hoti hai, phir kuch ghanton baad doosri!','Curiosity Question','The nasal cycle: autonomic alternating congestion and decongestion of nasal erectile tissue every 2 to 6 hours.','["https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4944485/", "https://www.nidcd.nih.gov/health/smell-disorders"]','verified',NULL,NULL,32.919,NULL,'/home/runner/work/yt-health-videos-automation/yt-health-videos-automation/output/videos/day01_video02_health_short.mp4','/home/runner/work/yt-health-videos-automation/yt-health-videos-automation/output/thumbnails/day01_video02_thumb.jpg','published',1,'# HEALTH VIDEOS — QUALITY CONTROL AUDIT REPORT
+**Topic ID**: `day01_video02`  
+**Title**: Your Nose Secretly Switches Sides  
+**Category**: Human Body Secrets  
+**Overall Verdict**: **PASSED (APPROVED FOR PRODUCTION)**  
+**Score**: 18/18 Gates Passed (Originality Score: 0.891)  
+
+---
+
+### Audit Inspection Matrix
+
+| Gate # | Quality Gate Name | Status | Inspection Details |
+|:---:|:---|:---:|:---|
+| 01 | Female Narration Enforced | ✅ PASS | Voice: hi-IN-SwaraNeural, Female-only enforced: True |
+| 02 | Playback Speed 1.15x | ✅ PASS | Speed factor: 1.15x (Target: 1.15x) |
+| 03 | 0-2s Immediate Hook | ✅ PASS | Hook starts at: 0.00s (Threshold: <= 0.2s) |
+| 04 | Audio-Video Synchronization | ✅ PASS | Video duration: 32.90s, Audio duration: 32.93s, Delta: 0.02s |
+| 05 | Sentence-to-Visual Alignment | ✅ PASS | 6 scenes verified with distinct visuals (No adjacent duplicates: True). |
+| 06 | Word Subtitle Synchronization | ✅ PASS | Subtitles file verified (15716 bytes) |
+| 07 | Zero Black Frames | ✅ PASS | Detected black frames: 0 |
+| 08 | Media File Integrity | ✅ PASS | Output video file size: 41935492 bytes |
+| 09 | Audio Clipping & Headroom | ✅ PASS | Audio levels normalized within broadcast limits. |
+| 10 | Ambient BGM Ducking (-22dB) | ✅ PASS | BGM sidechain compressed at -20dB under vocal envelope. |
+| 11 | Aspect Ratio 9:16 (1080x1920) | ✅ PASS | Resolution: 1080x1920 (Target: 1080x1920) |
+| 12 | Duration (30–50 Seconds) | ✅ PASS | Duration: 32.90s (Allowed: 30.0-50.0s) |
+| 13 | Scientific Evidence Citations | ✅ PASS | 2 scientific sources verified (NIH/PubMed/MedlinePlus) |
+| 14 | Asset Licensing Compliance | ✅ PASS | All visual and audio assets sourced under Pexels CC0 / Pixabay / Procedural license. |
+| 15 | Catalog Topic Deduplication | ✅ PASS | Topic uniqueness score: 0.68 (Similarity: 0.32) |
+| 16 | Script & Hook Novelty Gate | ✅ PASS | Hook novelty: 0.85, Script novelty: 1.00 |
+| 17 | Visual Sequence Distinction | ✅ PASS | Sequence distinction: 1.00 (Overlap: 0.00) |
+| 18 | Shorts Audio Ready Export | ✅ PASS | Shorts audio picker ready in shorts_audio_ready/ (Guide verified) |
+
+---
+**Verified Master Output**: `/home/runner/work/yt-health-videos-automation/yt-health-videos-automation/output/videos/day01_video02_health_short.mp4`  
+**Originality Fingerprint**: `bce8268881c2d04d...`  
+','EiAR0IE0zWc','2026-11-11T13:10:32Z','2026-11-11 13:08:51','2026-11-11 13:10:34');
 CREATE TABLE video_history (
     video_id TEXT PRIMARY KEY,
     topic_id TEXT NOT NULL,
@@ -696,6 +737,6 @@ CREATE INDEX idx_calendar_day ON content_calendar(day_number);
 CREATE INDEX idx_calendar_video ON content_calendar(video_number);
 CREATE INDEX idx_calendar_status ON content_calendar(render_status);
 DELETE FROM "sqlite_sequence";
-INSERT INTO "sqlite_sequence" VALUES('sentence_scenes',96);
+INSERT INTO "sqlite_sequence" VALUES('sentence_scenes',102);
 INSERT INTO "sqlite_sequence" VALUES('rejected_attempts',5);
 COMMIT;
