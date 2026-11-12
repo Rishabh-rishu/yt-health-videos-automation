@@ -35,7 +35,7 @@ CREATE TABLE content_calendar (
 );
 INSERT INTO "content_calendar" VALUES(1,1,'day01_video01','Your Brain Is Always One Step Ahead','Brain and Psychology','Predictive processing: the brain creates a continuous internal hypothesis of reality rather than passively processing raw sensory input in real-time.','Aapka brain duniya ko exactly waise nahi dekhta jaise woh actually hai!','predictive_processing','Predictive Processing','PREDICTIVE PROCESSING','Brain ka sensory guess mechanism','["https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6400842/", "https://www.nature.com/articles/nrn3404"]','3D holographic glowing brain in dark slate studio with pulsating orange neural predictive pathways','cinematic_technology','VERIFIED','SCRIPT_READY','VOICE_READY','ASSETS_READY','RENDERED','QC_PASSED','UPLOADED','/home/rishabh/Heath Videos/output/videos/day01_video01_health_short.mp4','2026-11-11 10:57:11','2026-11-11 12:12:29');
 INSERT INTO "content_calendar" VALUES(1,2,'day01_video02','Your Nose Secretly Switches Sides','Human Body Secrets','The nasal cycle: autonomic alternating congestion and decongestion of nasal erectile tissue every 2 to 6 hours.','Aapki ek nostril zyada active hoti hai, phir kuch ghanton baad doosri!','nasal_cycle','Nasal Cycle','NASAL CYCLE','Nostrils ka alternating airflow','["https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4944485/", "https://www.nidcd.nih.gov/health/smell-disorders"]','3D anatomical nasal cavity cross-section showing luminous blue airflow switching from left to right nostril','medical_documentary','VERIFIED','SCRIPT_READY','VOICE_READY','ASSETS_READY','RENDERED','QC_PASSED','UPLOADED','/home/runner/work/yt-health-videos-automation/yt-health-videos-automation/output/videos/day01_video02_health_short.mp4','2026-11-11 10:57:11','2026-11-11 13:10:34');
-INSERT INTO "content_calendar" VALUES(2,3,'day02_video03','Why Your Body Freezes During Dreams','Sleep Science','REM sleep muscle atonia: the brainstem inhibits spinal somatic motor neurons via glycine and GABA to prevent acting out vivid dreams.','Sapne mein bhaagna chahte ho, lekin body move kyun nahi karti?','muscle_atonia','REM Sleep Muscle Atonia','MUSCLE ATONIA','Sapne ke waqt temporary muscle paralysis','["https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3403735/", "https://www.ninds.nih.gov/health-information/public-education/brain-basics/brain-basics-understanding-sleep"]','Person sleeping peacefully with 3D brainstem glowing and descending blue motor inhibitory signals','deep_ambient','VERIFIED','PLANNED','PLANNED','PLANNED','PLANNED','PLANNED','STAGED','','2026-11-11 10:57:11','2026-11-11 10:57:11');
+INSERT INTO "content_calendar" VALUES(2,3,'day02_video03','Why Your Body Freezes During Dreams','Sleep Science','REM sleep muscle atonia: the brainstem inhibits spinal somatic motor neurons via glycine and GABA to prevent acting out vivid dreams.','Sapne mein bhaagna chahte ho, lekin body move kyun nahi karti?','muscle_atonia','REM Sleep Muscle Atonia','MUSCLE ATONIA','Sapne ke waqt temporary muscle paralysis','["https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3403735/", "https://www.ninds.nih.gov/health-information/public-education/brain-basics/brain-basics-understanding-sleep"]','Person sleeping peacefully with 3D brainstem glowing and descending blue motor inhibitory signals','deep_ambient','VERIFIED','SCRIPT_READY','VOICE_READY','ASSETS_READY','RENDERED','QC_FAILED','UPLOADED','/home/runner/work/yt-health-videos-automation/yt-health-videos-automation/output/videos/day02_video03_health_short.mp4','2026-11-11 10:57:11','2026-11-12 05:08:16');
 INSERT INTO "content_calendar" VALUES(2,4,'day02_video04','Why You Feel Dizzy After Spinning','Eyes and Human Senses','The vestibular system: endolymph fluid inertia in the inner ear semicircular canals continues deflecting the cupula even after the body stops rotating.','Ghoomna band karne ke baad bhi duniya kyun ghoomti rehti hai?','vestibular_system','Vestibular System','VESTIBULAR SYSTEM','Inner ear ka balance network','["https://www.ncbi.nlm.nih.gov/books/NBK10819/", "https://medlineplus.gov/ency/anatomyvideos/000008.htm"]','3D macro view of inner ear labyrinth and semicircular canals showing luminous fluid swirling inside','suspense_science','VERIFIED','PLANNED','PLANNED','PLANNED','PLANNED','PLANNED','STAGED','','2026-11-11 10:57:11','2026-11-11 10:57:11');
 INSERT INTO "content_calendar" VALUES(3,5,'day03_video05','Why Does Your Skin Get Goosebumps?','Skin and Hair Science','Piloerection: sympathetic adrenergic activation causes tiny arrector pili smooth muscles to contract, pulling hair upright.','Dar ya thand lagte hi body ke baal khade kyun ho jaate hain?','piloerection','Piloerection','PILOERECTION','Skin muscles ka tightening reflex','["https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7439050/", "https://www.nih.gov/news-events/nih-research-matters/how-goosebumps-stimulate-stem-cells"]','3D microscopic cross-section of skin dermis showing arrector pili muscle tightening around hair follicle','mystery_discovery','VERIFIED','PLANNED','PLANNED','PLANNED','PLANNED','PLANNED','STAGED','','2026-11-11 10:57:11','2026-11-11 10:57:11');
 INSERT INTO "content_calendar" VALUES(3,6,'day03_video06','Your Heart Has Its Own Electrical System','Heart and Blood Circulation','Cardiac conduction system: the sinoatrial (SA) node generates intrinsic spontaneous electrical action potentials independently of brain input.','Aapka heart apni electrical signals generate karke beat kar sakta hai!','sa_node','Sinoatrial (SA) Node','SA NODE','Heart ka natural electric pacemaker','["https://www.ncbi.nlm.nih.gov/books/NBK459233/", "https://www.cdc.gov/heartdisease/facts.htm"]','Pulsating 3D anatomical heart in dark studio with bright golden electrical currents branching from the SA node','medical_documentary','VERIFIED','PLANNED','PLANNED','PLANNED','PLANNED','PLANNED','STAGED','','2026-11-11 10:57:11','2026-11-11 10:57:11');
@@ -87,6 +87,7 @@ INSERT INTO "rejected_attempts" VALUES(2,'similarity_gating','{"title": "Glympha
 INSERT INTO "rejected_attempts" VALUES(3,'similarity_gating','{"title": "Glymphatic System: Sote Waqt Brain Kaise Clean Hota Hai?", "hook": "Jab aap gehri neend mein sote hain, aapka dimaag shrink ho jata hai."}','Originality Gate Failure: 2 checks failed. Score=0.683',1.0,'Glymphatic System: Sote Waqt Brain Kaise Clean Hota Hai?','2026-11-11 10:27:56');
 INSERT INTO "rejected_attempts" VALUES(4,'similarity_gating','{"title": "Mitochondria: Cell Ka Powerhouse Energy Kaise Banata Hai?", "hook": "Aapke shareer ke har cell mein hazaron tiny factories hain."}','Originality Gate Failure: 1 checks failed. Score=0.808',5.71428571428571396e-01,'Dimag ki Safai: Neend mein brain kaise clean hota hai?','2026-11-11 10:28:35');
 INSERT INTO "rejected_attempts" VALUES(5,'similarity_gating','{"title": "Mitochondria: Cell Ka Powerhouse Energy Kaise Banata Hai?", "hook": "Aapke shareer ke har cell mein hazaron tiny factories hain."}','Originality Gate Failure: 1 checks failed. Score=0.922',1.66666666666666685e-01,'Dimag ki Safai: Neend mein brain kaise clean hota hai?','2026-11-11 10:28:49');
+INSERT INTO "rejected_attempts" VALUES(6,'similarity_gating','{"title": "Why Your Body Freezes During Dreams", "hook": "Sapne mein bhaagna chahte ho, lekin body move kyun nahi karti?"}','Originality Gate Failure: 1 checks failed. Score=0.802',3.69274472937998254e-01,'Sleep Paralysis – When Your Mind Wakes Before Your Body','2026-11-12 05:08:13');
 CREATE TABLE sentence_scenes (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     topic_id TEXT NOT NULL,
@@ -186,6 +187,12 @@ INSERT INTO "sentence_scenes" VALUES(99,'day01_video02',2,'Is rhythmic switching
 INSERT INTO "sentence_scenes" VALUES(100,'day01_video02',3,'Taaki ek side rest karke moisture recover kar sake aur receptor sensitivity maintain rahe.',15.95,22.059,'Microscopic view of olfactory receptor cells and mucosal lining glowing under optimal humidity.','microscopic','slow_push_in','','','');
 INSERT INTO "sentence_scenes" VALUES(101,'day01_video02',4,'Ye automatic neural pathways ke through control hota hai bina aapke dhyan ke.',22.059,27.285,'Glowing neural pathways connecting the autonomic nervous system directly to the nasal cavity.','3d_anatomy','cinematic_orbit','','','');
 INSERT INTO "sentence_scenes" VALUES(102,'day01_video02',5,'Kya aapne kabhi notice kiya ki kis waqt aapki kaunsi nostril zyada active hoti hai?',27.285,32.919,'Clean minimalist infographic interface displaying alternating nostril activity metrics in real-time.','infographic','slow_push_in','','','');
+INSERT INTO "sentence_scenes" VALUES(103,'day02_video03',0,'Sapne mein bhaagna chahte ho, lekin body move kyun nahi karti?',0.1,4.665,'Cinematic slow-motion shot of a person sleeping restfully in dim blue lighting, subtle dynamic lighting shifts.','relatable_footage','slow_push_in','','','');
+INSERT INTO "sentence_scenes" VALUES(104,'day02_video03',1,'Jab aap deep REM sleep mein hote hain, aapka brainstem temporary tor par voluntary muscles ke neural pathways ko block kar deta hai.',4.615,12.626,'3D glowing translucent human brain focusing on the brainstem pulsing with bioluminescent neural signals.','3d_anatomy','cinematic_orbit','','','');
+INSERT INTO "sentence_scenes" VALUES(105,'day02_video03',2,'Is exact physiological mechanism ko hum REM Sleep Muscle Atonia kehte hain, jahan glycine aur GABA neurotransmitters motor neurons ko suppress karte hain.',12.626,22.235,'Microscopic animation of neurotransmitter molecules binding to cellular receptors across a synaptic cleft in vibrant purple and cyan.','microscopic','microscopic_zoom','','','');
+INSERT INTO "sentence_scenes" VALUES(106,'day02_video03',3,'Ye evolutionary defense mechanism hai taaki aap vivid dreams ke dauran physically react karke khud ko ya apne partner ko injure na kar dein.',22.235,31.126,'3D skeletal and muscular system of the human body glowing softly in a defensive posture.','3d_anatomy','slow_push_in','','','');
+INSERT INTO "sentence_scenes" VALUES(107,'day02_video03',4,'Jab ye system kabhi-kabhi premature disable ho jata hai, tab aapko sleep paralysis ka experience hota hai.',31.126,38.072,'Clean minimalist infographic overlay showing sleep stage transition timelines and motor neuron activity graphs.','infographic','cinematic_orbit','','','');
+INSERT INTO "sentence_scenes" VALUES(108,'day02_video03',5,'Aapke brain ki ye safety coding kitni fascinating hai, niche comment karke bataiye?',38.072,43.713,'Cinematic close-up of peaceful human eyes resting during REM sleep with subtle ambient starfield backdrop.','relatable_footage','slow_push_in','','','');
 CREATE TABLE topics (
     topic_id TEXT PRIMARY KEY,
     title TEXT NOT NULL,
@@ -531,7 +538,6 @@ INSERT INTO "topics" VALUES('health_81ee3387','Aapka brain sote waqt khud ko kai
 ---
 **Verified Output**: `/home/rishabh/Heath Videos/output/videos/health_81ee3387_health_short.mp4`  
 ',NULL,NULL,'2026-11-11 10:05:36','2026-11-11 10:07:28');
-INSERT INTO "topics" VALUES('day02_video03','Why Your Body Freezes During Dreams','Sleep Science','Sapne mein bhaagna chahte ho, lekin body move kyun nahi karti?','Curiosity Question','REM sleep muscle atonia: the brainstem inhibits spinal somatic motor neurons via glycine and GABA to prevent acting out vivid dreams.','["https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3403735/", "https://www.ninds.nih.gov/health-information/public-education/brain-basics/brain-basics-understanding-sleep"]','verified',NULL,NULL,NULL,NULL,NULL,NULL,'planned',0,NULL,NULL,NULL,'2026-11-11 10:57:11','2026-11-11 10:57:11');
 INSERT INTO "topics" VALUES('day02_video04','Why You Feel Dizzy After Spinning','Eyes and Human Senses','Ghoomna band karne ke baad bhi duniya kyun ghoomti rehti hai?','Curiosity Question','The vestibular system: endolymph fluid inertia in the inner ear semicircular canals continues deflecting the cupula even after the body stops rotating.','["https://www.ncbi.nlm.nih.gov/books/NBK10819/", "https://medlineplus.gov/ency/anatomyvideos/000008.htm"]','verified',NULL,NULL,NULL,NULL,NULL,NULL,'planned',0,NULL,NULL,NULL,'2026-11-11 10:57:11','2026-11-11 10:57:11');
 INSERT INTO "topics" VALUES('day03_video05','Why Does Your Skin Get Goosebumps?','Skin and Hair Science','Dar ya thand lagte hi body ke baal khade kyun ho jaate hain?','Curiosity Question','Piloerection: sympathetic adrenergic activation causes tiny arrector pili smooth muscles to contract, pulling hair upright.','["https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7439050/", "https://www.nih.gov/news-events/nih-research-matters/how-goosebumps-stimulate-stem-cells"]','verified',NULL,NULL,NULL,NULL,NULL,NULL,'planned',0,NULL,NULL,NULL,'2026-11-11 10:57:11','2026-11-11 10:57:11');
 INSERT INTO "topics" VALUES('day03_video06','Your Heart Has Its Own Electrical System','Heart and Blood Circulation','Aapka heart apni electrical signals generate karke beat kar sakta hai!','Curiosity Question','Cardiac conduction system: the sinoatrial (SA) node generates intrinsic spontaneous electrical action potentials independently of brain input.','["https://www.ncbi.nlm.nih.gov/books/NBK459233/", "https://www.cdc.gov/heartdisease/facts.htm"]','verified',NULL,NULL,NULL,NULL,NULL,NULL,'planned',0,NULL,NULL,NULL,'2026-11-11 10:57:11','2026-11-11 10:57:11');
@@ -701,6 +707,42 @@ INSERT INTO "topics" VALUES('day01_video02','Your Nose Secretly Switches Sides',
 **Verified Master Output**: `/home/runner/work/yt-health-videos-automation/yt-health-videos-automation/output/videos/day01_video02_health_short.mp4`  
 **Originality Fingerprint**: `bce8268881c2d04d...`  
 ','EiAR0IE0zWc','2026-11-11T13:10:32Z','2026-11-11 13:08:51','2026-11-11 13:10:34');
+INSERT INTO "topics" VALUES('day02_video03','Why Your Body Freezes During Dreams','Sleep Science','Sapne mein bhaagna chahte ho, lekin body move kyun nahi karti?','Curiosity Question','REM sleep muscle atonia: the brainstem inhibits spinal somatic motor neurons via glycine and GABA to prevent acting out vivid dreams.','["https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3403735/", "https://www.ninds.nih.gov/health-information/public-education/brain-basics/brain-basics-understanding-sleep"]','verified',NULL,NULL,43.713,NULL,'/home/runner/work/yt-health-videos-automation/yt-health-videos-automation/output/videos/day02_video03_health_short.mp4','/home/runner/work/yt-health-videos-automation/yt-health-videos-automation/output/thumbnails/day02_video03_thumb.jpg','published',0,'# HEALTH VIDEOS — QUALITY CONTROL AUDIT REPORT
+**Topic ID**: `day02_video03`  
+**Title**: Why Your Body Freezes During Dreams  
+**Category**: Sleep Science  
+**Overall Verdict**: **REJECTED (REQUIRES REPAIR)**  
+**Score**: 17/18 Gates Passed (Originality Score: 0.802)  
+
+---
+
+### Audit Inspection Matrix
+
+| Gate # | Quality Gate Name | Status | Inspection Details |
+|:---:|:---|:---:|:---|
+| 01 | Female Narration Enforced | ✅ PASS | Voice: hi-IN-SwaraNeural, Female-only enforced: True |
+| 02 | Playback Speed 1.15x | ✅ PASS | Speed factor: 1.15x (Target: 1.15x) |
+| 03 | 0-2s Immediate Hook | ✅ PASS | Hook starts at: 0.10s (Threshold: <= 0.2s) |
+| 04 | Audio-Video Synchronization | ✅ PASS | Video duration: 43.70s, Audio duration: 43.70s, Delta: 0.00s |
+| 05 | Sentence-to-Visual Alignment | ✅ PASS | 6 scenes verified with distinct visuals (No adjacent duplicates: True). |
+| 06 | Word Subtitle Synchronization | ✅ PASS | Subtitles file verified (20637 bytes) |
+| 07 | Zero Black Frames | ✅ PASS | Detected black frames: 0 |
+| 08 | Media File Integrity | ✅ PASS | Output video file size: 61356774 bytes |
+| 09 | Audio Clipping & Headroom | ✅ PASS | Audio levels normalized within broadcast limits. |
+| 10 | Ambient BGM Ducking (-22dB) | ✅ PASS | BGM sidechain compressed at -20dB under vocal envelope. |
+| 11 | Aspect Ratio 9:16 (1080x1920) | ✅ PASS | Resolution: 1080x1920 (Target: 1080x1920) |
+| 12 | Duration (30–50 Seconds) | ✅ PASS | Duration: 43.70s (Allowed: 30.0-50.0s) |
+| 13 | Scientific Evidence Citations | ✅ PASS | 2 scientific sources verified (NIH/PubMed/MedlinePlus) |
+| 14 | Asset Licensing Compliance | ✅ PASS | All visual and audio assets sourced under Pexels CC0 / Pixabay / Procedural license. |
+| 15 | Catalog Topic Deduplication | ✅ PASS | Topic uniqueness score: 0.63 (Similarity: 0.37) |
+| 16 | Script & Hook Novelty Gate | ❌ FAIL | Hook novelty: 0.47, Script novelty: 1.00 |
+| 17 | Visual Sequence Distinction | ✅ PASS | Sequence distinction: 1.00 (Overlap: 0.00) |
+| 18 | Shorts Audio Ready Export | ✅ PASS | Shorts audio picker ready in shorts_audio_ready/ (Guide verified) |
+
+---
+**Verified Master Output**: `/home/runner/work/yt-health-videos-automation/yt-health-videos-automation/output/videos/day02_video03_health_short.mp4`  
+**Originality Fingerprint**: `617f1e0220ee4752...`  
+','SMF77AFvIU0','2026-11-12T05:08:14Z','2026-11-12 05:05:39','2026-11-12 05:08:16');
 CREATE TABLE video_history (
     video_id TEXT PRIMARY KEY,
     topic_id TEXT NOT NULL,
@@ -737,6 +779,6 @@ CREATE INDEX idx_calendar_day ON content_calendar(day_number);
 CREATE INDEX idx_calendar_video ON content_calendar(video_number);
 CREATE INDEX idx_calendar_status ON content_calendar(render_status);
 DELETE FROM "sqlite_sequence";
-INSERT INTO "sqlite_sequence" VALUES('sentence_scenes',102);
-INSERT INTO "sqlite_sequence" VALUES('rejected_attempts',5);
+INSERT INTO "sqlite_sequence" VALUES('sentence_scenes',108);
+INSERT INTO "sqlite_sequence" VALUES('rejected_attempts',6);
 COMMIT;

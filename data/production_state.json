@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exported_at": "2026-11-11 13:10:38.147139",
+  "exported_at": "2026-11-12 05:08:21.944798",
   "tables": {
     "topics": [
       {
@@ -278,29 +278,6 @@
         "publication_date": null,
         "created_at": "2026-11-11 10:05:36",
         "updated_at": "2026-11-11 10:07:28"
-      },
-      {
-        "topic_id": "day02_video03",
-        "title": "Why Your Body Freezes During Dreams",
-        "category": "Sleep Science",
-        "hook": "Sapne mein bhaagna chahte ho, lekin body move kyun nahi karti?",
-        "hook_style": "Curiosity Question",
-        "research_summary": "REM sleep muscle atonia: the brainstem inhibits spinal somatic motor neurons via glycine and GABA to prevent acting out vivid dreams.",
-        "research_sources": "[\"https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3403735/\", \"https://www.ninds.nih.gov/health-information/public-education/brain-basics/brain-basics-understanding-sleep\"]",
-        "evidence_status": "verified",
-        "script_text": null,
-        "duration_estimated": null,
-        "duration_actual": null,
-        "voice_file_path": null,
-        "video_path": null,
-        "thumbnail_path": null,
-        "status": "planned",
-        "qc_passed": 0,
-        "qc_report": null,
-        "upload_id": null,
-        "publication_date": null,
-        "created_at": "2026-11-11 10:57:11",
-        "updated_at": "2026-11-11 10:57:11"
       },
       {
         "topic_id": "day02_video04",
@@ -968,6 +945,29 @@
         "publication_date": "2026-11-11T13:10:32Z",
         "created_at": "2026-11-11 13:08:51",
         "updated_at": "2026-11-11 13:10:34"
+      },
+      {
+        "topic_id": "day02_video03",
+        "title": "Why Your Body Freezes During Dreams",
+        "category": "Sleep Science",
+        "hook": "Sapne mein bhaagna chahte ho, lekin body move kyun nahi karti?",
+        "hook_style": "Curiosity Question",
+        "research_summary": "REM sleep muscle atonia: the brainstem inhibits spinal somatic motor neurons via glycine and GABA to prevent acting out vivid dreams.",
+        "research_sources": "[\"https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3403735/\", \"https://www.ninds.nih.gov/health-information/public-education/brain-basics/brain-basics-understanding-sleep\"]",
+        "evidence_status": "verified",
+        "script_text": null,
+        "duration_estimated": null,
+        "duration_actual": 43.713,
+        "voice_file_path": null,
+        "video_path": "/home/runner/work/yt-health-videos-automation/yt-health-videos-automation/output/videos/day02_video03_health_short.mp4",
+        "thumbnail_path": "/home/runner/work/yt-health-videos-automation/yt-health-videos-automation/output/thumbnails/day02_video03_thumb.jpg",
+        "status": "published",
+        "qc_passed": 0,
+        "qc_report": "# HEALTH VIDEOS — QUALITY CONTROL AUDIT REPORT\n**Topic ID**: `day02_video03`  \n**Title**: Why Your Body Freezes During Dreams  \n**Category**: Sleep Science  \n**Overall Verdict**: **REJECTED (REQUIRES REPAIR)**  \n**Score**: 17/18 Gates Passed (Originality Score: 0.802)  \n\n---\n\n### Audit Inspection Matrix\n\n| Gate # | Quality Gate Name | Status | Inspection Details |\n|:---:|:---|:---:|:---|\n| 01 | Female Narration Enforced | ✅ PASS | Voice: hi-IN-SwaraNeural, Female-only enforced: True |\n| 02 | Playback Speed 1.15x | ✅ PASS | Speed factor: 1.15x (Target: 1.15x) |\n| 03 | 0-2s Immediate Hook | ✅ PASS | Hook starts at: 0.10s (Threshold: <= 0.2s) |\n| 04 | Audio-Video Synchronization | ✅ PASS | Video duration: 43.70s, Audio duration: 43.70s, Delta: 0.00s |\n| 05 | Sentence-to-Visual Alignment | ✅ PASS | 6 scenes verified with distinct visuals (No adjacent duplicates: True). |\n| 06 | Word Subtitle Synchronization | ✅ PASS | Subtitles file verified (20637 bytes) |\n| 07 | Zero Black Frames | ✅ PASS | Detected black frames: 0 |\n| 08 | Media File Integrity | ✅ PASS | Output video file size: 61356774 bytes |\n| 09 | Audio Clipping & Headroom | ✅ PASS | Audio levels normalized within broadcast limits. |\n| 10 | Ambient BGM Ducking (-22dB) | ✅ PASS | BGM sidechain compressed at -20dB under vocal envelope. |\n| 11 | Aspect Ratio 9:16 (1080x1920) | ✅ PASS | Resolution: 1080x1920 (Target: 1080x1920) |\n| 12 | Duration (30–50 Seconds) | ✅ PASS | Duration: 43.70s (Allowed: 30.0-50.0s) |\n| 13 | Scientific Evidence Citations | ✅ PASS | 2 scientific sources verified (NIH/PubMed/MedlinePlus) |\n| 14 | Asset Licensing Compliance | ✅ PASS | All visual and audio assets sourced under Pexels CC0 / Pixabay / Procedural license. |\n| 15 | Catalog Topic Deduplication | ✅ PASS | Topic uniqueness score: 0.63 (Similarity: 0.37) |\n| 16 | Script & Hook Novelty Gate | ❌ FAIL | Hook novelty: 0.47, Script novelty: 1.00 |\n| 17 | Visual Sequence Distinction | ✅ PASS | Sequence distinction: 1.00 (Overlap: 0.00) |\n| 18 | Shorts Audio Ready Export | ✅ PASS | Shorts audio picker ready in shorts_audio_ready/ (Guide verified) |\n\n---\n**Verified Master Output**: `/home/runner/work/yt-health-videos-automation/yt-health-videos-automation/output/videos/day02_video03_health_short.mp4`  \n**Originality Fingerprint**: `617f1e0220ee4752...`  \n",
+        "upload_id": "SMF77AFvIU0",
+        "publication_date": "2026-11-12T05:08:14Z",
+        "created_at": "2026-11-12 05:05:39",
+        "updated_at": "2026-11-12 05:08:16"
       }
     ],
     "content_calendar": [
@@ -1039,15 +1039,15 @@
         "visual_style_prompt": "Person sleeping peacefully with 3D brainstem glowing and descending blue motor inhibitory signals",
         "bgm_category": "deep_ambient",
         "research_status": "VERIFIED",
-        "script_status": "PLANNED",
-        "voice_status": "PLANNED",
-        "visual_status": "PLANNED",
-        "render_status": "PLANNED",
-        "qc_status": "PLANNED",
-        "approval_status": "STAGED",
-        "video_path": "",
+        "script_status": "SCRIPT_READY",
+        "voice_status": "VOICE_READY",
+        "visual_status": "ASSETS_READY",
+        "render_status": "RENDERED",
+        "qc_status": "QC_FAILED",
+        "approval_status": "UPLOADED",
+        "video_path": "/home/runner/work/yt-health-videos-automation/yt-health-videos-automation/output/videos/day02_video03_health_short.mp4",
         "created_at": "2026-11-11 10:57:11",
-        "updated_at": "2026-11-11 10:57:11"
+        "updated_at": "2026-11-12 05:08:16"
       },
       {
         "day_number": 2,
@@ -2953,6 +2953,90 @@
         "animation_notes": "",
         "overlay_text": "",
         "asset_path": ""
+      },
+      {
+        "id": 103,
+        "topic_id": "day02_video03",
+        "sentence_idx": 0,
+        "sentence_text": "Sapne mein bhaagna chahte ho, lekin body move kyun nahi karti?",
+        "start_sec": 0.1,
+        "end_sec": 4.665,
+        "visual_description": "Cinematic slow-motion shot of a person sleeping restfully in dim blue lighting, subtle dynamic lighting shifts.",
+        "visual_type": "relatable_footage",
+        "camera_movement": "slow_push_in",
+        "animation_notes": "",
+        "overlay_text": "",
+        "asset_path": ""
+      },
+      {
+        "id": 104,
+        "topic_id": "day02_video03",
+        "sentence_idx": 1,
+        "sentence_text": "Jab aap deep REM sleep mein hote hain, aapka brainstem temporary tor par voluntary muscles ke neural pathways ko block kar deta hai.",
+        "start_sec": 4.615,
+        "end_sec": 12.626,
+        "visual_description": "3D glowing translucent human brain focusing on the brainstem pulsing with bioluminescent neural signals.",
+        "visual_type": "3d_anatomy",
+        "camera_movement": "cinematic_orbit",
+        "animation_notes": "",
+        "overlay_text": "",
+        "asset_path": ""
+      },
+      {
+        "id": 105,
+        "topic_id": "day02_video03",
+        "sentence_idx": 2,
+        "sentence_text": "Is exact physiological mechanism ko hum REM Sleep Muscle Atonia kehte hain, jahan glycine aur GABA neurotransmitters motor neurons ko suppress karte hain.",
+        "start_sec": 12.626,
+        "end_sec": 22.235,
+        "visual_description": "Microscopic animation of neurotransmitter molecules binding to cellular receptors across a synaptic cleft in vibrant purple and cyan.",
+        "visual_type": "microscopic",
+        "camera_movement": "microscopic_zoom",
+        "animation_notes": "",
+        "overlay_text": "",
+        "asset_path": ""
+      },
+      {
+        "id": 106,
+        "topic_id": "day02_video03",
+        "sentence_idx": 3,
+        "sentence_text": "Ye evolutionary defense mechanism hai taaki aap vivid dreams ke dauran physically react karke khud ko ya apne partner ko injure na kar dein.",
+        "start_sec": 22.235,
+        "end_sec": 31.126,
+        "visual_description": "3D skeletal and muscular system of the human body glowing softly in a defensive posture.",
+        "visual_type": "3d_anatomy",
+        "camera_movement": "slow_push_in",
+        "animation_notes": "",
+        "overlay_text": "",
+        "asset_path": ""
+      },
+      {
+        "id": 107,
+        "topic_id": "day02_video03",
+        "sentence_idx": 4,
+        "sentence_text": "Jab ye system kabhi-kabhi premature disable ho jata hai, tab aapko sleep paralysis ka experience hota hai.",
+        "start_sec": 31.126,
+        "end_sec": 38.072,
+        "visual_description": "Clean minimalist infographic overlay showing sleep stage transition timelines and motor neuron activity graphs.",
+        "visual_type": "infographic",
+        "camera_movement": "cinematic_orbit",
+        "animation_notes": "",
+        "overlay_text": "",
+        "asset_path": ""
+      },
+      {
+        "id": 108,
+        "topic_id": "day02_video03",
+        "sentence_idx": 5,
+        "sentence_text": "Aapke brain ki ye safety coding kitni fascinating hai, niche comment karke bataiye?",
+        "start_sec": 38.072,
+        "end_sec": 43.713,
+        "visual_description": "Cinematic close-up of peaceful human eyes resting during REM sleep with subtle ambient starfield backdrop.",
+        "visual_type": "relatable_footage",
+        "camera_movement": "slow_push_in",
+        "animation_notes": "",
+        "overlay_text": "",
+        "asset_path": ""
       }
     ],
     "publication_log": [],
@@ -3002,6 +3086,15 @@
         "similarity_score": 0.16666666666666669,
         "matched_entity_id": "Dimag ki Safai: Neend mein brain kaise clean hota hai?",
         "attempted_at": "2026-11-11 10:28:49"
+      },
+      {
+        "attempt_id": 6,
+        "attempt_type": "similarity_gating",
+        "content_payload": "{\"title\": \"Why Your Body Freezes During Dreams\", \"hook\": \"Sapne mein bhaagna chahte ho, lekin body move kyun nahi karti?\"}",
+        "rejection_reason": "Originality Gate Failure: 1 checks failed. Score=0.802",
+        "similarity_score": 0.36927447293799825,
+        "matched_entity_id": "Sleep Paralysis – When Your Mind Wakes Before Your Body",
+        "attempted_at": "2026-11-12 05:08:13"
       }
     ]
   }
