@@ -39,7 +39,7 @@ INSERT INTO "content_calendar" VALUES(2,3,'day02_video03','Why Your Body Freezes
 INSERT INTO "content_calendar" VALUES(2,4,'day02_video04','Why You Feel Dizzy After Spinning','Eyes and Human Senses','The vestibular system: endolymph fluid inertia in the inner ear semicircular canals continues deflecting the cupula even after the body stops rotating.','Ghoomna band karne ke baad bhi duniya kyun ghoomti rehti hai?','vestibular_system','Vestibular System','VESTIBULAR SYSTEM','Inner ear ka balance network','["https://www.ncbi.nlm.nih.gov/books/NBK10819/", "https://medlineplus.gov/ency/anatomyvideos/000008.htm"]','3D macro view of inner ear labyrinth and semicircular canals showing luminous fluid swirling inside','suspense_science','VERIFIED','SCRIPT_READY','VOICE_READY','ASSETS_READY','RENDERED','QC_PASSED','UPLOADED','/home/runner/work/yt-health-videos-automation/yt-health-videos-automation/output/videos/day02_video04_health_short.mp4','2026-11-11 10:57:11','2026-11-12 12:19:36');
 INSERT INTO "content_calendar" VALUES(3,5,'day03_video05','Why Does Your Skin Get Goosebumps?','Skin and Hair Science','Piloerection: sympathetic adrenergic activation causes tiny arrector pili smooth muscles to contract, pulling hair upright.','Dar ya thand lagte hi body ke baal khade kyun ho jaate hain?','piloerection','Piloerection','PILOERECTION','Skin muscles ka tightening reflex','["https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7439050/", "https://www.nih.gov/news-events/nih-research-matters/how-goosebumps-stimulate-stem-cells"]','3D microscopic cross-section of skin dermis showing arrector pili muscle tightening around hair follicle','mystery_discovery','VERIFIED','SCRIPT_READY','VOICE_READY','ASSETS_READY','RENDERED','QC_PASSED','UPLOADED','/home/runner/work/yt-health-videos-automation/yt-health-videos-automation/output/videos/day03_video05_health_short.mp4','2026-11-11 10:57:11','2026-11-12 20:14:51');
 INSERT INTO "content_calendar" VALUES(3,6,'day03_video06','Your Heart Has Its Own Electrical System','Heart and Blood Circulation','Cardiac conduction system: the sinoatrial (SA) node generates intrinsic spontaneous electrical action potentials independently of brain input.','Aapka heart apni electrical signals generate karke beat kar sakta hai!','sa_node','Sinoatrial (SA) Node','SA NODE','Heart ka natural electric pacemaker','["https://www.ncbi.nlm.nih.gov/books/NBK459233/", "https://www.cdc.gov/heartdisease/facts.htm"]','Pulsating 3D anatomical heart in dark studio with bright golden electrical currents branching from the SA node','medical_documentary','VERIFIED','SCRIPT_READY','VOICE_READY','ASSETS_READY','RENDERED','QC_PASSED','UPLOADED','/home/runner/work/yt-health-videos-automation/yt-health-videos-automation/output/videos/day03_video06_health_short.mp4','2026-11-11 10:57:11','2026-11-13 11:58:11');
-INSERT INTO "content_calendar" VALUES(4,7,'day04_video07','Why Doesn''t Your Stomach Digest Itself?','Gut Health','Gastric mucosal barrier: surface mucous cells secrete an alkaline, bicarbonate-rich gelatinous mucus layer protecting against pH 1.5 hydrochloric acid.','Aapke stomach mein powerful acid hota hai, phir woh khud ko digest kyun nahi karta?','gastric_mucus_barrier','Gastric Mucus Barrier','MUCUS BARRIER','Acid se bachane wali protective shield','["https://www.ncbi.nlm.nih.gov/books/NBK535425/", "https://medlineplus.gov/ency/anatomyvideos/000007.htm"]','3D interior cross-section of stomach rugae with glowing green gastric acid repelled by a luminous protective mucus gel barrier','suspense_science','VERIFIED','SCRIPT_READY','VOICE_READY','ASSETS_READY','RENDERED','QC_PASSED','APPROVED','/home/rishabh/Heath Videos/output/videos/day04_video07_health_short.mp4','2026-11-11 10:57:11','2026-11-11 11:20:54');
+INSERT INTO "content_calendar" VALUES(4,7,'day04_video07','Why Doesn''t Your Stomach Digest Itself?','Gut Health','Gastric mucosal barrier: surface mucous cells secrete an alkaline, bicarbonate-rich gelatinous mucus layer protecting against pH 1.5 hydrochloric acid.','Aapke stomach mein powerful acid hota hai, phir woh khud ko digest kyun nahi karta?','gastric_mucus_barrier','Gastric Mucus Barrier','MUCUS BARRIER','Acid se bachane wali protective shield','["https://www.ncbi.nlm.nih.gov/books/NBK535425/", "https://medlineplus.gov/ency/anatomyvideos/000007.htm"]','3D interior cross-section of stomach rugae with glowing green gastric acid repelled by a luminous protective mucus gel barrier','suspense_science','VERIFIED','SCRIPT_READY','VOICE_READY','ASSETS_READY','RENDERED','QC_PASSED','UPLOADED','/home/runner/work/yt-health-videos-automation/yt-health-videos-automation/output/videos/day04_video07_health_short.mp4','2026-11-11 10:57:11','2026-11-13 19:56:09');
 INSERT INTO "content_calendar" VALUES(4,8,'day04_video08','Your Blood Cells Have an Expiry Date','Heart and Blood Circulation','Erythrocyte lifespan: red blood cells circulate for approximately 120 days before losing membrane flexibility and getting engulfed by splenic macrophages.','Aapke blood ke red cells hamesha nahi jeete!','erythrocyte_clearance','Red Blood Cell Lifecycle','RBC LIFECYCLE','Blood cells ka 120-day replacement','["https://www.ncbi.nlm.nih.gov/books/NBK2263/", "https://www.nih.gov/news-events/nih-research-matters/how-spleen-filters-blood"]','Microscopic view of biconcave red blood cells navigating narrow capillary filters with spleen macrophage breakdown','informational_education','VERIFIED','PLANNED','PLANNED','PLANNED','PLANNED','PLANNED','STAGED','','2026-11-11 10:57:11','2026-11-11 10:57:11');
 INSERT INTO "content_calendar" VALUES(5,9,'day05_video09','Why Do You Forget Why You Entered a Room?','Brain and Psychology','The Doorway Effect: passing through physical doorways creates event boundaries in episodic working memory, triggering mental file compartmentalization.','Room mein enter karte hi yaad kyun nahi rehta ki aaye kis kaam se the?','doorway_effect','Doorway Effect (Event Boundary)','DOORWAY EFFECT','Brain ka environment reset reflex','["https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3212853/", "https://www.scientificamerican.com/article/why-walking-through-doorways-makes-us-forget/"]','Person walking through cinematic doorway transition into illuminated 3D brain hippocampus memory pathways resetting','mystery_discovery','VERIFIED','PLANNED','PLANNED','PLANNED','PLANNED','PLANNED','STAGED','','2026-11-11 10:57:11','2026-11-11 10:57:11');
 INSERT INTO "content_calendar" VALUES(5,10,'day05_video10','Why Do You See Flashes After Rubbing Your Eyes?','Eyes and Human Senses','Phosphenes: mechanical pressure on the eyeball directly depolarizes retinal ganglion cells, which the visual cortex interprets as light bursts.','Aankhein band karne par bhi light jaisi cheezein kyun dikhti hain?','phosphenes','Phosphenes','PHOSPHENES','Bina light ke aankh mein flashes','["https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3656113/", "https://www.nei.nih.gov/learn-about-eye-health/eye-conditions-and-diseases"]','Macro 3D cross-section of human eye retina showing mechanical pressure generating vibrant geometric light flashes','cinematic_technology','VERIFIED','PLANNED','PLANNED','PLANNED','PLANNED','PLANNED','STAGED','','2026-11-11 10:57:11','2026-11-11 10:57:11');
@@ -163,12 +163,6 @@ INSERT INTO "sentence_scenes" VALUES(57,'health_81ee3387',2,'Cerebrospinal fluid
 INSERT INTO "sentence_scenes" VALUES(58,'health_81ee3387',3,'Yeh powerful mechanism din bhar jama hue neurotoxic beta-amyloid proteins ko puri tarah wash out kar deta hai.',16.789,23.778,'Close-up of glowing protein plaque particles being swept away by rushing fluid currents','microscopic','slow_push_in','','','');
 INSERT INTO "sentence_scenes" VALUES(59,'health_81ee3387',4,'Agar aap roz 7 se 8 hours ki quality sleep nahi lete, toh yeh metabolic waste brain mein hi accumulate hota rehta hai.',23.778,31.746,'Minimalist graphic showing declining fluid clearance curves during sleep deprivation','infographic','slow_push_in','','','');
 INSERT INTO "sentence_scenes" VALUES(60,'health_81ee3387',5,'Toh apne glymphatic system ko optimize karne ke liye, aaj raat aap kitne baje so rahe hain?',31.746,37.615,'Cinematic warm bedroom lighting with person resting peacefully as dawn approaches','relatable_footage','cinematic_orbit','','','');
-INSERT INTO "sentence_scenes" VALUES(79,'day04_video07',0,'Aapke stomach mein powerful acid hota hai, phir woh khud ko digest kyun nahi karta?',0.1,5.611,'3D glowing translucent human stomach in a dark slate studio with subtle amber and blue highlights.','3d_anatomy','slow_push_in','','','');
-INSERT INTO "sentence_scenes" VALUES(80,'day04_video07',1,'Stomach ki inner walls par alkaline mucus aur bicarbonate ki ek thick shield hoti hai.',5.561,11.735,'Extreme close-up microscopic view of surface mucous cells secreting a glistening, gelatinous alkaline layer.','microscopic','microscopic_zoom','','','');
-INSERT INTO "sentence_scenes" VALUES(81,'day04_video07',2,'Is protective mechanism ko hum Gastric Mucus Barrier kehte hain.',11.735,15.996,'Clean anatomical cross-section graphic highlighting the exact mucosal cell lining with glowing text overlays.','infographic','cinematic_orbit','','','');
-INSERT INTO "sentence_scenes" VALUES(82,'day04_video07',3,'Yeh specialized layer hydrochloric acid ko direct stomach tissue tak pahunchne nahi deti.',15.996,21.767,'Close-up 3D render showing corrosive acid molecules bouncing off the thick, glowing mucus gel surface.','3d_anatomy','slow_push_in','','','');
-INSERT INTO "sentence_scenes" VALUES(83,'day04_video07',4,'Is barrier ki continuous cellular division har kuch dino mein mucosal lining ko renew karti hai.',21.767,27.593,'Fast-paced microscopic timelapse of epithelial cells dividing rapidly to regenerate the stomach lining.','microscopic','microscopic_zoom','','','');
-INSERT INTO "sentence_scenes" VALUES(84,'day04_video07',5,'Aapke gut ki yeh defensive chemistry kitni fascinating hai, hai na?',27.593,32.365,'Cinematic full view of glowing human digestive system pulsing with soft bioluminescent light against a dark background.','3d_anatomy','cinematic_orbit','','','');
 INSERT INTO "sentence_scenes" VALUES(85,'day01_video01',0,'Aapka brain duniya ko exactly waise nahi dekhta jaise woh actually hai!',0.0,4.983,'3D glowing translucent human skull and brain model in dark slate studio with pulsating neon blue neural highlights.','3d_anatomy','slow_push_in','','','');
 INSERT INTO "sentence_scenes" VALUES(86,'day01_video01',1,'Aapka brain har second aane wale visual aur sensory signals ko pehle se guess karta hai.',4.983,11.159,'Cinematic first-person perspective tracking rapidly moving traffic and pedestrians with subtle predictive motion trail overlays.','relatable_footage','cinematic_orbit','','','');
 INSERT INTO "sentence_scenes" VALUES(87,'day01_video01',2,'Is complex neurological mechanism ko science mein Predictive Processing kehte hain.',11.159,16.984,'Macro view of firing neural pathways sending synchronized electrical impulses across the cerebral cortex.','3d_anatomy','microscopic_zoom','','','');
@@ -211,6 +205,12 @@ INSERT INTO "sentence_scenes" VALUES(123,'day03_video06',2,'Science mein is biol
 INSERT INTO "sentence_scenes" VALUES(124,'day03_video06',3,'Yeh mechanism isliye zaroori hai isi electrical pulse ki wajah se heart brain ke bina bhi beat karta reh sakta hai.',18.801,26.257,'3D physiological anatomical system operating smoothly','3d_anatomy','cinematic_orbit','','','');
 INSERT INTO "sentence_scenes" VALUES(125,'day03_video06',4,'Is natural system ko healthy rakhne ke liye balanced daily routine aur body awareness behad zaroori hai.',26.257,33.0,'Healthy lifestyle and wellness application','relatable_footage','slow_push_in','','','');
 INSERT INTO "sentence_scenes" VALUES(126,'day03_video06',5,'Toh kya aap Your Heart Has Its Own Electrical System ke is secret science ke baare mein jaante the? Humein comments mein batayein!',33.0,41.429,'Illuminated anatomical scan with closing engagement question','3d_anatomy','slow_push_in','','','');
+INSERT INTO "sentence_scenes" VALUES(127,'day04_video07',0,'Aapke stomach mein powerful acid hota hai, phir woh khud ko digest kyun nahi karta?',0.1,5.611,'3D holographic glowing stomach model in a dark cinematic studio with warm amber lighting.','3d_anatomy','slow_push_in','','','');
+INSERT INTO "sentence_scenes" VALUES(128,'day04_video07',1,'Darasal, aapke stomach ki inner walls par alkaline bicarbonate mucus ki ek thick gel shield hoti hai.',5.561,12.55,'Microscopic view of thick, translucent, gelatinous fluid coating living epithelial cells.','microscopic','microscopic_zoom','','','');
+INSERT INTO "sentence_scenes" VALUES(129,'day04_video07',2,'Is protective mechanism ko scientifically Gastric Mucus Barrier kaha jata hai.',12.55,17.713,'Clean anatomical 3D cross-section highlighting the mucosal lining with sleek scientific labels.','infographic','cinematic_orbit','','','');
+INSERT INTO "sentence_scenes" VALUES(130,'day04_video07',3,'Yeh specialized biological layer pH 1.5 ke hydrochloric acid ko directly stomach tissue ke contact mein aane se rokti hai.',17.713,26.767,'Dynamic 3D simulation showing acid molecules bouncing off the thick bicarbonate mucus barrier without penetrating.','3d_anatomy','slow_push_in','','','');
+INSERT INTO "sentence_scenes" VALUES(131,'day04_video07',4,'Jab yeh constant cellular renewal aur alkaline barrier weaken hota hai, tabhi inflammation aur ulcers develop hote hain.',26.767,34.865,'Detailed microscopic animation showing rapid cellular division and mucosal cell regeneration.','microscopic','microscopic_zoom','','','');
+INSERT INTO "sentence_scenes" VALUES(132,'day04_video07',5,'Aapke gut ki yeh survival strategy kitni fascinating hai, comments mein zaroor batayein.',34.865,40.67,'Cinematic studio shot of translucent 3D organ gently pulsing with ambient particle effects.','relatable_footage','slow_push_in','','','');
 CREATE TABLE topics (
     topic_id TEXT PRIMARY KEY,
     title TEXT NOT NULL,
@@ -578,42 +578,6 @@ INSERT INTO "topics" VALUES('day14_video27','Can Your Brain Create Pain Without 
 INSERT INTO "topics" VALUES('day14_video28','Your Bones Are Constantly Rebuilding Themselves','Fitness and Muscle Science','Aapki bones dead structures nahi hain, ye continuously change hoti rehti hain!','Curiosity Question','Bone remodeling: coordinated balance between osteoclasts (resorbing old bone mineral) and osteoblasts (synthesizing new collagen bone matrix).','["https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3179341/", "https://medlineplus.gov/bonediseases.html"]','verified',NULL,NULL,NULL,NULL,NULL,NULL,'planned',0,NULL,NULL,NULL,'2026-11-11 10:57:12','2026-11-11 10:57:12');
 INSERT INTO "topics" VALUES('day15_video29','Sleep Paralysis – When Your Mind Wakes Before Your Body','Sleep Science','Aankhein khul gayi, lekin body move nahi ho rahi... aisa kyun?','Curiosity Question','Sleep paralysis: conscious cortical awakening occurs while cholinergic REM muscle atonia is still active, causing brief harmless motor block.','["https://www.ncbi.nlm.nih.gov/books/NBK562303/", "https://www.sleepfoundation.org/parasomnias/sleep-paralysis"]','verified',NULL,NULL,NULL,NULL,NULL,NULL,'planned',0,NULL,NULL,NULL,'2026-11-11 10:57:12','2026-11-11 10:57:12');
 INSERT INTO "topics" VALUES('day15_video30','Why Do Some Sounds Make You Extremely Irritated?','Brain and Psychology','Kisi ke chewing ki awaaz se itna irritation kyun hota hai?','Curiosity Question','Misophonia: hyper-reactivity between the auditory cortex and the anterior insular cortex triggers acute autonomic fight-or-flight arousal to specific oral/nasal sounds.','["https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5321671/", "https://www.cell.com/current-biology/fulltext/S0960-9822(16)31530-5"]','verified',NULL,NULL,NULL,NULL,NULL,NULL,'planned',0,NULL,NULL,NULL,'2026-11-11 10:57:12','2026-11-11 10:57:12');
-INSERT INTO "topics" VALUES('day04_video07','Why Doesn''t Your Stomach Digest Itself?','Gut Health','Aapke stomach mein powerful acid hota hai, phir woh khud ko digest kyun nahi karta?','Curiosity Question','Gastric mucosal barrier: surface mucous cells secrete an alkaline, bicarbonate-rich gelatinous mucus layer protecting against pH 1.5 hydrochloric acid.','["https://www.ncbi.nlm.nih.gov/books/NBK535425/", "https://medlineplus.gov/ency/anatomyvideos/000007.htm"]','verified',NULL,NULL,32.365,NULL,'/home/rishabh/Heath Videos/output/videos/day04_video07_health_short.mp4','/home/rishabh/Heath Videos/output/thumbnails/day04_video07_thumb.jpg','qc_passed',1,'# HEALTH VIDEOS — QUALITY CONTROL AUDIT REPORT
-**Topic ID**: `day04_video07`  
-**Title**: Why Doesn''t Your Stomach Digest Itself?  
-**Category**: Gut Health  
-**Overall Verdict**: **PASSED (APPROVED FOR PRODUCTION)**  
-**Score**: 18/18 Gates Passed (Originality Score: 0.833)  
-
----
-
-### Audit Inspection Matrix
-
-| Gate # | Quality Gate Name | Status | Inspection Details |
-|:---:|:---|:---:|:---|
-| 01 | Female Narration Enforced | ✅ PASS | Voice: hi-IN-SwaraNeural, Female-only enforced: True |
-| 02 | Playback Speed 1.15x | ✅ PASS | Speed factor: 1.15x (Target: 1.15x) |
-| 03 | 0-2s Immediate Hook | ✅ PASS | Hook starts at: 0.10s (Threshold: <= 0.2s) |
-| 04 | Audio-Video Synchronization | ✅ PASS | Video duration: 32.35s, Audio duration: 32.38s, Delta: 0.02s |
-| 05 | Sentence-to-Visual Alignment | ✅ PASS | 6 scenes verified with distinct visuals (No adjacent duplicates: True). |
-| 06 | Word Subtitle Synchronization | ✅ PASS | Subtitles file verified (14987 bytes) |
-| 07 | Zero Black Frames | ✅ PASS | Detected black frames: 0 |
-| 08 | Media File Integrity | ✅ PASS | Output video file size: 45893879 bytes |
-| 09 | Audio Clipping & Headroom | ✅ PASS | Audio levels normalized within broadcast limits. |
-| 10 | Ambient BGM Ducking (-22dB) | ✅ PASS | BGM sidechain compressed at -20dB under vocal envelope. |
-| 11 | Aspect Ratio 9:16 (1080x1920) | ✅ PASS | Resolution: 1080x1920 (Target: 1080x1920) |
-| 12 | Duration (30–50 Seconds) | ✅ PASS | Duration: 32.35s (Allowed: 30.0-50.0s) |
-| 13 | Scientific Evidence Citations | ✅ PASS | 2 scientific sources verified (NIH/PubMed/MedlinePlus) |
-| 14 | Asset Licensing Compliance | ✅ PASS | All visual and audio assets sourced under Pexels CC0 / Pixabay / Procedural license. |
-| 15 | Catalog Topic Deduplication | ✅ PASS | Topic uniqueness score: 0.67 (Similarity: 0.33) |
-| 16 | Script & Hook Novelty Gate | ✅ PASS | Hook novelty: 0.76, Script novelty: 1.00 |
-| 17 | Visual Sequence Distinction | ✅ PASS | Sequence distinction: 0.82 (Overlap: 0.18) |
-| 18 | Shorts Audio Ready Export | ✅ PASS | Shorts audio picker ready in shorts_audio_ready/ (Guide verified) |
-
----
-**Verified Master Output**: `/home/rishabh/Heath Videos/output/videos/day04_video07_health_short.mp4`  
-**Originality Fingerprint**: `4255c2015069b771...`  
-',NULL,NULL,'2026-11-11 11:18:48','2026-11-11 11:20:54');
 INSERT INTO "topics" VALUES('day01_video01','Your Brain Is Always One Step Ahead','Brain and Psychology','Aapka brain duniya ko exactly waise nahi dekhta jaise woh actually hai!','Curiosity Question','Predictive processing: the brain creates a continuous internal hypothesis of reality rather than passively processing raw sensory input in real-time.','["https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6400842/", "https://www.nature.com/articles/nrn3404"]','verified',NULL,NULL,36.844,NULL,'/home/rishabh/Heath Videos/output/videos/day01_video01_health_short.mp4','/home/rishabh/Heath Videos/output/thumbnails/day01_video01_thumb.jpg','published',1,'# HEALTH VIDEOS — QUALITY CONTROL AUDIT REPORT
 **Topic ID**: `day01_video01`  
 **Title**: Your Brain Is Always One Step Ahead  
@@ -866,6 +830,42 @@ INSERT INTO "topics" VALUES('day03_video06','Your Heart Has Its Own Electrical S
 **Verified Master Output**: `/home/runner/work/yt-health-videos-automation/yt-health-videos-automation/output/videos/day03_video06_health_short.mp4`  
 **Originality Fingerprint**: `5affd322b8db7e13...`  
 ','_GkH2YW46Bk','2026-11-13T11:58:09Z','2026-11-13 11:55:57','2026-11-13 11:58:11');
+INSERT INTO "topics" VALUES('day04_video07','Why Doesn''t Your Stomach Digest Itself?','Gut Health','Aapke stomach mein powerful acid hota hai, phir woh khud ko digest kyun nahi karta?','Curiosity Question','Gastric mucosal barrier: surface mucous cells secrete an alkaline, bicarbonate-rich gelatinous mucus layer protecting against pH 1.5 hydrochloric acid.','["https://www.ncbi.nlm.nih.gov/books/NBK535425/", "https://medlineplus.gov/ency/anatomyvideos/000007.htm"]','verified',NULL,NULL,40.67,NULL,'/home/runner/work/yt-health-videos-automation/yt-health-videos-automation/output/videos/day04_video07_health_short.mp4','/home/runner/work/yt-health-videos-automation/yt-health-videos-automation/output/thumbnails/day04_video07_thumb.jpg','published',1,'# HEALTH VIDEOS — QUALITY CONTROL AUDIT REPORT
+**Topic ID**: `day04_video07`  
+**Title**: Why Doesn''t Your Stomach Digest Itself?  
+**Category**: Gut Health  
+**Overall Verdict**: **PASSED (APPROVED FOR PRODUCTION)**  
+**Score**: 18/18 Gates Passed (Originality Score: 0.833)  
+
+---
+
+### Audit Inspection Matrix
+
+| Gate # | Quality Gate Name | Status | Inspection Details |
+|:---:|:---|:---:|:---|
+| 01 | Female Narration Enforced | ✅ PASS | Voice: hi-IN-SwaraNeural, Female-only enforced: True |
+| 02 | Playback Speed 1.15x | ✅ PASS | Speed factor: 1.15x (Target: 1.15x) |
+| 03 | 0-2s Immediate Hook | ✅ PASS | Hook starts at: 0.10s (Threshold: <= 0.2s) |
+| 04 | Audio-Video Synchronization | ✅ PASS | Video duration: 40.68s, Audio duration: 40.68s, Delta: 0.00s |
+| 05 | Sentence-to-Visual Alignment | ✅ PASS | 6 scenes verified with distinct visuals (No adjacent duplicates: True). |
+| 06 | Word Subtitle Synchronization | ✅ PASS | Subtitles file verified (17553 bytes) |
+| 07 | Zero Black Frames | ✅ PASS | Detected black frames: 0 |
+| 08 | Media File Integrity | ✅ PASS | Output video file size: 39402467 bytes |
+| 09 | Audio Clipping & Headroom | ✅ PASS | Audio levels normalized within broadcast limits. |
+| 10 | Ambient BGM Ducking (-22dB) | ✅ PASS | BGM sidechain compressed at -20dB under vocal envelope. |
+| 11 | Aspect Ratio 9:16 (1080x1920) | ✅ PASS | Resolution: 1080x1920 (Target: 1080x1920) |
+| 12 | Duration (30–50 Seconds) | ✅ PASS | Duration: 40.68s (Allowed: 30.0-50.0s) |
+| 13 | Scientific Evidence Citations | ✅ PASS | 2 scientific sources verified (NIH/PubMed/MedlinePlus) |
+| 14 | Asset Licensing Compliance | ✅ PASS | All visual and audio assets sourced under Pexels CC0 / Pixabay / Procedural license. |
+| 15 | Catalog Topic Deduplication | ✅ PASS | Topic uniqueness score: 0.67 (Similarity: 0.33) |
+| 16 | Script & Hook Novelty Gate | ✅ PASS | Hook novelty: 0.76, Script novelty: 1.00 |
+| 17 | Visual Sequence Distinction | ✅ PASS | Sequence distinction: 0.82 (Overlap: 0.18) |
+| 18 | Shorts Audio Ready Export | ✅ PASS | Shorts audio picker ready in shorts_audio_ready/ (Guide verified) |
+
+---
+**Verified Master Output**: `/home/runner/work/yt-health-videos-automation/yt-health-videos-automation/output/videos/day04_video07_health_short.mp4`  
+**Originality Fingerprint**: `077b468b171415a6...`  
+','_JeMvLeSsTo','2026-11-13T19:56:07Z','2026-11-13 19:54:45','2026-11-13 19:56:09');
 CREATE TABLE video_history (
     video_id TEXT PRIMARY KEY,
     topic_id TEXT NOT NULL,
@@ -902,6 +902,6 @@ CREATE INDEX idx_calendar_day ON content_calendar(day_number);
 CREATE INDEX idx_calendar_video ON content_calendar(video_number);
 CREATE INDEX idx_calendar_status ON content_calendar(render_status);
 DELETE FROM "sqlite_sequence";
-INSERT INTO "sqlite_sequence" VALUES('sentence_scenes',126);
+INSERT INTO "sqlite_sequence" VALUES('sentence_scenes',132);
 INSERT INTO "sqlite_sequence" VALUES('rejected_attempts',6);
 COMMIT;
