@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exported_at": "2026-11-14 11:17:32.682254",
+  "exported_at": "2026-11-14 18:23:29.420125",
   "tables": {
     "topics": [
       {
@@ -278,29 +278,6 @@
         "publication_date": null,
         "created_at": "2026-11-11 10:05:36",
         "updated_at": "2026-11-11 10:07:28"
-      },
-      {
-        "topic_id": "day05_video09",
-        "title": "Why Do You Forget Why You Entered a Room?",
-        "category": "Brain and Psychology",
-        "hook": "Room mein enter karte hi yaad kyun nahi rehta ki aaye kis kaam se the?",
-        "hook_style": "Curiosity Question",
-        "research_summary": "The Doorway Effect: passing through physical doorways creates event boundaries in episodic working memory, triggering mental file compartmentalization.",
-        "research_sources": "[\"https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3212853/\", \"https://www.scientificamerican.com/article/why-walking-through-doorways-makes-us-forget/\"]",
-        "evidence_status": "verified",
-        "script_text": null,
-        "duration_estimated": null,
-        "duration_actual": null,
-        "voice_file_path": null,
-        "video_path": null,
-        "thumbnail_path": null,
-        "status": "planned",
-        "qc_passed": 0,
-        "qc_report": null,
-        "upload_id": null,
-        "publication_date": null,
-        "created_at": "2026-11-11 10:57:11",
-        "updated_at": "2026-11-11 10:57:11"
       },
       {
         "topic_id": "day05_video10",
@@ -968,6 +945,29 @@
         "publication_date": "2026-11-14T11:17:27Z",
         "created_at": "2026-11-14 11:16:10",
         "updated_at": "2026-11-14 11:17:29"
+      },
+      {
+        "topic_id": "day05_video09",
+        "title": "Why Do You Forget Why You Entered a Room?",
+        "category": "Brain and Psychology",
+        "hook": "Room mein enter karte hi yaad kyun nahi rehta ki aaye kis kaam se the?",
+        "hook_style": "Curiosity Question",
+        "research_summary": "The Doorway Effect: passing through physical doorways creates event boundaries in episodic working memory, triggering mental file compartmentalization.",
+        "research_sources": "[\"https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3212853/\", \"https://www.scientificamerican.com/article/why-walking-through-doorways-makes-us-forget/\"]",
+        "evidence_status": "verified",
+        "script_text": null,
+        "duration_estimated": null,
+        "duration_actual": 40.016,
+        "voice_file_path": null,
+        "video_path": "/home/runner/work/yt-health-videos-automation/yt-health-videos-automation/output/videos/day05_video09_health_short.mp4",
+        "thumbnail_path": "/home/runner/work/yt-health-videos-automation/yt-health-videos-automation/output/thumbnails/day05_video09_thumb.jpg",
+        "status": "published",
+        "qc_passed": 0,
+        "qc_report": "# HEALTH VIDEOS — QUALITY CONTROL AUDIT REPORT\n**Topic ID**: `day05_video09`  \n**Title**: Why Do You Forget Why You Entered a Room?  \n**Category**: Brain and Psychology  \n**Overall Verdict**: **REJECTED (REQUIRES REPAIR)**  \n**Score**: 17/18 Gates Passed (Originality Score: 0.847)  \n\n---\n\n### Audit Inspection Matrix\n\n| Gate # | Quality Gate Name | Status | Inspection Details |\n|:---:|:---|:---:|:---|\n| 01 | Female Narration Enforced | ✅ PASS | Voice: hi-IN-SwaraNeural, Female-only enforced: True |\n| 02 | Playback Speed 1.15x | ✅ PASS | Speed factor: 1.15x (Target: 1.15x) |\n| 03 | 0-2s Immediate Hook | ✅ PASS | Hook starts at: 0.00s (Threshold: <= 0.2s) |\n| 04 | Audio-Video Synchronization | ✅ PASS | Video duration: 40.03s, Audio duration: 40.03s, Delta: 0.00s |\n| 05 | Sentence-to-Visual Alignment | ✅ PASS | 6 scenes verified with distinct visuals (No adjacent duplicates: True). |\n| 06 | Word Subtitle Synchronization | ✅ PASS | Subtitles file verified (19923 bytes) |\n| 07 | Zero Black Frames | ✅ PASS | Detected black frames: 0 |\n| 08 | Media File Integrity | ✅ PASS | Output video file size: 51196377 bytes |\n| 09 | Audio Clipping & Headroom | ✅ PASS | Audio levels normalized within broadcast limits. |\n| 10 | Ambient BGM Ducking (-22dB) | ✅ PASS | BGM sidechain compressed at -20dB under vocal envelope. |\n| 11 | Aspect Ratio 9:16 (1080x1920) | ✅ PASS | Resolution: 1080x1920 (Target: 1080x1920) |\n| 12 | Duration (30–50 Seconds) | ✅ PASS | Duration: 40.03s (Allowed: 30.0-50.0s) |\n| 13 | Scientific Evidence Citations | ✅ PASS | 2 scientific sources verified (NIH/PubMed/MedlinePlus) |\n| 14 | Asset Licensing Compliance | ✅ PASS | All visual and audio assets sourced under Pexels CC0 / Pixabay / Procedural license. |\n| 15 | Catalog Topic Deduplication | ❌ FAIL | Topic uniqueness score: 0.49 (Similarity: 0.51) |\n| 16 | Script & Hook Novelty Gate | ✅ PASS | Hook novelty: 0.87, Script novelty: 1.00 |\n| 17 | Visual Sequence Distinction | ✅ PASS | Sequence distinction: 1.00 (Overlap: 0.00) |\n| 18 | Shorts Audio Ready Export | ✅ PASS | Shorts audio picker ready in shorts_audio_ready/ (Guide verified) |\n\n---\n**Verified Master Output**: `/home/runner/work/yt-health-videos-automation/yt-health-videos-automation/output/videos/day05_video09_health_short.mp4`  \n**Originality Fingerprint**: `66cc104c09a72cf3...`  \n",
+        "upload_id": "4FNeO_XQ9rU",
+        "publication_date": "2026-11-14T18:23:23Z",
+        "created_at": "2026-11-14 18:21:28",
+        "updated_at": "2026-11-14 18:23:25"
       }
     ],
     "content_calendar": [
@@ -1195,15 +1195,15 @@
         "visual_style_prompt": "Person walking through cinematic doorway transition into illuminated 3D brain hippocampus memory pathways resetting",
         "bgm_category": "mystery_discovery",
         "research_status": "VERIFIED",
-        "script_status": "PLANNED",
-        "voice_status": "PLANNED",
-        "visual_status": "PLANNED",
-        "render_status": "PLANNED",
-        "qc_status": "PLANNED",
-        "approval_status": "STAGED",
-        "video_path": "",
+        "script_status": "SCRIPT_READY",
+        "voice_status": "VOICE_READY",
+        "visual_status": "ASSETS_READY",
+        "render_status": "RENDERED",
+        "qc_status": "QC_FAILED",
+        "approval_status": "UPLOADED",
+        "video_path": "/home/runner/work/yt-health-videos-automation/yt-health-videos-automation/output/videos/day05_video09_health_short.mp4",
         "created_at": "2026-11-11 10:57:11",
-        "updated_at": "2026-11-11 10:57:11"
+        "updated_at": "2026-11-14 18:23:25"
       },
       {
         "day_number": 5,
@@ -3373,6 +3373,90 @@
         "animation_notes": "",
         "overlay_text": "",
         "asset_path": ""
+      },
+      {
+        "id": 139,
+        "topic_id": "day05_video09",
+        "sentence_idx": 0,
+        "sentence_text": "Room mein enter karte hi yaad kyun nahi rehta ki aaye kis kaam se the?",
+        "start_sec": 0.0,
+        "end_sec": 4.661,
+        "visual_description": "Cinematic shot of a person pausing inside a modern doorway, looking confused, dark ambient lighting with subtle blue highlights",
+        "visual_type": "relatable_footage",
+        "camera_movement": "slow_push_in",
+        "animation_notes": "",
+        "overlay_text": "",
+        "asset_path": ""
+      },
+      {
+        "id": 140,
+        "topic_id": "day05_video09",
+        "sentence_idx": 1,
+        "sentence_text": "Jab aap ek room se doosre room mein jaate hain, brain purani information ka file band karke naya page open karta hai.",
+        "start_sec": 4.661,
+        "end_sec": 12.451,
+        "visual_description": "3D translucent human brain rotating in a dark slate studio, neural pathways lighting up sequentially as files transition",
+        "visual_type": "3d_anatomy",
+        "camera_movement": "cinematic_orbit",
+        "animation_notes": "",
+        "overlay_text": "",
+        "asset_path": ""
+      },
+      {
+        "id": 141,
+        "topic_id": "day05_video09",
+        "sentence_idx": 2,
+        "sentence_text": "Is physical boundary cross karne ki process ko psychology mein Doorway Effect ya Event Boundary kehte hain.",
+        "start_sec": 12.451,
+        "end_sec": 19.575,
+        "visual_description": "Clean minimalist infographic overlay on glowing neural pathways showing a spatial boundary splitting a memory stream",
+        "visual_type": "infographic",
+        "camera_movement": "slow_push_in",
+        "animation_notes": "",
+        "overlay_text": "",
+        "asset_path": ""
+      },
+      {
+        "id": 142,
+        "topic_id": "day05_video09",
+        "sentence_idx": 3,
+        "sentence_text": "Is mental boundary ki wajah se working memory se previous task temporarily wipe ho jata hai taaki overload na ho.",
+        "start_sec": 19.575,
+        "end_sec": 27.099,
+        "visual_description": "Microscopic view of active synaptic receptor sensitivity firing electrical impulses across cellular structures",
+        "visual_type": "microscopic",
+        "camera_movement": "microscopic_zoom",
+        "animation_notes": "",
+        "overlay_text": "",
+        "asset_path": ""
+      },
+      {
+        "id": 143,
+        "topic_id": "day05_video09",
+        "sentence_idx": 4,
+        "sentence_text": "Next time aisa ho, toh wapas usi spot par jao jahan aapne pehle socha tha, context instantly restore ho jayega.",
+        "start_sec": 27.099,
+        "end_sec": 34.49,
+        "visual_description": "Close-up of a person smiling as memory returns while stepping back through a glowing architectural archway",
+        "visual_type": "relatable_footage",
+        "camera_movement": "cinematic_orbit",
+        "animation_notes": "",
+        "overlay_text": "",
+        "asset_path": ""
+      },
+      {
+        "id": 144,
+        "topic_id": "day05_video09",
+        "sentence_idx": 5,
+        "sentence_text": "Kya aapko bhi aksar yeh memory blank-out face karni padti hai? Comments mein batao!",
+        "start_sec": 34.49,
+        "end_sec": 40.016,
+        "visual_description": "Glowing 3D brain pulsing gently against a dark cinematic background with subtle interactive UI elements",
+        "visual_type": "3d_anatomy",
+        "camera_movement": "slow_push_in",
+        "animation_notes": "",
+        "overlay_text": "",
+        "asset_path": ""
       }
     ],
     "publication_log": [],
@@ -3431,6 +3515,15 @@
         "similarity_score": 0.36927447293799825,
         "matched_entity_id": "Sleep Paralysis – When Your Mind Wakes Before Your Body",
         "attempted_at": "2026-11-12 05:08:13"
+      },
+      {
+        "attempt_id": 7,
+        "attempt_type": "similarity_gating",
+        "content_payload": "{\"title\": \"Why Do You Forget Why You Entered a Room?\", \"hook\": \"Room mein enter karte hi yaad kyun nahi rehta ki aaye kis kaam se the?\"}",
+        "rejection_reason": "Originality Gate Failure: 1 checks failed. Score=0.847",
+        "similarity_score": 0.5103103630798287,
+        "matched_entity_id": "Why Do You Suddenly Jerk While Falling Asleep?",
+        "attempted_at": "2026-11-14 18:23:23"
       }
     ]
   }
