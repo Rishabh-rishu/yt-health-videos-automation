@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exported_at": "2026-11-15 11:50:58.432915",
+  "exported_at": "2026-11-15 19:02:55.990521",
   "tables": {
     "topics": [
       {
@@ -278,29 +278,6 @@
         "publication_date": null,
         "created_at": "2026-11-11 10:05:36",
         "updated_at": "2026-11-11 10:07:28"
-      },
-      {
-        "topic_id": "day06_video11",
-        "title": "Why Do You Suddenly Jerk While Falling Asleep?",
-        "category": "Sleep Science",
-        "hook": "Sote-sote achanak aisa lagta hai jaise gir rahe ho?",
-        "hook_style": "Curiosity Question",
-        "research_summary": "Hypnic jerks: involuntary myoclonic twitches occurring during the transition from wakefulness to NREM sleep when motor signals misfire.",
-        "research_sources": "[\"https://www.ncbi.nlm.nih.gov/books/NBK560720/\", \"https://www.hopkinsmedicine.org/health/wellness-and-prevention/the-science-of-sleep\"]",
-        "evidence_status": "verified",
-        "script_text": null,
-        "duration_estimated": null,
-        "duration_actual": null,
-        "voice_file_path": null,
-        "video_path": null,
-        "thumbnail_path": null,
-        "status": "planned",
-        "qc_passed": 0,
-        "qc_report": null,
-        "upload_id": null,
-        "publication_date": null,
-        "created_at": "2026-11-11 10:57:11",
-        "updated_at": "2026-11-11 10:57:11"
       },
       {
         "topic_id": "day06_video12",
@@ -968,6 +945,29 @@
         "publication_date": "2026-11-15T11:50:51Z",
         "created_at": "2026-11-15 11:48:22",
         "updated_at": "2026-11-15 11:50:53"
+      },
+      {
+        "topic_id": "day06_video11",
+        "title": "Why Do You Suddenly Jerk While Falling Asleep?",
+        "category": "Sleep Science",
+        "hook": "Sote-sote achanak aisa lagta hai jaise gir rahe ho?",
+        "hook_style": "Curiosity Question",
+        "research_summary": "Hypnic jerks: involuntary myoclonic twitches occurring during the transition from wakefulness to NREM sleep when motor signals misfire.",
+        "research_sources": "[\"https://www.ncbi.nlm.nih.gov/books/NBK560720/\", \"https://www.hopkinsmedicine.org/health/wellness-and-prevention/the-science-of-sleep\"]",
+        "evidence_status": "verified",
+        "script_text": null,
+        "duration_estimated": null,
+        "duration_actual": 41.365,
+        "voice_file_path": null,
+        "video_path": "/home/runner/work/yt-health-videos-automation/yt-health-videos-automation/output/videos/day06_video11_health_short.mp4",
+        "thumbnail_path": "/home/runner/work/yt-health-videos-automation/yt-health-videos-automation/output/thumbnails/day06_video11_thumb.jpg",
+        "status": "published",
+        "qc_passed": 0,
+        "qc_report": "# HEALTH VIDEOS — QUALITY CONTROL AUDIT REPORT\n**Topic ID**: `day06_video11`  \n**Title**: Why Do You Suddenly Jerk While Falling Asleep?  \n**Category**: Sleep Science  \n**Overall Verdict**: **REJECTED (REQUIRES REPAIR)**  \n**Score**: 17/18 Gates Passed (Originality Score: 0.812)  \n\n---\n\n### Audit Inspection Matrix\n\n| Gate # | Quality Gate Name | Status | Inspection Details |\n|:---:|:---|:---:|:---|\n| 01 | Female Narration Enforced | ✅ PASS | Voice: hi-IN-SwaraNeural, Female-only enforced: True |\n| 02 | Playback Speed 1.15x | ✅ PASS | Speed factor: 1.15x (Target: 1.15x) |\n| 03 | 0-2s Immediate Hook | ✅ PASS | Hook starts at: 0.00s (Threshold: <= 0.2s) |\n| 04 | Audio-Video Synchronization | ✅ PASS | Video duration: 41.38s, Audio duration: 41.38s, Delta: 0.00s |\n| 05 | Sentence-to-Visual Alignment | ✅ PASS | 6 scenes verified with distinct visuals (No adjacent duplicates: True). |\n| 06 | Word Subtitle Synchronization | ✅ PASS | Subtitles file verified (18716 bytes) |\n| 07 | Zero Black Frames | ✅ PASS | Detected black frames: 0 |\n| 08 | Media File Integrity | ✅ PASS | Output video file size: 45767262 bytes |\n| 09 | Audio Clipping & Headroom | ✅ PASS | Audio levels normalized within broadcast limits. |\n| 10 | Ambient BGM Ducking (-22dB) | ✅ PASS | BGM sidechain compressed at -20dB under vocal envelope. |\n| 11 | Aspect Ratio 9:16 (1080x1920) | ✅ PASS | Resolution: 1080x1920 (Target: 1080x1920) |\n| 12 | Duration (30–50 Seconds) | ✅ PASS | Duration: 41.38s (Allowed: 30.0-50.0s) |\n| 13 | Scientific Evidence Citations | ✅ PASS | 2 scientific sources verified (NIH/PubMed/MedlinePlus) |\n| 14 | Asset Licensing Compliance | ✅ PASS | All visual and audio assets sourced under Pexels CC0 / Pixabay / Procedural license. |\n| 15 | Catalog Topic Deduplication | ❌ FAIL | Topic uniqueness score: 0.49 (Similarity: 0.51) |\n| 16 | Script & Hook Novelty Gate | ✅ PASS | Hook novelty: 0.70, Script novelty: 1.00 |\n| 17 | Visual Sequence Distinction | ✅ PASS | Sequence distinction: 1.00 (Overlap: 0.00) |\n| 18 | Shorts Audio Ready Export | ✅ PASS | Shorts audio picker ready in shorts_audio_ready/ (Guide verified) |\n\n---\n**Verified Master Output**: `/home/runner/work/yt-health-videos-automation/yt-health-videos-automation/output/videos/day06_video11_health_short.mp4`  \n**Originality Fingerprint**: `c829ebecb28edf2e...`  \n",
+        "upload_id": "2ZyCpyzrMG4",
+        "publication_date": "2026-11-15T19:02:50Z",
+        "created_at": "2026-11-15 19:00:26",
+        "updated_at": "2026-11-15 19:02:51"
       }
     ],
     "content_calendar": [
@@ -1247,15 +1247,15 @@
         "visual_style_prompt": "Sleeping person in dark cinematic room with sudden synaptic flash in motor cortex triggering full-body muscle twitch",
         "bgm_category": "deep_ambient",
         "research_status": "VERIFIED",
-        "script_status": "PLANNED",
-        "voice_status": "PLANNED",
-        "visual_status": "PLANNED",
-        "render_status": "PLANNED",
-        "qc_status": "PLANNED",
-        "approval_status": "STAGED",
-        "video_path": "",
+        "script_status": "SCRIPT_READY",
+        "voice_status": "VOICE_READY",
+        "visual_status": "ASSETS_READY",
+        "render_status": "RENDERED",
+        "qc_status": "QC_FAILED",
+        "approval_status": "UPLOADED",
+        "video_path": "/home/runner/work/yt-health-videos-automation/yt-health-videos-automation/output/videos/day06_video11_health_short.mp4",
         "created_at": "2026-11-11 10:57:11",
-        "updated_at": "2026-11-11 10:57:11"
+        "updated_at": "2026-11-15 19:02:51"
       },
       {
         "day_number": 6,
@@ -3541,6 +3541,90 @@
         "animation_notes": "",
         "overlay_text": "",
         "asset_path": ""
+      },
+      {
+        "id": 151,
+        "topic_id": "day06_video11",
+        "sentence_idx": 0,
+        "sentence_text": "Sote-sote achanak aisa lagta hai jaise gir rahe ho?",
+        "start_sec": 0.0,
+        "end_sec": 3.51,
+        "visual_description": "Cinematic shot of a person suddenly twitching awake in a dark, cozy bedroom with moody warm lighting.",
+        "visual_type": "relatable_footage",
+        "camera_movement": "slow_push_in",
+        "animation_notes": "",
+        "overlay_text": "",
+        "asset_path": ""
+      },
+      {
+        "id": 152,
+        "topic_id": "day06_video11",
+        "sentence_idx": 1,
+        "sentence_text": "Jab humara body NREM sleep mein enter karta hai aur muscles achanak relax hoti hain, toh brain ko lagta hai ki aap unchai se gir rahe hain.",
+        "start_sec": 3.51,
+        "end_sec": 13.077,
+        "visual_description": "3D translucent human nervous system transitioning from wakefulness to deep relaxation with soft blue neural pulses.",
+        "visual_type": "3d_anatomy",
+        "camera_movement": "cinematic_orbit",
+        "animation_notes": "",
+        "overlay_text": "",
+        "asset_path": ""
+      },
+      {
+        "id": 153,
+        "topic_id": "day06_video11",
+        "sentence_idx": 2,
+        "sentence_text": "Is involuntary myoclonic twitch ko science mein Hypnic Jerk kehte hain, jahan neural pathways mein signals misfire ho jaate hain.",
+        "start_sec": 13.077,
+        "end_sec": 21.956,
+        "visual_description": "Microscopic visualization of motor neurons misfiring electrical impulses across synapses in high-contrast dark space.",
+        "visual_type": "microscopic",
+        "camera_movement": "microscopic_zoom",
+        "animation_notes": "",
+        "overlay_text": "",
+        "asset_path": ""
+      },
+      {
+        "id": 154,
+        "topic_id": "day06_video11",
+        "sentence_idx": 3,
+        "sentence_text": "Evolutionary perspective se, brain turant ek defensive shock bhejta hai taaki aap tree se girne se bach sakein.",
+        "start_sec": 21.956,
+        "end_sec": 29.596,
+        "visual_description": "3D glowing skeletal structure in a dark studio reacting with a sudden protective reflex arc.",
+        "visual_type": "3d_anatomy",
+        "camera_movement": "slow_push_in",
+        "animation_notes": "",
+        "overlay_text": "",
+        "asset_path": ""
+      },
+      {
+        "id": 155,
+        "topic_id": "day06_video11",
+        "sentence_idx": 4,
+        "sentence_text": "Excessive caffeine, stress, ya erratic sleep schedule is receptor sensitivity ko aur zyada trigger kar dete hain.",
+        "start_sec": 29.596,
+        "end_sec": 37.373,
+        "visual_description": "Clean scientific infographic floating in a dark studio highlighting receptor sensitivity and stress factors.",
+        "visual_type": "infographic",
+        "camera_movement": "cinematic_orbit",
+        "animation_notes": "",
+        "overlay_text": "",
+        "asset_path": ""
+      },
+      {
+        "id": 156,
+        "topic_id": "day06_video11",
+        "sentence_idx": 5,
+        "sentence_text": "Aapke saath kitni baar hua hai yeh? Comments mein bataiye.",
+        "start_sec": 37.373,
+        "end_sec": 41.365,
+        "visual_description": "Cinematic close-up of peaceful sleep transition with ambient particles glowing softly in the background.",
+        "visual_type": "relatable_footage",
+        "camera_movement": "slow_push_in",
+        "animation_notes": "",
+        "overlay_text": "",
+        "asset_path": ""
       }
     ],
     "publication_log": [],
@@ -3617,6 +3701,15 @@
         "similarity_score": 0.5555555555555556,
         "matched_entity_id": "Why Do You Still See an Image After Looking Away?",
         "attempted_at": "2026-11-15 11:50:50"
+      },
+      {
+        "attempt_id": 9,
+        "attempt_type": "similarity_gating",
+        "content_payload": "{\"title\": \"Why Do You Suddenly Jerk While Falling Asleep?\", \"hook\": \"Sote-sote achanak aisa lagta hai jaise gir rahe ho?\"}",
+        "rejection_reason": "Originality Gate Failure: 1 checks failed. Score=0.812",
+        "similarity_score": 0.5103103630798287,
+        "matched_entity_id": "Why Do You Forget Why You Entered a Room?",
+        "attempted_at": "2026-11-15 19:02:49"
       }
     ]
   }
