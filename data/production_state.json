@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exported_at": "2026-11-14 18:23:29.420125",
+  "exported_at": "2026-11-15 11:50:58.432915",
   "tables": {
     "topics": [
       {
@@ -278,29 +278,6 @@
         "publication_date": null,
         "created_at": "2026-11-11 10:05:36",
         "updated_at": "2026-11-11 10:07:28"
-      },
-      {
-        "topic_id": "day05_video10",
-        "title": "Why Do You See Flashes After Rubbing Your Eyes?",
-        "category": "Eyes and Human Senses",
-        "hook": "Aankhein band karne par bhi light jaisi cheezein kyun dikhti hain?",
-        "hook_style": "Curiosity Question",
-        "research_summary": "Phosphenes: mechanical pressure on the eyeball directly depolarizes retinal ganglion cells, which the visual cortex interprets as light bursts.",
-        "research_sources": "[\"https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3656113/\", \"https://www.nei.nih.gov/learn-about-eye-health/eye-conditions-and-diseases\"]",
-        "evidence_status": "verified",
-        "script_text": null,
-        "duration_estimated": null,
-        "duration_actual": null,
-        "voice_file_path": null,
-        "video_path": null,
-        "thumbnail_path": null,
-        "status": "planned",
-        "qc_passed": 0,
-        "qc_report": null,
-        "upload_id": null,
-        "publication_date": null,
-        "created_at": "2026-11-11 10:57:11",
-        "updated_at": "2026-11-11 10:57:11"
       },
       {
         "topic_id": "day06_video11",
@@ -968,6 +945,29 @@
         "publication_date": "2026-11-14T18:23:23Z",
         "created_at": "2026-11-14 18:21:28",
         "updated_at": "2026-11-14 18:23:25"
+      },
+      {
+        "topic_id": "day05_video10",
+        "title": "Why Do You See Flashes After Rubbing Your Eyes?",
+        "category": "Eyes and Human Senses",
+        "hook": "Aankhein band karne par bhi light jaisi cheezein kyun dikhti hain?",
+        "hook_style": "Curiosity Question",
+        "research_summary": "Phosphenes: mechanical pressure on the eyeball directly depolarizes retinal ganglion cells, which the visual cortex interprets as light bursts.",
+        "research_sources": "[\"https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3656113/\", \"https://www.nei.nih.gov/learn-about-eye-health/eye-conditions-and-diseases\"]",
+        "evidence_status": "verified",
+        "script_text": null,
+        "duration_estimated": null,
+        "duration_actual": 39.811,
+        "voice_file_path": null,
+        "video_path": "/home/runner/work/yt-health-videos-automation/yt-health-videos-automation/output/videos/day05_video10_health_short.mp4",
+        "thumbnail_path": "/home/runner/work/yt-health-videos-automation/yt-health-videos-automation/output/thumbnails/day05_video10_thumb.jpg",
+        "status": "published",
+        "qc_passed": 0,
+        "qc_report": "# HEALTH VIDEOS — QUALITY CONTROL AUDIT REPORT\n**Topic ID**: `day05_video10`  \n**Title**: Why Do You See Flashes After Rubbing Your Eyes?  \n**Category**: Eyes and Human Senses  \n**Overall Verdict**: **REJECTED (REQUIRES REPAIR)**  \n**Score**: 17/18 Gates Passed (Originality Score: 0.808)  \n\n---\n\n### Audit Inspection Matrix\n\n| Gate # | Quality Gate Name | Status | Inspection Details |\n|:---:|:---|:---:|:---|\n| 01 | Female Narration Enforced | ✅ PASS | Voice: hi-IN-SwaraNeural, Female-only enforced: True |\n| 02 | Playback Speed 1.15x | ✅ PASS | Speed factor: 1.15x (Target: 1.15x) |\n| 03 | 0-2s Immediate Hook | ✅ PASS | Hook starts at: 0.10s (Threshold: <= 0.2s) |\n| 04 | Audio-Video Synchronization | ✅ PASS | Video duration: 39.82s, Audio duration: 39.82s, Delta: 0.00s |\n| 05 | Sentence-to-Visual Alignment | ✅ PASS | 6 scenes verified with distinct visuals (No adjacent duplicates: True). |\n| 06 | Word Subtitle Synchronization | ✅ PASS | Subtitles file verified (18622 bytes) |\n| 07 | Zero Black Frames | ✅ PASS | Detected black frames: 0 |\n| 08 | Media File Integrity | ✅ PASS | Output video file size: 59152714 bytes |\n| 09 | Audio Clipping & Headroom | ✅ PASS | Audio levels normalized within broadcast limits. |\n| 10 | Ambient BGM Ducking (-22dB) | ✅ PASS | BGM sidechain compressed at -20dB under vocal envelope. |\n| 11 | Aspect Ratio 9:16 (1080x1920) | ✅ PASS | Resolution: 1080x1920 (Target: 1080x1920) |\n| 12 | Duration (30–50 Seconds) | ✅ PASS | Duration: 39.82s (Allowed: 30.0-50.0s) |\n| 13 | Scientific Evidence Citations | ✅ PASS | 2 scientific sources verified (NIH/PubMed/MedlinePlus) |\n| 14 | Asset Licensing Compliance | ✅ PASS | All visual and audio assets sourced under Pexels CC0 / Pixabay / Procedural license. |\n| 15 | Catalog Topic Deduplication | ❌ FAIL | Topic uniqueness score: 0.44 (Similarity: 0.56) |\n| 16 | Script & Hook Novelty Gate | ✅ PASS | Hook novelty: 0.73, Script novelty: 1.00 |\n| 17 | Visual Sequence Distinction | ✅ PASS | Sequence distinction: 1.00 (Overlap: 0.00) |\n| 18 | Shorts Audio Ready Export | ✅ PASS | Shorts audio picker ready in shorts_audio_ready/ (Guide verified) |\n\n---\n**Verified Master Output**: `/home/runner/work/yt-health-videos-automation/yt-health-videos-automation/output/videos/day05_video10_health_short.mp4`  \n**Originality Fingerprint**: `7de4b6e57ce78ca0...`  \n",
+        "upload_id": "ifhFbvI-M7Q",
+        "publication_date": "2026-11-15T11:50:51Z",
+        "created_at": "2026-11-15 11:48:22",
+        "updated_at": "2026-11-15 11:50:53"
       }
     ],
     "content_calendar": [
@@ -1221,15 +1221,15 @@
         "visual_style_prompt": "Macro 3D cross-section of human eye retina showing mechanical pressure generating vibrant geometric light flashes",
         "bgm_category": "cinematic_technology",
         "research_status": "VERIFIED",
-        "script_status": "PLANNED",
-        "voice_status": "PLANNED",
-        "visual_status": "PLANNED",
-        "render_status": "PLANNED",
-        "qc_status": "PLANNED",
-        "approval_status": "STAGED",
-        "video_path": "",
+        "script_status": "SCRIPT_READY",
+        "voice_status": "VOICE_READY",
+        "visual_status": "ASSETS_READY",
+        "render_status": "RENDERED",
+        "qc_status": "QC_FAILED",
+        "approval_status": "UPLOADED",
+        "video_path": "/home/runner/work/yt-health-videos-automation/yt-health-videos-automation/output/videos/day05_video10_health_short.mp4",
         "created_at": "2026-11-11 10:57:11",
-        "updated_at": "2026-11-11 10:57:11"
+        "updated_at": "2026-11-15 11:50:53"
       },
       {
         "day_number": 6,
@@ -3457,6 +3457,90 @@
         "animation_notes": "",
         "overlay_text": "",
         "asset_path": ""
+      },
+      {
+        "id": 145,
+        "topic_id": "day05_video10",
+        "sentence_idx": 0,
+        "sentence_text": "Aankhein band karne par bhi light jaisi cheezein kyun dikhti hain?",
+        "start_sec": 0.1,
+        "end_sec": 4.067,
+        "visual_description": "Close-up cinematic shot of a young professional woman gently rubbing her closed eyes in a softly lit room.",
+        "visual_type": "relatable_footage",
+        "camera_movement": "slow_push_in",
+        "animation_notes": "",
+        "overlay_text": "",
+        "asset_path": ""
+      },
+      {
+        "id": 146,
+        "topic_id": "day05_video10",
+        "sentence_idx": 1,
+        "sentence_text": "Jab aap apni aankhon par dabav dalte hain, toh aapke retina ke light sensors physically activate ho kar yeh glowing flashes dikhate hain.",
+        "start_sec": 4.017,
+        "end_sec": 12.42,
+        "visual_description": "Detailed 3D anatomical model of the human eye showing pressure waves transferring from the eyelid directly onto the retina.",
+        "visual_type": "3d_anatomy",
+        "camera_movement": "cinematic_orbit",
+        "animation_notes": "",
+        "overlay_text": "",
+        "asset_path": ""
+      },
+      {
+        "id": 147,
+        "topic_id": "day05_video10",
+        "sentence_idx": 2,
+        "sentence_text": "Science ki bhasha mein is fascinating phenomenon ko Phosphenes kehte hain.",
+        "start_sec": 12.42,
+        "end_sec": 17.148,
+        "visual_description": "Clean, glowing typographic overlay on dark slate background displaying the medical term 'Phosphenes' with a pulsing definition box.",
+        "visual_type": "infographic",
+        "camera_movement": "slow_push_in",
+        "animation_notes": "",
+        "overlay_text": "",
+        "asset_path": ""
+      },
+      {
+        "id": 148,
+        "topic_id": "day05_video10",
+        "sentence_idx": 3,
+        "sentence_text": "Bina kisi actual light ke bhi, aapka visual cortex in mechanical signals ko roshni aur bright patterns samajh leta hai.",
+        "start_sec": 17.148,
+        "end_sec": 32.257,
+        "visual_description": "Stylized 3D neural pathways lighting up vividly as electrical impulses travel from the optic nerve directly into the visual cortex.",
+        "visual_type": "3d_anatomy",
+        "camera_movement": "cinematic_orbit",
+        "animation_notes": "",
+        "overlay_text": "",
+        "asset_path": ""
+      },
+      {
+        "id": 149,
+        "topic_id": "day05_video10",
+        "sentence_idx": 4,
+        "sentence_text": "Lekin baar-baar aankhein ragadna aapke delicate tissues aur receptor sensitivity ko nuksan pahuncha sakta hai.",
+        "start_sec": 32.257,
+        "end_sec": 37.159,
+        "visual_description": "High-magnification microscopic view showing cellular tension and membrane stress under mechanical friction.",
+        "visual_type": "microscopic",
+        "camera_movement": "microscopic_zoom",
+        "animation_notes": "",
+        "overlay_text": "",
+        "asset_path": ""
+      },
+      {
+        "id": 150,
+        "topic_id": "day05_video10",
+        "sentence_idx": 5,
+        "sentence_text": "Kya aapne kabhi notice kiya hai ki yeh colorful patterns kis shape mein aate hain? Humein comments mein zaroor batayein.",
+        "start_sec": 37.159,
+        "end_sec": 39.811,
+        "visual_description": "Professional Indian female presenter looking directly into the camera with an engaging, curious expression in a modern studio.",
+        "visual_type": "relatable_footage",
+        "camera_movement": "slow_push_in",
+        "animation_notes": "",
+        "overlay_text": "",
+        "asset_path": ""
       }
     ],
     "publication_log": [],
@@ -3524,6 +3608,15 @@
         "similarity_score": 0.5103103630798287,
         "matched_entity_id": "Why Do You Suddenly Jerk While Falling Asleep?",
         "attempted_at": "2026-11-14 18:23:23"
+      },
+      {
+        "attempt_id": 8,
+        "attempt_type": "similarity_gating",
+        "content_payload": "{\"title\": \"Why Do You See Flashes After Rubbing Your Eyes?\", \"hook\": \"Aankhein band karne par bhi light jaisi cheezein kyun dikhti hain?\"}",
+        "rejection_reason": "Originality Gate Failure: 1 checks failed. Score=0.808",
+        "similarity_score": 0.5555555555555556,
+        "matched_entity_id": "Why Do You Still See an Image After Looking Away?",
+        "attempted_at": "2026-11-15 11:50:50"
       }
     ]
   }
