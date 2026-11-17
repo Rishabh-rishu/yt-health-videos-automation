@@ -47,7 +47,7 @@ INSERT INTO "content_calendar" VALUES(6,11,'day06_video11','Why Do You Suddenly 
 INSERT INTO "content_calendar" VALUES(6,12,'day06_video12','Why Does a Song Keep Playing Inside Your Head?','Brain and Psychology','Involuntary Musical Imagery (earworms): spontaneous reactivation of phonological loops in the auditory cortex without conscious effort.','Ek song dimag mein baar-baar kyun bajta rehta hai?','earworms','Involuntary Musical Imagery (Earworm)','EARWORM EFFECT','Dimag mein ghoomta repetitive song','["https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4440618/", "https://www.apa.org/monitor/2016/10/music-earworms"]','3D auditory cortex with rhythmic soundwaves forming a closed continuous glowing loop inside the temporal lobe','informational_education','VERIFIED','SCRIPT_READY','VOICE_READY','ASSETS_READY','RENDERED','QC_PASSED','UPLOADED','/home/runner/work/yt-health-videos-automation/yt-health-videos-automation/output/videos/day06_video12_health_short.mp4','2026-11-11 10:57:11','2026-11-16 12:32:10');
 INSERT INTO "content_calendar" VALUES(7,13,'day07_video13','Your Lungs Have Millions of Tiny Air Sacs','Human Body Secrets','Pulmonary alveoli: 480 million microscopic spherical sacs providing 100 square meters of surface area for passive capillary diffusion of O2 and CO2.','Aapke lungs ke andar millions of tiny air sacs hote hain!','alveoli','Alveoli','ALVEOLI','Lungs ki tiny oxygen-exchange sacs','["https://www.ncbi.nlm.nih.gov/books/NBK542318/", "https://www.nhlbi.nih.gov/health/lungs/respiratory-system"]','3D bronchus branching into microscopic grape-like alveoli clusters showing blue/red capillary gas exchange','medical_documentary','VERIFIED','SCRIPT_READY','VOICE_READY','ASSETS_READY','RENDERED','QC_PASSED','UPLOADED','/home/runner/work/yt-health-videos-automation/yt-health-videos-automation/output/videos/day07_video13_health_short.mp4','2026-11-11 10:57:11','2026-11-16 22:26:52');
 INSERT INTO "content_calendar" VALUES(7,14,'day07_video14','Why Do Memories Change Every Time You Recall Them?','Brain and Psychology','Memory reconsolidation: retrieving an episodic memory renders its synaptic trace labile and susceptible to modification before it is re-stabilized.','Aapki memory video recording ki tarah fixed nahi hoti!','memory_reconsolidation','Memory Reconsolidation','RECONSOLIDATION','Har baar recall par memory ka rewrite hona','["https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3789138/", "https://www.nature.com/articles/nn.3503"]','3D neural network synapses lighting up, dissolving slightly, and re-weaving with subtle color variations','mystery_discovery','VERIFIED','SCRIPT_READY','VOICE_READY','ASSETS_READY','RENDERED','QC_PASSED','UPLOADED','/home/runner/work/yt-health-videos-automation/yt-health-videos-automation/output/videos/day07_video14_health_short.mp4','2026-11-11 10:57:11','2026-11-17 12:53:00');
-INSERT INTO "content_calendar" VALUES(8,15,'day08_video15','The Organ That Can Regrow Part of Itself','Human Body Secrets','Compensatory hyperplasia: quiescent hepatocytes re-enter the cell cycle upon partial hepatectomy to restore 100% of functional liver mass.','Human body ka ek organ apna lost tissue dobara grow kar sakta hai!','liver_regeneration','Compensatory Hyperplasia (Liver Regeneration)','LIVER REGROWTH','Organ ka apna tissue dobara grow karna','["https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2836881/", "https://medlineplus.gov/ency/article/002237.htm"]','3D anatomical human liver regenerating glowing healthy tissue lobes with microscopic hepatocyte cell division','emotional_science','VERIFIED','SCRIPT_READY','VOICE_READY','ASSETS_READY','RENDERED','QC_PASSED','APPROVED','/home/rishabh/Heath Videos/output/videos/day08_video15_health_short.mp4','2026-11-11 10:57:11','2026-11-11 11:28:08');
+INSERT INTO "content_calendar" VALUES(8,15,'day08_video15','The Organ That Can Regrow Part of Itself','Human Body Secrets','Compensatory hyperplasia: quiescent hepatocytes re-enter the cell cycle upon partial hepatectomy to restore 100% of functional liver mass.','Human body ka ek organ apna lost tissue dobara grow kar sakta hai!','liver_regeneration','Compensatory Hyperplasia (Liver Regeneration)','LIVER REGROWTH','Organ ka apna tissue dobara grow karna','["https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2836881/", "https://medlineplus.gov/ency/article/002237.htm"]','3D anatomical human liver regenerating glowing healthy tissue lobes with microscopic hepatocyte cell division','emotional_science','VERIFIED','SCRIPT_READY','VOICE_READY','ASSETS_READY','RENDERED','QC_PASSED','UPLOADED','/home/runner/work/yt-health-videos-automation/yt-health-videos-automation/output/videos/day08_video15_health_short.mp4','2026-11-11 10:57:11','2026-11-17 21:10:08');
 INSERT INTO "content_calendar" VALUES(8,16,'day08_video16','The Nerve That Connects Your Brain to Your Gut','Gut Health','The vagus nerve (Cranial Nerve X): bidirectional electrical superhighway carrying 80% sensory afferent signals from the gut microbiome to the brain.','Aapke stomach aur brain ke beech ek communication highway hai!','vagus_nerve','Vagus Nerve','VAGUS NERVE','Brain aur gut ka communication highway','["https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5808284/", "https://www.hopkinsmedicine.org/health/wellness-and-prevention/the-brain-gut-connection"]','3D transparent human torso showing glowing golden vagus nerve cable connecting the brainstem down to the stomach and intestines','medical_documentary','VERIFIED','PLANNED','PLANNED','PLANNED','PLANNED','PLANNED','STAGED','','2026-11-11 10:57:11','2026-11-11 10:57:11');
 INSERT INTO "content_calendar" VALUES(9,17,'day09_video17','Why Do You Still See an Image After Looking Away?','Eyes and Human Senses','Negative afterimages: prolonged photic stimulation bleaches photopigments in retinal cone photoreceptors, causing rebound signals in opponent color channels.','Bright object ko dekhne ke baad bhi uski image aankhon ke saamne kyun rehti hai?','afterimages','Photoreceptor Adaptation (Afterimages)','AFTERIMAGES','Retina sensors ka temporary adaptation','["https://www.ncbi.nlm.nih.gov/books/NBK11532/", "https://www.britannica.com/science/afterimage"]','Retina photoreceptors cones adapting to bright stimulus and rendering negative inverted ghost afterimage','cinematic_technology','VERIFIED','PLANNED','PLANNED','PLANNED','PLANNED','PLANNED','STAGED','','2026-11-11 10:57:11','2026-11-11 10:57:11');
 INSERT INTO "content_calendar" VALUES(9,18,'day09_video18','How Can You Touch Your Nose With Closed Eyes?','Human Body Secrets','Proprioception: muscle spindles, Golgi tendon organs, and joint mechanoreceptors continuously send spatial coordinates to the parietal cortex.','Aankhein band hone ke baad bhi aapko apne haath ki location kaise pata hoti hai?','proprioception','Proprioception','PROPRIOCEPTION','Body position ka natural 6th sense','["https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5070002/", "https://www.nih.gov/news-events/nih-research-matters/how-mechanoreceptors-sense-body-position"]','Person touching nose with closed eyes while 3D skeletal muscular sensors fire glowing spatial wireframe pulses','mystery_discovery','VERIFIED','PLANNED','PLANNED','PLANNED','PLANNED','PLANNED','STAGED','','2026-11-11 10:57:11','2026-11-11 10:57:11');
@@ -172,12 +172,6 @@ INSERT INTO "sentence_scenes" VALUES(87,'day01_video01',2,'Is complex neurologic
 INSERT INTO "sentence_scenes" VALUES(88,'day01_video01',3,'Ye survival mechanism isliye evolve hua taaki aap bina delay ke tezi se react kar sakein.',16.984,23.23,'Athletic hand catching a fast-moving object in slow motion, highlighting instant motor cortex coordination.','relatable_footage','slow_push_in','','','');
 INSERT INTO "sentence_scenes" VALUES(89,'day01_video01',4,'Jab aapki receptor sensitivity strong hoti hai, toh aapke neural pathways aur bhi fast kaam karte hain.',23.23,30.458,'Close-up microscopic simulation of synaptic cleft neurotransmitters transferring signals between neurons.','microscopic','microscopic_zoom','','','');
 INSERT INTO "sentence_scenes" VALUES(90,'day01_video01',5,'Kya aapko lagta hai ki aapka brain is waqt aapke aage chal raha hai? Comments mein bataiye!',30.458,36.844,'Rotating glowing holographic brain gently fading into dark minimal background with subtle UI data points.','3d_anatomy','cinematic_orbit','','','');
-INSERT INTO "sentence_scenes" VALUES(91,'day08_video15',0,'Human body ka ek organ apna lost tissue dobara grow kar sakta hai!',0.0,4.467,'3D glowing translucent human torso with the liver highlighted in warm amber and gold light against a dark slate background.','3d_anatomy','slow_push_in','','','');
-INSERT INTO "sentence_scenes" VALUES(92,'day08_video15',1,'Liver ke cells apne original shape aur size ko restore karne ke liye tezi se divide ho sakte hain.',4.467,11.099,'Cinematic macro shot focusing on healthy human abdominal cross-section with pulsing arterial blood flow.','relatable_footage','cinematic_orbit','','','');
-INSERT INTO "sentence_scenes" VALUES(93,'day08_video15',2,'Ise kehte hain Compensatory Hyperplasia yaani Liver Regeneration, jahan quiescent hepatocytes dobara cell cycle mein enter karte hain.',11.099,20.168,'Stunning microscopic CGI showing individual liver cells dividing rapidly with glowing DNA strands and active cellular receptors.','microscopic','microscopic_zoom','','','');
-INSERT INTO "sentence_scenes" VALUES(94,'day08_video15',3,'Agar liver ka 70% hissa surgically nikal bhi diya jaye, toh bhi bacha hua tissue apna 100% mass wapas gain kar leta hai.',20.168,28.289,'Clean anatomical split-screen graphic illustrating a 70 percent organ resection seamlessly transforming back into a full-sized liver.','infographic','slow_push_in','','','');
-INSERT INTO "sentence_scenes" VALUES(95,'day08_video15',4,'Yeh incredible mechanism hamari body ko toxins se protect karta hai aur harsh metabolic stress mein bhi survival ensure karta hai.',28.289,37.087,'Close-up 3D render of hepatic blood filtration pathways neutralizing glowing toxin particles in real-time.','3d_anatomy','cinematic_orbit','','','');
-INSERT INTO "sentence_scenes" VALUES(96,'day08_video15',5,'Kya aapko pata tha ki human liver bina kisi surgical help ke khud ko heal kar sakta hai? Comments mein batao!',37.087,44.464,'Polished BBC-style presenter studio backdrop with soft depth-of-field and glowing biological infographics.','relatable_footage','slow_push_in','','','');
 INSERT INTO "sentence_scenes" VALUES(97,'day01_video02',0,'Aapki ek nostril zyada active hoti hai, phir kuch ghanton baad doosri!',0.0,4.751,'Close-up 3D holographic render of a human nose in a dark slate studio with subtle ambient lighting.','3d_anatomy','slow_push_in','','','');
 INSERT INTO "sentence_scenes" VALUES(98,'day01_video02',1,'Aapki dono nostrils mein se ek waqt par sirf ek hi zyada khuli hoti hai.',4.751,9.638,'Clean, cinematic macro shot showing airflow dynamics and subtle nasal tissue movement.','relatable_footage','cinematic_orbit','','','');
 INSERT INTO "sentence_scenes" VALUES(99,'day01_video02',2,'Is rhythmic switching of autonomic erectile tissue inside the nose ko Nasal Cycle kehte hain.',9.638,15.95,'Cross-section 3D medical visualization highlighting alternating nasal turbinates and vascular congestion.','3d_anatomy','microscopic_zoom','','','');
@@ -256,6 +250,12 @@ INSERT INTO "sentence_scenes" VALUES(171,'day07_video14',2,'Science mein is biol
 INSERT INTO "sentence_scenes" VALUES(172,'day07_video14',3,'Yeh mechanism isliye zaroori hai isliye purani memories exact camera recording nahi, balki rewrite hoti rehti hain.',21.131,28.797,'3D physiological anatomical system operating smoothly','3d_anatomy','cinematic_orbit','','','');
 INSERT INTO "sentence_scenes" VALUES(173,'day07_video14',4,'Is natural system ko healthy rakhne ke liye balanced daily routine aur body awareness behad zaroori hai.',28.797,35.729,'Healthy lifestyle and wellness application','relatable_footage','slow_push_in','','','');
 INSERT INTO "sentence_scenes" VALUES(174,'day07_video14',5,'Toh kya aap Why Do Memories Change Every Time You Recall Them? ke is secret science ke baare mein jaante the? Humein comments mein batayein!',35.729,45.061,'Illuminated anatomical scan with closing engagement question','3d_anatomy','slow_push_in','','','');
+INSERT INTO "sentence_scenes" VALUES(175,'day08_video15',0,'Human body ka ek organ apna lost tissue dobara grow kar sakta hai!',0.0,4.624,'3D glowing translucent human liver in dark slate studio with pulsating golden highlights.','3d_anatomy','slow_push_in','','','');
+INSERT INTO "sentence_scenes" VALUES(176,'day08_video15',1,'Liver ke cells apne original shape aur size ko restore karne ke liye tezi se divide ho sakte hain.',4.624,11.49,'High-magnification cellular footage showing individual hepatocytes rapidly multiplying under bright fluorescent light.','microscopic','microscopic_zoom','','','');
+INSERT INTO "sentence_scenes" VALUES(177,'day08_video15',2,'Is amazing biological process ko hum Compensatory Hyperplasia (Liver Regeneration) kehte hain.',11.49,18.075,'Sleek scientific 3D overlay displaying the medical term pulsing gently in clean typography over an anatomical backdrop.','infographic','cinematic_orbit','','','');
+INSERT INTO "sentence_scenes" VALUES(178,'day08_video15',3,'Agar liver ka 70% hissa nikal bhi diya jaye, toh bhi bacha hua hissa fully grow kar leta hai.',18.075,24.59,'Seamless 3D morphing animation showing a partial liver structure expanding and restoring its full anatomical mass.','3d_anatomy','slow_push_in','','','');
+INSERT INTO "sentence_scenes" VALUES(179,'day08_video15',4,'Ye unique survival mechanism hamare body ko severe damage aur toxins se protect karta hai.',24.59,30.895,'Sophisticated cinematic shot of a human silhouette with a glowing metabolic network highlighting core organ health.','relatable_footage','cinematic_orbit','','','');
+INSERT INTO "sentence_scenes" VALUES(180,'day08_video15',5,'Kya aapko pata tha is incredible superpower ke baare mein? Comments mein batao!',30.895,36.43,'Dynamic rotating view of the fully restored liver glowing brightly against a deep, dark scientific background.','3d_anatomy','slow_push_in','','','');
 CREATE TABLE topics (
     topic_id TEXT PRIMARY KEY,
     title TEXT NOT NULL,
@@ -652,42 +652,6 @@ INSERT INTO "topics" VALUES('day01_video01','Your Brain Is Always One Step Ahead
 **Verified Master Output**: `/home/rishabh/Heath Videos/output/videos/day01_video01_health_short.mp4`  
 **Originality Fingerprint**: `3ed1ff7a9aa53626...`  
 ','ldNSyXB5-8A','2026-11-11T12:12:24Z','2026-11-11 11:21:36','2026-11-11 12:12:29');
-INSERT INTO "topics" VALUES('day08_video15','The Organ That Can Regrow Part of Itself','Human Body Secrets','Human body ka ek organ apna lost tissue dobara grow kar sakta hai!','Curiosity Question','Compensatory hyperplasia: quiescent hepatocytes re-enter the cell cycle upon partial hepatectomy to restore 100% of functional liver mass.','["https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2836881/", "https://medlineplus.gov/ency/article/002237.htm"]','verified',NULL,NULL,44.464,NULL,'/home/rishabh/Heath Videos/output/videos/day08_video15_health_short.mp4','/home/rishabh/Heath Videos/output/thumbnails/day08_video15_thumb.jpg','qc_passed',1,'# HEALTH VIDEOS — QUALITY CONTROL AUDIT REPORT
-**Topic ID**: `day08_video15`  
-**Title**: The Organ That Can Regrow Part of Itself  
-**Category**: Human Body Secrets  
-**Overall Verdict**: **PASSED (APPROVED FOR PRODUCTION)**  
-**Score**: 18/18 Gates Passed (Originality Score: 0.878)  
-
----
-
-### Audit Inspection Matrix
-
-| Gate # | Quality Gate Name | Status | Inspection Details |
-|:---:|:---|:---:|:---|
-| 01 | Female Narration Enforced | ✅ PASS | Voice: hi-IN-SwaraNeural, Female-only enforced: True |
-| 02 | Playback Speed 1.15x | ✅ PASS | Speed factor: 1.15x (Target: 1.15x) |
-| 03 | 0-2s Immediate Hook | ✅ PASS | Hook starts at: 0.00s (Threshold: <= 0.2s) |
-| 04 | Audio-Video Synchronization | ✅ PASS | Video duration: 44.45s, Audio duration: 44.47s, Delta: 0.02s |
-| 05 | Sentence-to-Visual Alignment | ✅ PASS | 6 scenes verified with distinct visuals (No adjacent duplicates: True). |
-| 06 | Word Subtitle Synchronization | ✅ PASS | Subtitles file verified (21133 bytes) |
-| 07 | Zero Black Frames | ✅ PASS | Detected black frames: 0 |
-| 08 | Media File Integrity | ✅ PASS | Output video file size: 71443343 bytes |
-| 09 | Audio Clipping & Headroom | ✅ PASS | Audio levels normalized within broadcast limits. |
-| 10 | Ambient BGM Ducking (-22dB) | ✅ PASS | BGM sidechain compressed at -20dB under vocal envelope. |
-| 11 | Aspect Ratio 9:16 (1080x1920) | ✅ PASS | Resolution: 1080x1920 (Target: 1080x1920) |
-| 12 | Duration (30–50 Seconds) | ✅ PASS | Duration: 44.45s (Allowed: 30.0-50.0s) |
-| 13 | Scientific Evidence Citations | ✅ PASS | 2 scientific sources verified (NIH/PubMed/MedlinePlus) |
-| 14 | Asset Licensing Compliance | ✅ PASS | All visual and audio assets sourced under Pexels CC0 / Pixabay / Procedural license. |
-| 15 | Catalog Topic Deduplication | ✅ PASS | Topic uniqueness score: 0.82 (Similarity: 0.18) |
-| 16 | Script & Hook Novelty Gate | ✅ PASS | Hook novelty: 0.80, Script novelty: 1.00 |
-| 17 | Visual Sequence Distinction | ✅ PASS | Sequence distinction: 0.82 (Overlap: 0.18) |
-| 18 | Shorts Audio Ready Export | ✅ PASS | Shorts audio picker ready in shorts_audio_ready/ (Guide verified) |
-
----
-**Verified Master Output**: `/home/rishabh/Heath Videos/output/videos/day08_video15_health_short.mp4`  
-**Originality Fingerprint**: `3f1720cc637e491c...`  
-',NULL,NULL,'2026-11-11 11:24:55','2026-11-11 11:28:08');
 INSERT INTO "topics" VALUES('day01_video02','Your Nose Secretly Switches Sides','Human Body Secrets','Aapki ek nostril zyada active hoti hai, phir kuch ghanton baad doosri!','Curiosity Question','The nasal cycle: autonomic alternating congestion and decongestion of nasal erectile tissue every 2 to 6 hours.','["https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4944485/", "https://www.nidcd.nih.gov/health/smell-disorders"]','verified',NULL,NULL,32.919,NULL,'/home/runner/work/yt-health-videos-automation/yt-health-videos-automation/output/videos/day01_video02_health_short.mp4','/home/runner/work/yt-health-videos-automation/yt-health-videos-automation/output/thumbnails/day01_video02_thumb.jpg','published',1,'# HEALTH VIDEOS — QUALITY CONTROL AUDIT REPORT
 **Topic ID**: `day01_video02`  
 **Title**: Your Nose Secretly Switches Sides  
@@ -1156,6 +1120,42 @@ INSERT INTO "topics" VALUES('day07_video14','Why Do Memories Change Every Time Y
 **Verified Master Output**: `/home/runner/work/yt-health-videos-automation/yt-health-videos-automation/output/videos/day07_video14_health_short.mp4`  
 **Originality Fingerprint**: `da0fbd6e605653c0...`  
 ','QPwM8B1x65s','2026-11-17T12:52:57Z','2026-11-17 12:50:53','2026-11-17 12:53:00');
+INSERT INTO "topics" VALUES('day08_video15','The Organ That Can Regrow Part of Itself','Human Body Secrets','Human body ka ek organ apna lost tissue dobara grow kar sakta hai!','Curiosity Question','Compensatory hyperplasia: quiescent hepatocytes re-enter the cell cycle upon partial hepatectomy to restore 100% of functional liver mass.','["https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2836881/", "https://medlineplus.gov/ency/article/002237.htm"]','verified',NULL,NULL,36.43,NULL,'/home/runner/work/yt-health-videos-automation/yt-health-videos-automation/output/videos/day08_video15_health_short.mp4','/home/runner/work/yt-health-videos-automation/yt-health-videos-automation/output/thumbnails/day08_video15_thumb.jpg','published',1,'# HEALTH VIDEOS — QUALITY CONTROL AUDIT REPORT
+**Topic ID**: `day08_video15`  
+**Title**: The Organ That Can Regrow Part of Itself  
+**Category**: Human Body Secrets  
+**Overall Verdict**: **PASSED (APPROVED FOR PRODUCTION)**  
+**Score**: 18/18 Gates Passed (Originality Score: 0.914)  
+
+---
+
+### Audit Inspection Matrix
+
+| Gate # | Quality Gate Name | Status | Inspection Details |
+|:---:|:---|:---:|:---|
+| 01 | Female Narration Enforced | ✅ PASS | Voice: hi-IN-SwaraNeural, Female-only enforced: True |
+| 02 | Playback Speed 1.15x | ✅ PASS | Speed factor: 1.15x (Target: 1.15x) |
+| 03 | 0-2s Immediate Hook | ✅ PASS | Hook starts at: 0.00s (Threshold: <= 0.2s) |
+| 04 | Audio-Video Synchronization | ✅ PASS | Video duration: 36.43s, Audio duration: 36.43s, Delta: 0.00s |
+| 05 | Sentence-to-Visual Alignment | ✅ PASS | 6 scenes verified with distinct visuals (No adjacent duplicates: True). |
+| 06 | Word Subtitle Synchronization | ✅ PASS | Subtitles file verified (16860 bytes) |
+| 07 | Zero Black Frames | ✅ PASS | Detected black frames: 0 |
+| 08 | Media File Integrity | ✅ PASS | Output video file size: 34996100 bytes |
+| 09 | Audio Clipping & Headroom | ✅ PASS | Audio levels normalized within broadcast limits. |
+| 10 | Ambient BGM Ducking (-22dB) | ✅ PASS | BGM sidechain compressed at -20dB under vocal envelope. |
+| 11 | Aspect Ratio 9:16 (1080x1920) | ✅ PASS | Resolution: 1080x1920 (Target: 1080x1920) |
+| 12 | Duration (30–50 Seconds) | ✅ PASS | Duration: 36.43s (Allowed: 30.0-50.0s) |
+| 13 | Scientific Evidence Citations | ✅ PASS | 2 scientific sources verified (NIH/PubMed/MedlinePlus) |
+| 14 | Asset Licensing Compliance | ✅ PASS | All visual and audio assets sourced under Pexels CC0 / Pixabay / Procedural license. |
+| 15 | Catalog Topic Deduplication | ✅ PASS | Topic uniqueness score: 0.82 (Similarity: 0.18) |
+| 16 | Script & Hook Novelty Gate | ✅ PASS | Hook novelty: 0.80, Script novelty: 1.00 |
+| 17 | Visual Sequence Distinction | ✅ PASS | Sequence distinction: 1.00 (Overlap: 0.00) |
+| 18 | Shorts Audio Ready Export | ✅ PASS | Shorts audio picker ready in shorts_audio_ready/ (Guide verified) |
+
+---
+**Verified Master Output**: `/home/runner/work/yt-health-videos-automation/yt-health-videos-automation/output/videos/day08_video15_health_short.mp4`  
+**Originality Fingerprint**: `68a77e73bafc59d1...`  
+','ufXJpZUELiY','2026-11-17T21:10:03Z','2026-11-17 21:08:35','2026-11-17 21:10:08');
 CREATE TABLE video_history (
     video_id TEXT PRIMARY KEY,
     topic_id TEXT NOT NULL,
@@ -1192,6 +1192,6 @@ CREATE INDEX idx_calendar_day ON content_calendar(day_number);
 CREATE INDEX idx_calendar_video ON content_calendar(video_number);
 CREATE INDEX idx_calendar_status ON content_calendar(render_status);
 DELETE FROM "sqlite_sequence";
-INSERT INTO "sqlite_sequence" VALUES('sentence_scenes',174);
+INSERT INTO "sqlite_sequence" VALUES('sentence_scenes',180);
 INSERT INTO "sqlite_sequence" VALUES('rejected_attempts',9);
 COMMIT;
